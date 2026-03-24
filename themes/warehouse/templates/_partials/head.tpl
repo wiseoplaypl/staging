@@ -116,11 +116,7 @@
 
 
 {block name='head_viewport'}
-  {if $iqitTheme.rm_pinch_zoom == 1}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  {else}
-    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-  {/if}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 {/block}
 
 
