@@ -1,0 +1,843 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+/* =========================
+   THE CHECKOUT + CART UI
+   (Merged + deduped for production)
+   ========================= */
+
+/* Desktop: cart item image size inside tc modification */
+@media (min-width: 1199px){
+  #tc-modification .cart-grid .card .cart-overview .cart-item .product-line-image img{
+    max-width:95px;
+    min-width:95px;
+  }
+}
+
+/* Hide "Already have an account" label */
+.already-account-label{
+  display:none;
+}
+
+/* Side-cart tweaks on tablet/mobile */
+@media (max-width: 1024px){
+  .ps-shoppingcart.side-cart #blockcart-content{
+    width:100%;
+  }
+
+}
+
+/* =========================
+   TRUST BOX
+   ========================= */
+.checkout-trust-box{
+  padding:1px 0;
+  font-size:16px;
+  font-weight:400;
+  color:#222;
+  margin-top:-23px;
+}
+.checkout-trust-box .trust-row{
+  display:flex;
+  align-items:center;
+  margin-bottom:12px !important;
+}
+.checkout-trust-box .trust-row img{
+  width:28px;
+  height:28px;
+  margin-right:12px;
+  flex-shrink:0;
+}
+.checkout-trust-box a{
+  color:#007bff;
+  text-decoration:underline;
+  font-weight:600;
+}
+.checkout-trust-box span{
+  line-height:1.4;
+}
+.checkout-trust-box .trust-logos-row{
+  gap:16px;
+  margin-top:-4px;
+  margin-left:40px;
+  margin-bottom:10px;
+}
+.checkout-trust-box .trust-logos-row img.pay-icon{
+  height:50px;
+  width:auto;
+  display:inline-block;
+}
+.checkout-trust-box .trust-logos-inline{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:16px;
+  margin-left:2px;
+}
+.checkout-trust-box .logos-inline-label{
+  font-size:15px;
+  color:#333;
+  font-weight:500;
+  white-space:nowrap;
+}
+img.pay-icon{
+  width:auto !important;
+  height:49px !important;
+}
+
+/* Hide payment logos inside checkout 
+body#checkout .payment-logo{
+  display:none;
+}
+*/
+/* =========================
+   CONFIRM BUTTON (desktop/base)
+   ========================= */
+#confirm_order{
+  background-color:#0d1b2a !important;
+  color:#ffffff !important;
+  font-size:19px;
+  font-weight:600;
+  padding:14px 22px;
+  border:none;
+  border-radius:12px;
+  width:100%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  transition:background-color 0.3s ease;
+}
+#confirm_order:hover{
+  background-color:#b88450 !important;
+}
+
+/* =========================
+   TERMS (conditions)
+   ========================= */
+#conditions-to-approve li{
+  display:flex;
+  align-items:center;
+  gap:1px;
+  list-style:none;
+  flex-wrap:wrap;
+  margin-bottom:12px !important;
+}
+#conditions-to-approve .float-xs-left{
+  float:none !important;
+}
+#conditions-to-approve input[type="checkbox"]{
+  transform:scale(1.3);
+  accent-color:#0d1b2a;
+  margin:0;
+}
+#conditions-to-approve .condition-label label{
+  font-size:15px;
+  font-weight:500;
+  color:#222;
+  margin:0;
+  line-height:1.4;
+}
+#conditions-to-approve .condition-label a{
+  color:#0d1b2a;
+  text-decoration:underline;
+  font-weight:500;
+}
+
+/* =========================
+   CHECKOUT BLOCK CARDS
+   ========================= */
+.checkout-block:not(#thecheckout-confirm) .inner-area{
+  box-shadow:2px 2px 8px 0 rgb(0 0 0 / 2%) !important;
+  border:1px solid rgb(0 0 0 / 14%) !important;
+  border-radius:12px;
+}
+
+.block-header{
+  font-size:1.1em;
+  margin-bottom:10px;
+}
+input.form-control.orig-field{
+  font-size:15px;
+}
+.page-content .form-control,
+.page-content select.form-control-select.form-control{
+  font-size:1em;
+}
+#delivery_message,
+#gift_message{
+  border-radius:12px;
+}
+div#expand_other_shipping_options{
+  border-radius:10px;
+}
+
+/* HTML Box styling */
+#thecheckout-html-box-1.checkout-block > .inner-area{
+  border:0 !important;
+  box-shadow:2px 2px 8px 0 #00000008 !important;
+}
+div#thecheckout-html-box-1{
+  padding-left:25px;
+}
+
+/* =========================
+   PROMO CODE BUTTON
+   ========================= */
+.cart-voucher > p > a.promo-code-button.collapsed{
+  border:2px solid #0d1b2a;
+  padding:9px 17px;
+  background-color:#ffffff;
+  color:#0d1b2a;
+  display:inline-block;
+  border-radius:8px;
+  font-weight:500;
+  font-size:15px;
+  text-decoration:none;
+  transition:background-color 0.3s ease, color 0.3s ease;
+}
+.cart-voucher > p > a.promo-code-button.collapsed:hover{
+  background-color:#0d1b2a;
+  color:#fff;
+  text-decoration:none;
+}
+
+span.field-label{
+  font-size:16px !important;
+}
+
+/* =========================
+   MOBILE STICKY CHECKOUT (mobile only)
+   ========================= */
+@media (max-width: 768px){
+  .mobile-sticky-checkout{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    padding:10px 15px;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    z-index:99;
+  }
+
+  .mobile-sticky-checkout .sticky-total{
+    font-size:16px;
+    text-align:center;
+  }
+
+  .mobile-sticky-checkout #confirm_order_mobile{
+    width:100%;
+    background-color:#071b36;
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    transition:background-color 0.2s ease;
+  }
+
+  /* Keep mobile confirm style consistent (if #confirm_order is still visible somewhere) */
+  #confirm_order{
+    width:100%;
+    background-color:#071b36;
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    transition:background-color 0.2s ease;
+  }
+
+  .mobile-sticky-checkout .sticky-terms a{
+    color:#0077cc;
+    text-decoration:underline;
+  }
+
+  .mobile-sticky-checkout #confirm_order_mobile:hover,
+  #confirm_order:hover{
+    background-color:#b88450 !important;
+  }
+
+  .payment-options{
+    margin-top:10px;
+  }
+}
+
+/* =========================
+   CART BUTTONS
+   ========================= */
+/* Hide duplicated Cart button in cart summary */
+.cart-buttons .btn-secondary[href*="/cart"]{
+  display:none !important;
+}
+.cart-buttons .btn-primary{
+  background-color:#0e1e2e;
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  padding:12px 0;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  transition:all 0.3s ease;
+}
+.cart-buttons .btn-primary:hover{
+  background-color:#1c2f45;
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   CART MODAL ONLY
+   Hide items subtotal + delivery + total
+   Keep product combination visible
+   ========================= */
+
+/* Modal: hide items subtotal row */
+#blockcart-modal .cart-subtotals > div:first-child {
+  display: none !important;
+}
+
+/* Modal: hide delivery row */
+#blockcart-modal .cart-subtotals > div:nth-child(2) {
+  display: none !important;
+}
+
+/* Modal: hide total row */
+#blockcart-modal .clearfix.mb-2 {
+  display: none !important;
+}
+
+/* Keep selected combination visible inside modal */
+#blockcart-modal .product-attributes .product-line-info .value {
+  display: inline !important;
+}
+
+/* =========================
+   OTHER SITE-WIDE SMALL TWEAKS (present in your css)
+   ========================= */
+.tax-shipping-delivery-label .delivery-information{
+  display:none;
+}
+.product-miniature-grid .product-title{
+  overflow:hidden;
+  height:2.6rem;
+  margin-left:auto;
+  margin-right:auto;
+  max-width:300px;
+}
+
+/* Message styling */
+.delivery-general-message{
+  margin-left:8px;
+  margin-top:-13px;
+  margin-bottom:7px;
+  font-size:15px;
+  color:#606060;
+}
+
+/* =========================
+   Delivery option label tweak (tail from your snippet)
+   ========================= */
+.delivery-option-label.delivery-option-2.has-logo{
+  flex-shrink:inherit;
+}
+
+/* UPDATE 12/02/26 */
+.delivery-option-label.delivery-option-2.has-logo {
+  flex-shrink: inherit;
+}
+
+
+@media (max-width: 768px){
+
+  .mobile-sticky-checkout .sticky-terms{
+    display: flex !important;
+    align-items: center;
+    gap: 10px !important;
+    margin-top: 6px !important;
+
+    /* área tocable */
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #f6f6f6;
+
+    /* que se pueda tocar toda la fila */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-sticky-checkout .sticky-terms input[type="checkbox"]{
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    margin: 0;
+    accent-color: #071b36;
+  }
+
+  .mobile-sticky-checkout .sticky-terms span{
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  /* un poco más fácil de tocar el link */
+  .mobile-sticky-checkout .sticky-terms a{
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+  #blockcart-content .cart-title .close {
+    display: block!important;
+  }
+/* Side-cart / blockcart only: hide Delivery line */
+#blockcart-content #cart-subtotal-shipping-blockcart,
+#blockcart-content #cart-subtotal-shipping-blockcart + div,
+#blockcart-content #cart-subtotal-shipping-blockcart .value{
+  display: none !important;
+}
+
+/* Add-to-cart modal only (if it appears there too) */
+#blockcart-modal #cart-subtotal-shipping-blockcart,
+#blockcart-modal #cart-subtotal-shipping-blockcart + div,
+#blockcart-modal #cart-subtotal-shipping-blockcart .value{
+  display: none !important;
+}
+
+/* END UPDATE 12/02/26 */
+/* END CART PAGE */
+
+
+
+/* ================================
+   PRODUCT PAGE
+   ================================ */
+
+.product-information{
+  font-size:15px;
+  font-weight:400;
+  line-height:1.4;
+  color:#333;
+}
+
+#content-wrapper .product_header_container .page-title{
+  margin-bottom:0;
+  font-weight:500;
+}
+
+.product_p_price_container .product-price{ font-weight:600; }
+
+.product-available{
+  font-weight:500;
+  border-radius:6px;
+}
+
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled{
+  font-size:18px;
+  border-radius:12px;
+}
+
+.btn.btn-primary.btn-lg.add-to-cart:active{ background:#2a3d66; }
+
+/* Wishlist / Compare */
+#iqit-wishlist-product-btn,
+#iqit-compare-product-btn{
+  background:#fff;
+  color:#7c7c7c;
+  border:1px solid #ccc;
+  border-radius:11px;
+}
+
+#iqit-wishlist-product-btn:hover,
+#iqit-compare-product-btn:hover,
+#iqit-wishlist-product-btn:active,
+#iqit-compare-product-btn:active{
+  background:#ffbc42;
+  color:#fff;
+  border-color:#fff;
+}
+
+@media (max-width:576px){
+  #iqit-wishlist-product-btn,
+  #iqit-compare-product-btn{
+    border:1px solid #fff;
+    font-size:20px;
+  }
+}
+
+/* ================================
+   PRODUCT IMAGES (PDP SLIDER)
+   ================================ */
+
+/* Marco cuadrado real para el slide */
+#product-images-large .product-lmage-large,
+#product-images-large .easyzoom-product,
+#product-images-large picture{
+  aspect-ratio:1/1;
+  width:100%;
+  overflow:hidden;
+  display:block;
+}
+
+/* La imagen llena el marco */
+#product-images-large img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+.images-container-bottom .product-cover{ margin-bottom:0; }
+
+#wrapper .breadcrumb{
+  margin-top:2px;
+  margin-bottom:0;
+}
+
+.col-md-7.col-product-image{
+  padding-right:4px;
+  padding-left:4px;
+}
+
+/* Solo estilo del expander (sin tocar backgrounds que te rompieron antes) */
+#product .product-cover .expander > span{
+  color:#dadada;
+  background:#fff0;
+}
+
+
+/* ================================
+   CATEGORY / PRODUCT LIST (GRID)
+   ================================ */
+
+/* 1) Frame fijo */
+.product-miniature .thumbnail-container{
+  aspect-ratio:1/1;
+  overflow:hidden;
+  display:block;
+  width:100%;
+  border-radius:11px;
+  border:1px solid #ececec;
+}
+
+/* 2) Link/picture ocupan todo */
+.product-miniature .thumbnail-container > a.thumbnail.product-thumbnail,
+.product-miniature .thumbnail-container > a.thumbnail.product-thumbnail picture{
+  width:100%;
+  height:100%;
+}
+
+/* 3) Img llena el frame */
+.product-miniature .thumbnail-container img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+/* Texto */
+.products-grid .product-miniature-layout-1 .product-description{
+  align-items:flex-start;
+  text-align:inherit;
+}
+
+.products-grid .product-miniature-default .product-description{
+  flex:0 0 auto;
+  width:100%;
+  max-width:100%;
+}
+
+.product-miniature-grid .product-title{
+  height:auto;
+  margin-left:0;
+  margin-right:0;
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:300;
+}
+
+.products-grid .product-miniature-default .product-category-name{ color:#818181 !important; }
+.product-miniature-grid .product-price{ font-weight:600; }
+
+/* Botones siempre visibles (tu regla clave) */
+.product-miniature .product-functional-buttons,
+.product-miniature .product-functional-buttons-links{
+  opacity:1 !important;
+  right:1rem;
+  transform:translate(0,0) !important;
+}
+
+.js-quick-view-iqit{ display:none !important; }
+
+@media (hover:hover){
+  .product-miniature:hover{ border-radius:6px; }
+}
+
+variant-links .color{ border-radius:7px; }
+
+/* Sort dropdown */
+.products-sort-order .select-title{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:10px;
+  background:#fff;
+  color:#2a3d66;
+}
+
+.products-sort-order .dropdown-menu{ min-width:240px; }
+.products-sort-order .dropdown-item.current{ font-weight:600; }
+
+/* Botón de filtros (solo estilos) */
+@media (max-width:575.98px){
+  #search_filter_toggler{
+    background:#ffbc42;
+    border-radius:10px;
+  }
+}
+
+/* Título categoría subrayado */
+#js-product-list-header .page-title > span{
+  position:relative;
+  display:inline-block;
+  padding-bottom:8px;
+}
+
+#js-product-list-header .page-title > span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:3px;
+  width:50%;
+  background:#ffbc42;
+  border-radius:2px;
+}
+
+/* Slider del Advanced Search Filter Pro */
+.PM_ASCritRange .ui-slider-range.ui-widget-header{
+  background:#ffbc42 !important;
+  border-color:#cf9e6d !important;
+}
+
+/* Inputs redondeados (global pero tuyo y estable) */
+.form-control{ border-radius:10px; }
+
+/* Título de producto: clamp en móvil */
+@media (max-width:767.98px){
+  .product-miniature-grid .product-title{
+    white-space:normal;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+}
+
+
+/* ================================
+   PRODUCT LIST (LIST VIEW)
+   ================================ */
+
+.product-miniature.product-miniature-list .col-buy .input-group-add-cart{
+  display:flex;
+  gap:10px;
+  align-items:stretch;
+}
+
+.product-miniature.product-miniature-list .col-buy .input-qty{
+  width:70px;
+  flex:0 0 70px;
+}
+
+.product-miniature.product-miniature-list .col-buy .btn-product-list.add-to-cart{
+  flex:1 1 auto;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+}
+
+.btn-product-list{
+  border-radius:13px;
+  font-size:19px;
+}
+
+.products .product-miniature{ border-radius:10px; }
+
+
+/* ================================
+   FACETS BOTTOM SHEET (SOLO MÓVIL)
+   (Usado por tu JS: #facets_search_wrapper + .facets-backdrop)
+   ================================ */
+
+@media (max-width:767.98px){
+  #facets_search_wrapper{
+    position:fixed !important;
+    left:0; right:0; bottom:0; top:auto !important;
+
+    max-height:65vh;
+    background:#fff;
+    border-radius:18px 18px 0 0;
+    box-shadow:0 -18px 45px rgba(0,0,0,.18);
+
+    transform:translateY(105%);
+    transition:transform .25s ease;
+    will-change:transform;
+
+    display:none; /* cerrado */
+    overflow:hidden;
+    flex-direction:column;
+
+    z-index:99999;
+    overscroll-behavior:contain;
+  }
+
+  #facets_search_wrapper.is-open{
+    display:flex !important;
+    transform:translateY(0);
+  }
+
+  #facets_search_wrapper.is-dragging{ transition:none !important; }
+
+  /* header controles (OK / Clear) */
+  #search_filter_controls.hidden-md-up{
+    flex:0 0 auto;
+    position:sticky;
+    top:0;
+    z-index:2;
+    background:#fff;
+    border-bottom:1px solid rgba(0,0,0,.06);
+    padding:10px 16px;
+  }
+
+  /* contenido scrollea */
+  #search_filters_wrapper{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:0 16px 16px;
+
+    position:static !important;
+    background:transparent !important;
+    transform:none !important;
+  }
+
+  /* backdrop (tu JS lo crea) */
+  .facets-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:99998;
+    display:none;
+    opacity:0;
+    transition:opacity .2s ease;
+  }
+  .facets-backdrop.is-open{
+    display:block;
+    opacity:1;
+  }
+
+  /* bloquea scroll body mientras abierto */
+  body.facets-modal-open{ overflow:hidden !important; }
+}
+
+@media (max-width:575.98px){
+  /* Evita “pantalla blanca” si el theme oculta layout */
+  body.facets-modal-open #content-wrapper.hidden-sm-down{ display:block !important; }
+
+  /* Dentro del sheet abierto, no ocultes hidden-sm-down */
+  #facets_search_wrapper.is-open .hidden-sm-down{ display:block !important; }
+  #facets_search_wrapper.is-open .hidden-sm-down.d-flex{ display:flex !important; }
+  #facets_search_wrapper.is-open .hidden-sm-down.d-inline,
+  #facets_search_wrapper.is-open .hidden-sm-down.d-inline-block{ display:inline-block !important; }
+	
+	.tabs.product-tabs {
+  margin-top: 1rem!important;
+}
+	.product-info-row {
+  margin-bottom: 1rem!important;
+}
+}
+
+
+
+
+
+padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+.elementor-slideshow__header a.ceicon-zoom-in-bold::before,
+.elementor-slideshow__header a.ceicon-frame-expand::before {
+  color: #fff !important;
+}
+
+
+/*FIN PHASE 1*/
+
+
+body#checkout [id*="back-to-top"],
+body#checkout [class*="back-to-top"]{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+#product-details-tab-nav {
+  display: none;
+}
+
+#contact .page-header{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#contact .page-header .page-title{
+  font-size: 2.4rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0;
+}
+
+@media (max-width: 768px){
+  #contact .page-header .page-title{
+    font-size: 2rem;
+  }
+}
+
+
+/* FIX MODULE STICKER */
+
+body .product-miniature .fmm_sticker_base_span,
+body .product-miniature .fmm_title_text_sticker,
+body .js-product-miniature .fmm_sticker_base_span,
+body .js-product-miniature .fmm_title_text_sticker,
+body#product .product-cover .fmm_sticker_base_span,
+body#product .product-cover .fmm_title_text_sticker,
+body#product .images-container .fmm_sticker_base_span,
+body#product .images-container .fmm_title_text_sticker {
+  z-index: 10!important;
+}
+
+body .product-miniature .fmm_hinter,
+body .js-product-miniature .fmm_hinter,
+body#product .product-cover .fmm_hinter,
+body#product .images-container .fmm_hinter {
+  z-index: 20!important;
+}

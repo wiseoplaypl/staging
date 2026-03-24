@@ -1,0 +1,67 @@
+{
+    "label": "Ecommerce Pipeline",
+    "displayOrder": 0,
+    "stages": [
+        {
+            "label": "Checkout Abandoned",
+            "displayOrder": 0,
+            "metadata": {
+                "isClosed": "false",
+                "probability": "0.1"
+            },
+            "id": "checkout_abandoned",
+            "archived": false
+        },
+        {
+            "label": "Payment Pending/Failed",
+            "displayOrder": 1,
+            "metadata": {
+                "isClosed": "false",
+                "probability": "0.2"
+            },
+            "id": "checkout_pending",
+            "archived": false
+        },
+        {
+            "label": "On hold",
+            "displayOrder": 2,
+            "metadata": {
+                "isClosed": "false",
+                "probability": "0.6"
+            },
+            "id": "checkout_completed",
+            "archived": false
+        },
+        {
+            "label": "Processing",
+            "displayOrder": 3,
+            "metadata": {
+                "isClosed": "true",
+                "probability": "1.0"
+            },
+            "id": "processed",
+            "archived": false
+        },
+        {
+            "label": "Completed",
+            "displayOrder": 4,
+            "metadata": {
+                "isClosed": "true",
+                "probability": "1.0"
+            },
+            "id": "shipped",
+            "archived": false
+        },
+        {
+            "label": "Refunded/Cancelled",
+            "displayOrder": 5,
+            "metadata": {
+                "isClosed": "true",
+                "probability": "0.0"
+            },
+            "id": "cancelled",
+            "archived": false
+        }
+    ],
+    "archived": false
+}

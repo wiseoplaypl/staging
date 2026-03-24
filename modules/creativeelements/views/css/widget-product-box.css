@@ -1,0 +1,178 @@
+.elementor-widget .elementor-product-miniature {
+	position: relative;
+	background: #ffffff;
+	border: 0 solid;
+	padding: 10px;
+	transition: all 0.4s; }
+.elementor-product-miniature .elementor-product-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1; }
+.elementor-product-miniature .elementor-image {
+	position: relative;
+	overflow: hidden; }
+	.elementor-product-miniature .elementor-image img {
+		display: block;
+		margin: 0 auto;
+		transition: transform 0.4s; }
+.elementor-product-miniature .elementor-second-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 0.4s; }
+	.elementor-img-hover-grow .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-grow .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-grow .elementor-product-miniature:hover .elementor-image img {
+		transform: scale(1.1); }
+	.elementor-img-hover-shrink .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-shrink .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-shrink .elementor-product-miniature:hover .elementor-image img {
+		transform: scale(0.85); }
+	.elementor-img-hover-rotate .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-rotate .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-rotate .elementor-product-miniature:hover .elementor-image img {
+		transform: rotate(4deg); }
+	.elementor-img-hover-grow-rotate .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-grow-rotate .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-grow-rotate .elementor-product-miniature:hover .elementor-image img {
+		transform: scale(1.1) rotate(4deg); }
+	.elementor-img-hover-float .elementor-product-miniature .elementor-image img{
+		transition-duration: .3s;
+		transition-timing-function: ease-out; }
+	.elementor-img-hover-float .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-float .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-float .elementor-product-miniature:hover .elementor-image img {
+		transform: translateY(-8px); }
+	.elementor-img-hover-sink .elementor-product-miniature .elementor-image img{
+		transition-duration: .3s;
+		transition-timing-function: ease-out; }
+	.elementor-img-hover-sink .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-sink .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-sink .elementor-product-miniature:hover .elementor-image img {
+		transform: translateY(8px); }
+	.elementor-img-hover-bob .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-bob .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-bob .elementor-product-miniature:hover .elementor-image img {
+		animation-name: elementor-animation-bob-float, elementor-animation-bob;
+		animation-duration: .3s, 1.5s;
+		animation-delay: 0s, .3s;
+		animation-timing-function: ease-out, ease-in-out;
+		animation-iteration-count: 1, infinite;
+		animation-fill-mode: forwards;
+		animation-direction: normal, alternate; }
+	.elementor-img-hover-hang .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-hang .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-hang .elementor-product-miniature:hover .elementor-image img {
+		animation-name: elementor-animation-hang-sink, elementor-animation-hang;
+		animation-duration: .3s, 1.5s;
+		animation-delay: 0s, .3s;
+		animation-timing-function: ease-out, ease-in-out;
+		animation-iteration-count: 1, infinite;
+		animation-fill-mode: forwards;
+		animation-direction: normal, alternate; }
+	.elementor-img-hover-buzz-out .elementor-product-miniature:active .elementor-image img,
+	.elementor-img-hover-buzz-out .elementor-product-miniature:focus .elementor-image img,
+	.elementor-img-hover-buzz-out .elementor-product-miniature:hover .elementor-image img {
+		animation-name: elementor-animation-buzz-out;
+		animation-duration: .75s;
+		animation-timing-function: linear;
+		animation-iteration-count: 1; }
+	.elementor-product-miniature:hover .elementor-second-image {
+		opacity: 1; }
+.elementor-product-miniature .elementor-quick-view {
+	position: absolute;
+	bottom: 0;
+	padding: 0;
+	border-radius: 0;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.5);
+	background-clip: padding-box;
+	color: #000;
+	fill: currentColor;
+	font-size: 14px;
+	line-height: 40px;
+	z-index: 2;
+	transform: translateY(100%);
+	transition-duration: 0.4s; }
+	.elementor-product-miniature .elementor-quick-view .elementor-button-text {
+		flex-grow: 0; }
+	.elementor-product-miniature:hover .elementor-quick-view {
+		cursor: pointer;
+		transform: translateY(0); }
+	.elementor-product-miniature .elementor-quick-view:hover {
+		opacity: 1;
+		background-color: rgba(255, 255, 255, 0.7); }
+.elementor-product-miniature .elementor-badges-left,
+.elementor-product-miniature .elementor-badges-right {
+	position: absolute;
+	top: 0;
+	margin: 10px; }
+.elementor-product-miniature .elementor-badges-left {
+	left: 0; }
+.elementor-product-miniature .elementor-badges-right {
+	right: 0; }
+.elementor-product-miniature .elementor-badge {
+	min-width: 50px;
+	margin-bottom: 5px;
+	padding: 4px 5px 4px 5px;
+	color: #fff;
+	text-align: center; }
+.elementor-product-miniature .elementor-badge-sale {
+	background: #f39d72; }
+.elementor-product-miniature .elementor-badge-new {
+	background: #2fb5d2; }
+.elementor-product-miniature .elementor-badge-pack {
+	background: #2fb5d2; }
+.elementor-product-miniature .elementor-content {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	text-align: center; }
+.elementor-product-miniature .elementor-content > * {
+	margin-top: 10px;
+	margin-bottom: 0; }
+	.elementor-product-miniature .elementor-content > :first-child {
+		margin-top: 5px; }
+.elementor-product-miniature .elementor-title,
+.elementor-product-miniature .elementor-category {
+	color: #000;
+	font-size: 14px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden; }
+.elementor-product-miniature .elementor-category {
+	color: #afafaf;
+	font-weight: 700; }
+.elementor-product-miniature .elementor-description {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: 13px; }
+.elementor-product-miniature .elementor-price-wrapper {
+	font-size: 16px; }
+.elementor-product-miniature .elementor-price-regular {
+	color: #afafaf;
+	font-weight: normal; }
+.elementor-product-miniature .elementor-price {
+	color: #000; }
+.elementor-product-miniature .elementor-atc {
+	position: relative;
+	margin-top: 5px;
+	z-index: 3; }
+	.elementor-atc--align-center .elementor-atc {
+		text-align: center; }
+	.elementor-atc--align-right .elementor-atc {
+		text-align: right; }
+	.elementor-atc--align-left .elementor-atc {
+		text-align: left; }
+	.elementor-atc--align-justify .elementor-atc .elementor-button {
+		width: 100%; }
+.elementor-product-miniature .elementor-atc .elementor-button {
+	cursor: pointer; }
+	.elementor-product-miniature .elementor-atc .elementor-button:disabled {
+		cursor: not-allowed; }

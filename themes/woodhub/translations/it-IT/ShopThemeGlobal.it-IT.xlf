@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" source-language="en" target-language="it" datatype="plaintext">
+    <body>
+      <trans-unit id="38629047675346c704697fb85268192f">
+        <source>List of subcategories in %category_name%:</source>
+        <target>Elenco delle sottocategorie in %category_name%:</target>
+        <note>Context: </note>
+      </trans-unit>
+      <trans-unit id="673ae02fffb72f0fe68a66f096a01347">
+        <source>Phone:</source>
+        <target>Telefono:</target>
+        <note>Context: </note>
+      </trans-unit>
+      <trans-unit id="6a1e265f92087bb6dd18194833fe946b">
+        <source>Email:</source>
+        <target>Email:</target>
+        <note>Context: </note>
+      </trans-unit>
+      <trans-unit id="80a0c205cd57b22fca7f174253870300">
+        <source>Opening hours</source>
+        <target>Orari di apertura</target>
+        <note>Context: </note>
+      </trans-unit>
+      <trans-unit id="02d4482d332e1aef3437cd61c9bcc624">
+        <source>Contact us</source>
+        <target>Contattaci</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0e2fb5b02182fd28b9b96e86ed27838f">
+        <source>Fax:</source>
+        <target>Fax:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1300caaefd15b839f37952dc7cc75d82">
+        <source>Call us:</source>
+        <target>Chiamaci:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a0bfe0853cf82bdf5dcb9b0bac76c357">
+        <source>Email us:</source>
+        <target>Inviaci un'e-mail:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3aea774cdcd8f2c45549f10758a71323">
+        <source>Store information</source>
+        <target>Informazioni negozio</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c6359db4a43cb7267a84b389229fd073">
+        <source>Call us: [1]%phone%[/1]</source>
+        <target>Chiamaci: [1]%phone%[/1]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="da6eb684bd77243a780629a180c9d19b">
+        <source>Fax: [1]%fax%[/1]</source>
+        <target>Fax: [1]%fax%[/1]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="077d21d48dae9586405c0d264f6d32e7">
+        <source>Email us: [1]%email%[/1]</source>
+        <target>Scrivici: [1]%email%[/1]</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="77295c7d814e7397c55f64ec06313984">
+        <source>Currency:</source>
+        <target>Valuta:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="72d43a6525ac95e552ca4eaf1dc0ad1a">
+        <source>Currency dropdown</source>
+        <target>Elenco a cascata valute</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3805f49499fa5010c394e219aa1fe7a0">
+        <source>Get our latest news and special sales</source>
+        <target>Ricevi le nostre novità e le offerte speciali</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6dbac206aa2d7e374277ae9ff8ec1987">
+        <source>Carousel buttons</source>
+        <target>Pulsanti Carousel</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dd1f775e443ff3b9a89270713580a51b">
+        <source>Previous</source>
+        <target>Precedente</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="10ac3d04253ef7e1ddc73e6091c0cd55">
+        <source>Next</source>
+        <target>Successivo</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0885f0c211f74834f0109c5abaf4cdc4">
+        <source>Language:</source>
+        <target>Lingua:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="217148b9c333b63a3fb1883670f5bff2">
+        <source>Language dropdown</source>
+        <target>Elenco a cascata lingue</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d0f369aab921195580d8319855bbb69f">
+        <source>%label%:</source>
+        <target>%label%:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418">
+        <source>Close</source>
+        <target>Chiudi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7601c8e861088bd27255e18afaefab6b">
+        <source>%copyright% %year% - Ecommerce software by %prestashop%</source>
+        <target>%copyright% %year% - Software di Ecommerce di %prestashop%</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2143f8cb66482342b35208bdc3fd949c">
+        <source>Active filters</source>
+        <target>Filtri attivi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7a1c5301da6b1ce9e4345bd501397045">
+        <source>(no filter)</source>
+        <target>(nessun filtro)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6f9d01a14011f05fffe48559583fc609">
+        <source>Sort by:</source>
+        <target>Ordina per:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="96d6f2e7e1f705ab5e59c84a6dc009b2">
+        <source>logo</source>
+        <target>logo</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1d34e1ee316477a8f64a835307f5b84e">
+        <source>List of pages in %category_name%:</source>
+        <target>Elenco di pagine in %category_name%:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6c5c05a5b907385c60c3baa4087ea1a1">
+        <source>List of sub categories in %name%:</source>
+        <target>Elenco di sotto-categorie in %name%:</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5813ce0ec7196c492c97596718f71969">
+        <source>Sitemap</source>
+        <target>Mappa del sito</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="34c869c542dee932ef8cd96d2f91cae6">
+        <source>Our stores</source>
+        <target>I nostri negozi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="adc4f9f9cccaa450c10977d50da58d8d">
+        <source>About and Contact</source>
+        <target>Info &amp; Contatti</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8cf04a9734132302f96da8e113e80ce5">
+        <source>Home</source>
+        <target>Casa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41">
+        <source>Date</source>
+        <target>Data</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be">
+        <source>Status</source>
+        <target>Stato</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="27b4383b976d6be981598d457cc7e62d">
+        <source>We'll be back soon.</source>
+        <target>Torneremo presto.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7e74146e0ff2e289abfc8bec1d2b2a18">
+        <source>Sorry for the inconvenience.</source>
+        <target>Ci scusiamo per l'inconveniente.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="519ee4cd58a2b719f7113965cc949d24">
+        <source>Search again what you are looking for</source>
+        <target>Prova a fare nuovamente la ricerca</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6351030f724f6f42fd11ec9aa6ee8c76">
+        <source>403 Forbidden</source>
+        <target>403 Proibito</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cf8092a0be7b972d6cee3db90bfaf923">
+        <source>You cannot access this store from your country. We apologize for the inconvenience.</source>
+        <target>Non puoi accedere al nostro negozio dal tuo paese. Ci scusiamo per l'inconveniente.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="386c339d37e737a436499d423a77df0c">
+        <source>Currency</source>
+        <target>Moneta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f94b0e9fc98f5bd977e809ce7f3f16c9">
+        <source>Subscribe Us</source>
+        <target>Iscriviti noi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4994a8ffeba4ac3140beb89e8d41f174">
+        <source>Language</source>
+        <target>linguaggio</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="333a50c0d8b786103651a13ebd69721c">
+        <source>Account dropdown</source>
+        <target>Account a discesa</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b05f4d1ea3375653d88d667564b4a1f8">
+        <source>Sign Up for Our Newsletter</source>
+        <target>Iscriviti alla nostra newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d31b74218fe6e4fc063acc6bb59a4a15">
+        <source>Get e-mail updates about our latest shop and special offers.</source>
+        <target>Ricevi aggiornamenti via e-mail sul nostro ultimo negozio e sulle offerte speciali.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b26917587d98330d93f87808fc9d7267">
+        <source>Subscribe</source>
+        <target>sottoscrivi</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ffb7e666a70151215b4c55c6268d7d72">
+        <source>Newsletter</source>
+        <target>Newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f78f7336bb2a309c9fff437d4c504331">
+        <source>Sign Up For Newsletter</source>
+        <target>Iscriviti alla Newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cf280e58771b5eb31932671294a5fd76">
+        <source>Subscribe to our newsletters now and stay up to date with new collections 
+and exclusive offers.</source>
+        <target>Iscriviti ora alle nostre newsletter e rimani aggiornato sulle nuove collezioni e sulle offerte esclusive.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="50b264bd54da69f26bf6ea250b989041">
+        <source>Subscribe Newsletter</source>
+        <target>Iscriviti alla Newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f5881a4e3ed4b30a94a88ebe4896018a">
+        <source>find us on</source>
+        <target>Trovaci su</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="32d68beeea7b1aea5972a9ba04e755b1">
+        <source>Sign Up To Newsletter</source>
+        <target>Iscriviti alla newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="40032d6e4e43e4a57d1ca7dfb8d6277c">
+        <source>stay up to date with new collections and exclusive offers.</source>
+        <target>rimani aggiornato con nuove collezioni e offerte esclusive.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b442b5bc2265c1ebd9b596a92199f9c8">
+        <source>Get Our Newsletter</source>
+        <target>Ricevi la nostra newsletter</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5a06826b7361739bda9e3b1d554a89d4">
+        <source>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industry standard.</source>
+        <target>Lorem Ipsum è semplicemente un testo fittizio dell'industria della stampa e della composizione.
+Lorem Ipsum è stato lo standard del settore.</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

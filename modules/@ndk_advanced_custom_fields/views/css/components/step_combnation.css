@@ -1,0 +1,51 @@
+.form-group .ndkcf_step_comb_list_items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1em;
+}
+
+.form-group .group-name {
+  /* font-weight: bold; */
+  margin-bottom: 0.5em;
+}
+
+.form-group .ndkcf_step_comb_list_item {
+  padding: 0.5em;
+  cursor: pointer;
+  border: 1px solid #67686938;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+}
+.form-group .ndkcf_step_comb_list_item[data-selected="1"] {
+  border: 2px solid #4af !important;
+  background: #44aaff14;
+}
+
+.form-group .ndkcf_step_comb_list_item .color_square {
+  margin-right: 0.5em;
+}
+
+.form-group .ndkcf_step_comb_list_group {
+  padding: 1em;
+}
+
+.form-group .ndkcf_multiple_comb {
+  display: none;
+}
+
+.form-group .comblist_selector {
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.form-group .ndkcf_step_comb_list_item .ndk-accessory-quantity-block {
+  padding: 0.5em;
+  display: block;
+  text-align: center;
+}

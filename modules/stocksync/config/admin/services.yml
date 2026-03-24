@@ -1,0 +1,53 @@
+services:
+  _defaults:
+    public: true
+
+  ##############
+  # StockSync Module
+
+  stocksync.module:
+    class: StockSync
+    factory: ["Module", "getInstanceByName"]
+    arguments:
+      - "stocksync"
+
+  stocksync.context:
+    class: Context
+    factory: ["Context", "getContext"]
+
+  #####################
+  # PrestaShop Account
+  stocksync.ps_accounts_installer:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
+    arguments:
+      - "5.0"
+
+  stocksync.ps_accounts_facade:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
+    arguments:
+      - "@stocksync.ps_accounts_installer"
+
+  #####################
+  # PrestaShop Billing
+
+  stocksync.ps_billings_context_wrapper:
+    class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
+    arguments:
+      - "@stocksync.ps_accounts_facade"
+      - "@stocksync.context"
+      - false # if true, enables the sandbox mode, if false or empty, disables it
+
+  stocksync.ps_billings_facade:
+    class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
+    public: true
+    arguments:
+      - "@stocksync.ps_billings_context_wrapper"
+      - "@stocksync.module"
+
+  # Remove this if you do not need BillingService
+  stocksync.ps_billings_service:
+    class: 'PrestaShopCorp\Billing\Services\BillingService'
+    public: true
+    arguments:
+      - "@stocksync.ps_billings_context_wrapper"
+      - "@stocksync.module"

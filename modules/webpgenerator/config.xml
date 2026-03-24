@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>webpgenerator</name>
+    <displayName><![CDATA[WebPGenerator]]></displayName>
+    <version><![CDATA[1.0.23]]></version>
+    <description><![CDATA[WebP lossless images are 26% smaller in size compared to PNGs.WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index.]]></description>
+    <author><![CDATA[PrestaChamps]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

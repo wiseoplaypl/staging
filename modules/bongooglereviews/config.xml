@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>bongooglereviews</name>
+    <displayName><![CDATA[Google Customer Reviews]]></displayName>
+    <version><![CDATA[6.0.1]]></version>
+    <description><![CDATA[Integration Google Customer Reviews.	]]></description>
+    <author><![CDATA[Bonpresta]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

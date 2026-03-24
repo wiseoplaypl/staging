@@ -1,0 +1,57 @@
+{# **
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2023 Presta.Site
+ * @license   LICENSE.txt
+* #}
+{% if column.id == 'pstpf_avail' or column.id == 'pstpf_oosOrders' or column.id == 'pstpf_customizable' %}
+    <span class="pstpf-yes-no">
+        {% if record[column.id] == '1' %}
+            <span class="badge" title="{{ column.name }}">
+                <i class="material-icons">check</i>
+            </span>
+        {% else %}
+            <span class="badge">
+                <i class="material-icons">clear</i>
+            </span>
+        {% endif %}
+    </span>
+{% elseif column.id == 'pstpf_hasAttachments' or column.id == 'pstpf_webOnly' %}
+    {% if record[column.id] == '1' %}
+        <span class="pstpf-yes-no">
+            <span class="badge" title="{{ column.name }}">
+                <i class="material-icons">check</i>
+            </span>
+        </span>
+    {% else %}
+        --
+    {% endif %}
+{% elseif column.id == 'pstpf_tags' %}
+    {% if record[column.id] is iterable %}
+        {% for iso, tags in record[column.id] %}
+            {% if tags is iterable %}
+                {% if loop.length > 1 %}{{ iso }}: {% endif %}
+                {% for tag in tags %}
+                    <span class="badge pstpf-tag badge-light">
+                        {{ tag }}
+                    </span>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% elseif column.badge_class is defined and column.badge_class %}
+    {% if record[column.id] and record[column.id] != '--' %}
+        <span class="badge {{ column.badge_class }}">
+            {{ record[column.id]|default('') }}
+        </span>
+    {% else %}
+        --
+    {% endif %}
+{% else %}
+    {{ record[column.id] }}
+{% endif %}

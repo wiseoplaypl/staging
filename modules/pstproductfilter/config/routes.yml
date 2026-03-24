@@ -1,0 +1,49 @@
+pstproductfilter_list:
+  path: /pstproductfilter/list
+  methods: [GET, POST]
+  defaults:
+    _controller: 'PrestaShop\Module\PstProductFilter\Controller\Admin\ProductController::listAction'
+    _legacy_controller: AdminProducts
+
+pstproductfilter_list_v2:
+  path: /pstproductfilter/listv2
+  methods: [GET, POST]
+  defaults:
+    _controller: 'PrestaShop\Module\PstProductFilter\Controller\Admin\ProductController::listV2Action'
+    _legacy_controller: AdminProducts
+
+pstproductfilter_export:
+  path: /pstproductfilter/export
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\PstProductFilter\Controller\Admin\ProductController::exportAction'
+    _disable_module_prefix: true
+    _legacy_controller: AdminProducts
+    _legacy_link: AdminProducts:exportproduct
+
+pstproductfilter_export_v2:
+  path: /pstproductfilter/exportv2
+  methods: [GET]
+  defaults:
+    _controller: 'PrestaShop\Module\PstProductFilter\Controller\Admin\ProductController::exportV2Action'
+    _disable_module_prefix: true
+    _legacy_controller: AdminProducts
+    _legacy_link: AdminProducts:exportproductV2
+
+# customizing the "orderBy" parameter of default route
+admin_product_catalog:
+    path: /sell/catalog/products/{offset}/{limit}/{orderBy}/{sortOrder}
+    methods:  [GET, POST]
+    defaults:
+        _controller: PrestaShopBundle:Admin/Product:catalog
+        _legacy_controller: AdminProducts
+        limit: last
+        offset: 0
+        orderBy: last
+        sortOrder: last
+        _disable_module_prefix: true
+    requirements:
+        limit: _limit|last|\d+
+        orderBy: last|id_product|name|reference|name_category|price|sav_quantity|position|active|position_ordering|pstpf_manufacturer|pstpf_defaultSupplier|pstpf_wholesalePrice|pstpf_ean13|pstpf_upc|pstpf_isbn|pstpf_customizable|pstpf_hasAttachments|pstpf_visibility|pstpf_weight|pstpf_condition|pstpf_webOnly|pstpf_dateAdd|pstpf_dateUpd
+        offset: last|\d+
+        sortOrder: last|asc|desc

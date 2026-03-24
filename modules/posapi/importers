@@ -1,0 +1,31 @@
+[application]
+
+[application]
+path: /var/www/vhosts/liquidationfurniture.ie/murphyfurniture.ie/modules/posapi/classes/App/../
+
+[application]
+controllersDir: PATH/Controllers/
+
+[application]
+modelsDir: PATH/Models/
+
+[application]
+configDir: /var/www/vhosts/liquidationfurniture.ie/murphyfurniture.ie/modules/posapi/
+
+[application]
+viewsDir: PATH/Views/
+
+[application]
+cacheDir: PATH/Cache/
+
+[application]
+moduleDir: PATH/Modules/
+
+[application]
+uploadDir: PATH/../Upload/
+
+[application]
+thumbnailDir: PATH../Upload/Thumbnails/
+
+[website]
+url: http://murphyfurniture.ie/

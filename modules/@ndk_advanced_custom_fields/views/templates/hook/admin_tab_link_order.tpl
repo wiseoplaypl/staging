@@ -1,0 +1,1 @@
+<a class="nav-link active show" id="ndkTab" data-toggle="tab" href="#ndkTabContent" role="tab" aria-controls="ndkTabContent" aria-expanded="true" aria-selected="false"><i class="material-icons">note</i>{$module_name}</a>

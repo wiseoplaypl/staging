@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/var/www/vhosts/liquidationfurniture.ie/sky3.murphyfurniture.ie/admin123" source-language="en-US" target-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit id="84be54bb4bd1b755a27d86388700d097">
+        <source>Brands</source>
+        <target>Delivery times</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e1f704dbe794c32a6cc774e71fa325bd">
+        <source>It is your account dashboard. Choose your section. </source>
+        <target>This is your account dashboard. Choose your section. </target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

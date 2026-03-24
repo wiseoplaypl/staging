@@ -1,0 +1,88 @@
+{#**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2019 Presta.Site
+ * @license   LICENSE.txt
+*#}
+{% set filters_disabled = activate_drag_and_drop %}
+<tr class="column-filters">
+    {% for field, column in pstpf_columns %}
+        <th {% if column.align is defined and column.align %}class="text-{{ column.align }}"{% endif %} {% if loop.index0 is same as(0) %}colspan="2" {% endif %}>
+            {% if column.filter_type is defined %}
+                {% if column.filter_type is same as('range') %}
+                    {% include '@PrestaShop/Admin/Helpers/range_inputs.html.twig' with {
+                        'input_name': "filter_column_#{field}",
+                        'min': column.range_filter_min,
+                        'max': column.range_filter_max,
+                        'minLabel': "Min"|trans({}, 'Admin.Global'),
+                        'maxLabel': "Max"|trans({}, 'Admin.Global'),
+                        'value': _context['filter_column_' ~ field],
+                        'disabled': filters_disabled,
+                    } %}
+                {% elseif column.filter_type is same as ('text') %}
+                    <input
+                            type="text"
+                            class="form-control"
+                            placeholder="{{ column.filter_text|default(column.name) }}"
+                            name="filter_column_{{ field }}"
+                            value="{{ _context['filter_column_' ~ field] }}"
+                            {% if filters_disabled %}disabled{% endif %}
+                    />
+                {% elseif column.filter_type is same as ('active') %}
+                    <div class="form-select">
+                        <select class="custom-select" name="filter_column_{{ field }}" {% if filters_disabled %}disabled{% endif %}>
+                            <option value=""></option>
+                            <option value="1" {% if (_context['filter_column_' ~ field] is defined) and _context['filter_column_' ~ field] == '1' %}selected="selected"{% endif %}>{{ "Active"|trans({}, 'Admin.Global') }}</option>
+                            <option value="0" {% if (_context['filter_column_' ~ field] is defined) and _context['filter_column_' ~ field] == '0' %}selected="selected"{% endif %}>{{ "Inactive"|trans({}, 'Admin.Global') }}</option>
+                        </select>
+                    </div>
+                {% elseif column.filter_type is same as ('dropdown') %}
+                    <div class="form-select">
+                        <select class="custom-select" name="filter_column_{{ field }}" {% if filters_disabled %}disabled{% endif %}>
+                            <option value=""></option>
+                            {% for option in column.options %}
+                                <option value="{{ option[column.option_id_param] }}" {% if ((_context['filter_column_' ~ field] is defined) and _context['filter_column_' ~ field] == option[column.option_id_param]) or (pstpf_values[field] is defined and pstpf_values[field] is iterable and option[column.option_id_param] in pstpf_values[field]) %}selected="selected"{% endif %}>{{ option.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </th>
+    {% endfor %}
+
+    {% if has_category_filter == true %}
+        <th>
+            {% if not(activate_drag_and_drop) %}
+                <input type="button" class="btn btn-outline-secondary" name="products_filter_position_asc" value="{{ "Reorder"|trans({}, 'Admin.Actions') }}" onclick="productOrderPrioritiesTable();" />
+            {% else %}
+                <input type="button" id="bulk_edition_save_keep" class="btn" onclick="bulkProductAction(this, 'edition');" value="{{ "Save & refresh"|trans({}, 'Admin.Actions')|raw }}" />
+            {% endif %}
+        </th>
+    {% endif %}
+    <th class="text-right" style="width: 5rem">
+        <button
+                type="submit"
+                class="btn btn-primary"
+                name="products_filter_submit"
+                title="{{ "Search"|trans({}, 'Admin.Actions') }}"
+        >
+            <i class="material-icons">search</i>
+            {{ "Search"|trans({}, 'Admin.Actions') }}
+        </button>
+        <button
+                type="reset"
+                class="btn btn-link"
+                name="products_filter_reset"
+                onclick="productColumnFilterReset($(this).closest('tr.column-filters'))"
+                title="{{ "Reset"|trans({}, 'Admin.Actions') }}"
+        >
+            <i class="material-icons">clear</i>
+            {{ "Reset"|trans({}, 'Admin.Actions') }}
+        </button>
+    </th>
+</tr>

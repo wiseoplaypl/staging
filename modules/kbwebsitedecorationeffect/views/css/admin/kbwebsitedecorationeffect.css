@@ -1,0 +1,8 @@
+.kbeffect_error {
+    color: red;
+    // border: 1px solid red;
+}
+
+.error_field {
+    border-color: red !important;
+}

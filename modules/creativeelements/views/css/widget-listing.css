@@ -1,0 +1,48 @@
+.ce-sort-order {
+	display: flex;
+	gap: 7px;
+}
+.ce-sort-order label {
+	margin: 0;
+}
+.ce-sort-order--layout-inline .elementor-select-wrapper {
+	width: auto;
+	flex-grow: 1;
+}
+
+.ce-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.ce-pagination .elementor-row {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.ce-pagination a .elementor-icon-list-icon i,
+.ce-pagination a .elementor-icon-list-icon svg {
+	color: inherit;
+}
+.ce-pagination .js-search-link[tabindex="-1"] {
+	pointer-events: none;
+}
+.ce-pagination .elementor-button[aria-current] {
+	background-color: #000;
+}
+.ce-pagination a.elementor-button[aria-current]:not(#e) {
+	color: #fff;
+}
+.ce-load-more.elementor-icon-box-wrapper,
+.ce-auto-load.elementor-icon-box-wrapper {
+	display: inline-flex;
+}
+.ce-pagination--skin-classic:not(.elementor-position-top) .elementor-icon-box-wrapper {
+	align-items: center;
+}
+.ce-faceted-overlay--hide .faceted-overlay,
+.ce-load-more:not([aria-current]) .elementor-icon>.ce-spin,
+.ce-load-more[aria-current] .elementor-icon> :not(.ce-spin),
+.ce-load-more:not([aria-current]) .elementor-button-icon>.ce-spin,
+.ce-load-more[aria-current] .elementor-button-icon> :not(.ce-spin) {
+	display: none;
+}

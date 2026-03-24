@@ -1,0 +1,5 @@
+services:
+    prestachamps.webpgenerator.cron:
+        class: PrestaChamps\WebPGenerator\Commands\Console\CronCommand
+        tags:
+            - { name: 'console.command' }

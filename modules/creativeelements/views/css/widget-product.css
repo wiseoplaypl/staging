@@ -1,0 +1,75 @@
+.ce-product-attachments .elementor-icon-box-title {
+	display: inline-block; }
+
+.ce-product-badges {
+	display: inline-flex;
+	flex-wrap: wrap; }
+.ce-product-badges--stacked .ce-product-badges {
+	flex-direction: column; }
+.ce-product-badge {
+	display: inline-block;
+	padding: 4px 5px 4px 5px;
+	color: #fff;
+	text-align: center;
+	background: #2fb5d2; }
+.ce-product-badge-sale {
+	background: #f39d72; }
+
+.ce-product-description-short {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden; }
+
+.ce-product-features {
+	width: 100%;
+	max-width: 100%; }
+.ce-product-features__value {
+	white-space: pre-line; }
+
+.ce-product-name {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: var(--ce-line-clamp, 1);
+	text-overflow: ellipsis;
+	overflow: hidden; }
+.ce-product-name--full {
+	overflow: visible; }
+
+.ce-product-prices {
+	display: flex; }
+.ce-product-prices--layout-stacked .ce-product-prices {
+	flex-direction: column; }
+.ce-product-prices--layout-inline .ce-product-prices {
+	flex-wrap: wrap;
+	align-items: center; }
+.ce-product-prices--layout-inline .ce-product-price {
+	display: inline-flex;
+	align-items: center; }
+.ce-product-price {
+	display: inline-block; }
+	.ce-product-price > span {
+		vertical-align: middle; }
+.ce-product-price-regular {
+	font-weight: 400; }
+.ce-product-price-unit {
+	font-size: 0.85em; }
+
+.ce-product-rating,
+.ce-product-rating--layout-inline .elementor-widget-container {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center; }
+.ce-product-rating--layout-stacked .elementor-widget-container {
+	display: inline-flex;
+	flex-direction: column; }
+
+.ce-product-stock .ce-product-stock__availability {
+	display: inline-flex;
+	align-items: center; }
+.ce-product-stock .ce-product-stock__availability-label,
+.ce-product-stock .ce-product-stock__min-quantity {
+	line-height: 1; }
+
+/* PS 1.7.8 Compatibility fix */
+.elementor-button[data-button-action="add-to-cart"] * {
+	pointer-events: none; }

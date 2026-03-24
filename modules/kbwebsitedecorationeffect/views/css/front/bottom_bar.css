@@ -1,0 +1,81 @@
+body {
+			margin: 0;
+			padding: 0;
+		}
+		.offer-countdown {
+			background: #356cbf;
+                        z-index: 99999;
+                        text-align: center;
+			color: #fff;
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			padding: 5px;
+			font-family: 'Open Sans';
+			box-sizing: border-box;
+		}
+		.offer-countdown-content {
+			padding-right: 170px;
+			padding-left: 20px;
+			    font-size: 16px;
+		}
+		.offer-countdown-close {
+			position: absolute;
+			top: 13px;
+			right: 10px;
+			margin: 0;
+			font-size: 14px;
+			background: #225094;
+			box-sizing: border-box;
+			border-radius: 50%;
+			cursor: pointer;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 2;
+			box-shadow: 0 0 2px #fff;
+		}
+		.coupon-name {
+			padding: 5px 5px;
+			display: inline-block;
+			border: 1px dashed #a2b5d2;
+			margin: 5px 10px;
+			width: 100px;
+			text-align: center;
+		}
+		#demo span {
+			background: #5392f1;
+			margin-left: 10px;
+			padding: 6px 10px;
+			border-radius: 4px;
+			text-align: center;
+		}
+		@media(max-width:767px)
+		{
+			.offer-countdown-content {
+				padding-left: 10px;
+				padding-right: 55px;
+			}
+			span#demo span {
+				margin-left: 3px;
+				text-align: center;
+			}
+			.coupon-name{margin:5px 3px;}
+			.offer-countdown-content{font-size: 14px;}
+			#demo span{padding:6px;}
+		}
+		@media(max-width:640px)
+		{
+			span#demo {
+				clear: both;
+				display: inline-block;
+				width: 100%;
+				margin: 10px auto;
+				text-align: center;
+			}
+			.offer-countdown-content {
+				font-size: 14px;
+				text-align: center;
+			}
+
+		}

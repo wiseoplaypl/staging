@@ -1,0 +1,363 @@
+input.X_field {
+  line-height: 18px !important;
+}
+div.payment_module input[type=text],
+div.payment_module .StripeElement {
+  width: 100%;
+  box-sizing: border-box;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px 0 #798a9d;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+div.payment_module input[type=text],#card-element,#iban-element {height: 36px;padding: 10px; line-height:inherit;}
+
+div.payment_module input:focus,.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #1a2939;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#card-errors,#sepa-errors,#fpx-errors,#ideal-errors {
+    color: #fa755a;
+}
+
+#sepa-errors, #bank-name {
+    transform: translateY(4px);
+    transition: all 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+div.payment_module .form-row {max-width:445px;}
+
+.themodal-lock {
+    /* when modal is opened we're removing scrollbars from the main content */
+    overflow: hidden;
+}
+
+.themodal-overlay {
+    /* overlay will stay fixed and will take all the space available */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+
+    /* if modal content doesn't fit inside the overlay, display scrollbars */
+    overflow: auto;
+    display: flex;
+
+    /* allow one-finger iPad scrolling */
+    -webkit-overflow-scrolling: touch;
+
+}
+
+
+/* fix for iPad glitches */
+.themodal-overlay > * {
+    -webkit-transform: translateZ(0px);
+}
+
+.themodal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    /* IE6–IE8 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #7F000000, endColorstr = #7F000000);
+    zoom: 1;
+}
+.stripe_logo{float: left;
+padding: 15px 20px 0px 0px;}
+.stripe_title {margin-top:10px;border-bottom: 1px solid #ccc;padding-bottom: 5px;}
+.stripe_title img { float: none; margin-right: 8px; margin-top: -5px; vertical-align: middle; }
+@media screen and (max-width: 500px) {
+.stripe_title img:last-child{display:none;}
+}
+label.card_line img{width: 40px;margin-top: -3px;}
+label.card_line {max-width: 445px;
+display: block !important;font-weight: normal;
+background: #f0f5f9;
+border-bottom: 1px solid #ccc;
+padding: 8px;
+margin: 0px;
+box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08); height:42px;}
+label.active {
+    background: #d9e5ee;
+}
+#stripe-payment-form,#stripe-sepa-form {padding-bottom:5px;max-width:445px;}
+#stripe-payment-form .saved_cards{margin-bottom:6px;}
+#stripe-payment-form label,#stripe-sepa-form label { display: table-cell;font-size: 14px; font-weight: bold;text-align: left;}
+#stripe-sepa-button, #stripe-redirect-button, button#stripe-submit-button, #generate_new_btcrcvr {
+	position:relative;
+	display:inline-block;
+	box-sizing: border-box;
+	padding:8px 20px;
+	border:0px none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight:bold;
+	color:#fff;
+	cursor: pointer;
+	/*background:transparent linear-gradient(#7DC5EE, #008CDD 85%, #30A2E4) repeat scroll 0% 0%;*/
+	background-color: #32325d;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+-moz-user-select: none;
+outline: 0px none;margin-top: 15px;
+	background-image: url('../img/secure-lock.png');
+	background-size: 13px 18px;
+	background-repeat: no-repeat;
+	background-position: 7px;
+	min-width:220px;
+  float:right;
+}
+
+#stripe-sepa-button:hover, #stripe-redirect-button:hover, button#stripe-submit-button:hover {
+
+	box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
+background-color: #43458b;
+}
+
+div.stripe-payment-errors,div.stripe-payment-errors-sepa,div.stripe-payment-errors-wechat,div.stripe-payment-errors-paynow {
+	margin: 0 0 10px 0;
+	padding: 10px;
+	border: 1px solid #900;
+	font-size: 13px;
+	background: #FCC;
+	display: none;
+}
+
+.expiration {width: 225px;}
+
+#stripe-translations, #stripe-ajax-loader, #stripe-ajax-loader-sepa, #stripe-ajax-loader-redirect, #stripe-ajax-loader-wechat, a#stripe_error { display: none; }
+ #stripe-ajax-loader, #stripe-ajax-loader-sepa, #stripe-ajax-loader-redirect, #stripe-ajax-loader-wechat { color:#5469d4; }
+#stripe-replace-card, #stripe-delete-card, #stripe-use-saved-card { border: none;display: inline;
+font-size: 13px; cursor:pointer;
+text-decoration: underline;
+text-transform: uppercase }
+
+.ps-payment-15 img.img-card {float:none;margin-bottom: -7px !important;  }
+.stripe-payment-16 {
+	display: block;
+	border: 1px solid #d6d4d4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	line-height: 23px;
+	color: #333;
+	padding: 0px 10px 20px 15px;
+	position: relative;
+	margin-bottom:15px;
+	font-size: 16px;
+}
+
+.dsecure {
+        float: right !important;
+    border-radius: 12px;
+    height: 100px;
+}
+.powered_by_stripe {
+    float: right !important;
+    margin-top: -30px;
+}
+
+
+/* Convar changes */
+
+#result_3d {
+
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+
+}
+
+#modal_stripe {
+	width: 600px;
+	margin: auto;
+	margin-top: 80px;
+	padding: 30px;
+	border-radius: 6px;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	border: 1px solid rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+	position:relative;
+	left:auto;
+	top:auto;
+}
+
+@media (max-width: 764px) {
+	#modal_stripe {
+		width: 90%;
+		margin: auto;
+		margin-top: 80px;
+		padding: 30px;
+		border-radius: 6px;
+		box-shadow: 0 5px 15px rgba(0,0,0,.5);
+		border: 1px solid rgba(0,0,0,.2);
+		-webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+		background: white;
+	}
+}
+#modal_stripe_waiting, #modal-stripe-error, #sofort_available_countries, #klarna_pay_options {
+	height: 124px;
+	width: 400px;
+	background: white;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-top: 10%;
+	font-size: 16px;
+	padding: 28px;
+	border-radius: 6px;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	border: 1px solid rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
+#klarna_pay_options,#sofort_available_countries {
+	height: 175px;
+}
+#klarna_pay_options div.title, #sofort_available_countries div.title{
+	margin-bottom: 10px;
+}
+#klarna_pay_options select, #sofort_available_countries select {
+	width: 130px;
+}
+#klarna_pay_options .btn, #sofort_available_countries .btn {
+	margin-top: 10px;
+	border-radius: 5px;
+}
+#payment-request-button { background-color:transparent !important; box-shadow:none !important;}
+#stripe-ajax-loader-europe {
+	text-align: center;
+}
+.stripe-wechat-payment img, .stripe-redirect-payments img, .sofort-payment img {
+	margin-right: 20px;
+	max-width:90px;
+}
+p.stripe-wechat-payment a, p.stripe-redirect-payments a{
+	padding: 15px 20px 15px 30px;
+	letter-spacing: 0px;
+	}
+.close {
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.verified_stripe {
+	margin-left: 5px;
+    height: 24px;
+}
+#checkbox_reuse{
+	  margin:7px 0px;font-size: 13px;
+	}
+#checkbox_reuse > div{
+	  margin-right:7px;
+	  float:left;margin-top: 5px;
+	}
+#stripe-payment-form p.checkbox{
+margin:10px 0 0;width: auto;
+display: inline;
+	}
+#stripe-payment-form p.checkbox label{
+text-transform: none;
+font-weight:bold;
+display:inline-block !important;cursor: pointer;
+	}
+.prbutton-alert {font-size:13px; padding:5px;margin-bottom: 5px;}
+#mandate-acceptance {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: justify;
+	line-height: 20px;
+
+color: #918d8d;
+}
+.stripe-payment-17 {
+	border: 1px solid #d6d4d4;
+border-radius: 4px;
+padding: 10px 15px 5px 15px;
+background: #f3f3f3 !important;
+display: inline-block; width: 100%;
+}
+.payment-option img {
+	height:auto !important;
+    max-height: 25px;
+}
+.pull-right{ float:right;}
+
+@media (max-width: 480px) {
+	div.payment_module input[type=text],
+div.payment_module .StripeElement {
+  box-sizing: border-box;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+}
+.ElementsApp, .ElementsApp .InputElement{ font-size:14px;}
+body#checkout section.checkout-step .payment-options label {
+    text-align: left;
+}
+.stripe-payment-17 {
+	padding: 5px;
+    margin: 0px;
+}
+label.card_line {
+    padding: 5px;
+    height: auto;
+}
+label.card_line img {
+    width: 35px;
+}
+}
+@-webkit-keyframes spinner-border {
+ to {
+  -webkit-transform:rotate(360deg);
+  transform:rotate(360deg)
+ }
+}
+@keyframes spinner-border {
+ to {
+  -webkit-transform:rotate(360deg);
+  transform:rotate(360deg)
+ }
+}
+.spinner-border {
+ display:inline-block;
+ width:3rem;
+ height:3rem;
+ vertical-align:middle;
+ border: 2px solid #5469d4;
+ border-right-color:#b5232300;
+ border-left-color:#b5232300;
+ border-radius:50%;margin-right: 5px;
+ -webkit-animation:spinner-border .60s linear infinite;
+ animation:spinner-border .60s linear infinite;
+}
+#module-stripejs-paymentcard .custom-radio input[type="radio"] {
+	opacity:1;
+	position:relative;
+	}
+#module-stripejs-paymentcard .custom-radio {
+  display:inline-block;
+}
+#module-stripejs-paymentcard div.alert {
+    position: relative;
+    z-index: 9;
+    top: 0;
+    right: 0;
+}

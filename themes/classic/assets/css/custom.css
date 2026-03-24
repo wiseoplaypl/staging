@@ -1,0 +1,20 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+
+
+#desktop-header.stuck-header-element{
+    position: fixed;
+    top: 0;
+    padding: 0;
+    background: #fff;
+}
+
+#desktop-header.stuck-header-element .iqit-megamenu-container{
+    width: 100%;
+    padding: 0;
+}
+.footer-center ul{
+    list-style-type: none !important;
+}

@@ -1,0 +1,37 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_fc2118fa5233216544ae80108a1e16c9'] = 'Ocultar el precio y agregar al botón del carrito ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_ec8c05e4e2a991136532314928cb531d'] = 'Puede ocultar el precio y el botón CART en las páginas de productos y la página de listado. ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_d88ba9fcc5eee4bfabc36615d9f32c62'] = 'Configuración guardada correctamente ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_3f88b3f8ec82a8750c2f4585eb02f6c8'] = 'Ocultar el precio y el botón del carrito';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_57a3248cded8c10e9cb7b3f847238bfb'] = 'Módulo de habilitación: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_b66ccf4301a49badfa3d2dea556a9c31'] = 'Habilitar el módulo. ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_93cba07454f06a4a960172bbd6e2a435'] = 'Sí ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_bafd7322c6e97d25b6299b5d6fe8920b'] = 'No';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_9e041c8deab4d6b840ab5ad3aaa21a59'] = 'Ocultar precio: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_0d689403588b19c5d7d35f165dc3bf97'] = 'Habilite la opción para ocultar el precio y el botón del carrito en los productos. ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_7e5d85e8b50c859899394b73199dd420'] = 'Ocultar agregado al carrito: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_274ac1f5fbc348c819b6d00f61c05f1d'] = 'Habilitar la opción para ocultar solo el carrito.';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_fec6fb56fc8f4317b84f70bfb3460eb7'] = 'Color de fondo : ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_940663fd4428d2c86f9a4780b6574028'] = 'Mensaje: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_474fdb58b8a27a4a1e4df603f8c9c3a8'] = 'Regla de selección para esconderse ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_c9cc8cce247e49bae79f15173ce97354'] = 'Ahorrar';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_a469939a0d6355b87e36854e81e715eb'] = 'Encontrar nada. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_3af25eddad6d700ada39179d20c72204'] = 'Tipo de regla ';
+$_MODULE['<{hidepriceandcart}prestashop>form_5bf3ba1e2be7003743ae4a8ad880fe02'] = 'El cliente no está inicio de sesión';
+$_MODULE['<{hidepriceandcart}prestashop>form_1fd82644b69522a4b1e86e014672b5b1'] = 'Tiene categoría ';
+$_MODULE['<{hidepriceandcart}prestashop>form_7cab84d7e712f119baade25763eda2e3'] = 'Tiene producto ';
+$_MODULE['<{hidepriceandcart}prestashop>form_54598e037abb07b08f27f16e952e5bd8'] = 'Tiene grupo';
+$_MODULE['<{hidepriceandcart}prestashop>form_99653823037bc2c43d018354428422b3'] = 'La categoría seleccionada podrá solicitar solo el precio. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_76729937a5eb6b0fd88c42581161facd'] = 'selecciona una categoría ';
+$_MODULE['<{hidepriceandcart}prestashop>form_b718adec73e04ce3ec720dd11a06a308'] = 'ID';
+$_MODULE['<{hidepriceandcart}prestashop>form_49ee3087348e8d44e1feda1917443987'] = 'Nombre';
+$_MODULE['<{hidepriceandcart}prestashop>form_a8a3aa00a8cf4b13630095eb78d0de7e'] = 'No se encontraron marcas. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_4d633ce220a8c284782aa8143b5165de'] = 'El producto seleccionado podrá solicitar solo el precio. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_d401ff02b78a8ecc9b835168f697b6e7'] = 'Seleccionar producto ';
+$_MODULE['<{hidepriceandcart}prestashop>form_4636fa1526877b95372dfaaf756772d3'] = 'Los grupos de clientes seleccionados podrán cargar solo.';
+$_MODULE['<{hidepriceandcart}prestashop>form_d922c0b17171a7852fdae1a1f4384695'] = 'Acceso grupal ';
+$_MODULE['<{hidepriceandcart}prestashop>form_c6155aaecccf794cd2a00fcc35898022'] = 'Nombre del grupo';
+$_MODULE['<{hidepriceandcart}prestashop>form_2c51ebf16c690bfdf72faa90d4a10b7a'] = 'Los grupos de clientes seleccionados solo podrán cargar archivos.';

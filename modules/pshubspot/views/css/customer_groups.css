@@ -1,0 +1,115 @@
+/**
+ * 2007-2024 Tiralineas
+ * NOTICE OF LICENSE
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ * @author    Ander <ander@tiralineas.digital>
+ * @copyright 2007-2024 Tiralineas
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * International Registered Trademark & Property of Tiralineas
+ */
+.customer_groups-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: center;
+}
+.customer_groups-container_child {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100px;
+  align-items: center;
+  gap: 10px;
+}
+.customer_groups-container_child p{
+  margin: 0px;
+}
+.customer_groups-container_childs{
+  width: 100%;
+}
+.customer_groups-container_child-arrows{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.customer_groups_sortable {
+  border: 1px solid #959595;
+  width: 100%;
+  min-height: 218px;
+  min-width: 200px;
+  max-height: 220px;
+  overflow-y: scroll;
+}
+#sortable_sync .customer_groups_sortable__item,
+#sortable_unsync .customer_groups_sortable__item {
+  margin: 10px;
+  width: auto;
+  list-style: none;
+  transition-duration: 0s;
+  border: none;
+  background: #88ebbc;
+  color: black;
+  padding: 4px !important;
+  box-shadow: 0px 0px 2px rgb(51, 51, 51);
+  border-radius: 0.4rem;
+}
+#sortable_unsync .customer_groups_sortable__item {
+  background: #d8d8d8;
+}
+#sortable_sync .customer_groups_sortable__item:hover,
+#sortable_unsync .customer_groups_sortable__item:hover {
+  background-color: #5ce8a6 !important;
+  box-shadow: 0px 0px 4px rgb(51, 51, 51);
+}
+#sortable_unsync .customer_groups_sortable__item:hover {
+  background-color: #bdbdbd !important;
+}
+#sortable_sync .customer_groups_sortable__item-placeholder,
+#sortable_unsync .customer_groups_sortable__item-placeholder {
+  margin: 10px;
+  width: auto;
+  list-style: none;
+  transition-duration: 0s;
+  border: none;
+  background: #83d9df54;
+  color: black;
+  padding: 5px;
+  box-shadow: 0px 0px 2px rgb(51, 51, 51);
+}
+#sortable_sync .customer_group_sortable__item_name,
+#sortable_unsync .customer_group_sortable__item_name {
+  font-size: 0.9rem;
+  margin: 2px;
+  padding: 2px 4px;
+  overflow: auto;
+}
+.customer_group_sortable__item_id {
+  font-style: italic;
+  font-size: small;
+  float: right;
+}
+.set_sync_btn {
+  padding: 5px;
+  width: 60%;
+  text-align: center;
+  background-color: #EEE;
+  border-radius: 0.3rem;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+.set_sync_btn:hover {
+  box-shadow: 0px 0px 3px rgb(51, 51, 51) ;
+  transition: 0.3s;
+  cursor: pointer;
+}

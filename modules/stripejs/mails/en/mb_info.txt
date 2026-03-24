@@ -1,0 +1,11 @@
+
+[{shop_url}]
+
+Hi {name},
+
+Use below information to make MULTIBANCO payment:
+Reference: {mb_reference}
+Entity: {mb_entity}
+Amount to pay: {total_amt}
+
+{shop_name} [{shop_url}]

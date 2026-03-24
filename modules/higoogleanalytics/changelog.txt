@@ -1,0 +1,35 @@
+version 1.4.3
+    * Added option to include / exclude taxes in product price.
+    * Added option to include / exclude discounts in conversation value.
+    * Added option to deduct wholesale price from conversation value.
+    * Fixed product name value for purchase event.
+
+version 1.4.2
+    * General improvements.
+
+version 1.4.1
+    * Fixed custom events tracking when the event category was not available in GA.
+
+version 1.4.0
+    * Added option to add custom events.
+
+version 1.3.0
+    * Added option to include / exclude taxes in conversation value.
+    * Added option to include / exclude shipping cost in conversation value.
+    * Added option to include / exclude gift wrapping cost in conversation value.
+    * Added documentation in module configuration page.
+
+version 1.2.0
+    * Added debug mode option to view all the data is being tracked.
+    * Improved stability and performance.
+
+version 1.1.0
+    * Added compatibility with PrestaShop 8.
+    * Fixed JS error when the module was enabled but tracking was disabled.
+    * Minor fixes.
+
+version 1.0.1
+    * Compatibility fix for earlier PrestaShop versions.
+
+version 1.0.0
+    * initial release

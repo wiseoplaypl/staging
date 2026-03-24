@@ -1,0 +1,158 @@
+{#**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2019 Presta.Site
+ * @license   LICENSE.txt
+*#}
+{% extends constant('\Twig\\Environment::VERSION') starts with '1.'
+    ? 'PrestaShopBundle:Admin/Product/CatalogPage/Lists:list.html.twig'
+    : '@!PrestaShop/Admin/Product/CatalogPage/Lists/list.html.twig' %}
+
+{% block product_catalog_form_table_row %}
+    {% if pstpf_columns is defined %}
+        <tr data-uniturl="{{ product.unit_action_url|default('#') }}" data-product-id="{{ product.id_product }}">
+            <td class="checkbox-column form-group">
+                <div class="md-checkbox md-checkbox-inline">
+                    <label>
+                        <input type="checkbox" id="bulk_action_selected_products-{{ product.id_product }}" name="bulk_action_selected_products[]" value="{{ product.id_product }}">
+                        <i class="md-checkbox-control"></i>
+                    </label>
+                </div>
+            </td>
+
+            {% for field, column in pstpf_columns %}
+                <td {% if column.align is defined and column.align %}class="text-{{ column.align }}" {% endif %} {% if column.preline is defined and column.preline %}style="white-space: pre-line;" {% endif %}>
+                    {% if column.is_label is defined and column.is_label %} <label class="form-check-label" for="bulk_action_selected_products-{{ product.id_product }}"> {% endif %}
+                        {% if column.tab is defined and column.tab %} <a href="{{ product.url|default('') }}#tab-step{{ column.tab }}"> {% endif %}
+                            {% if product[field] is defined %}
+                                {% if field == 'image' %}
+                                    {{ product[field]|raw }}
+                                {% elseif field == 'sav_quantity' %}
+                                    {% if product.sav_quantity is defined and product.sav_quantity > 0 %}
+                                        {{ product.sav_quantity }}
+                                    {% else %}
+                                        {{ product.sav_quantity|default('N/A'|trans({}, 'Admin.Global')) }}
+                                    {% endif %}
+                                {% elseif field == 'active' %}
+                                    {% if product.active|default(0) == 0 %}
+                                        <a href="#" onclick="unitProductAction(this, 'activate'); return false;">
+                                            <i class="material-icons action-disabled">clear</i>
+                                        </a>
+                                    {% else %}
+                                        <a href="#" onclick="unitProductAction(this, 'deactivate'); return false;">
+                                            <i class="material-icons action-enabled ">check</i>
+                                        </a>
+                                    {% endif %}
+                                {% elseif column.type is defined and column.type == 'yes_no' %}
+                                    <span class="pstpf-yes-no">
+                                        {% if product[field] == '1' %}
+                                            <span class="badge badge-primary" title="{{ column.name }}">
+                                                <i class="material-icons">check</i>
+                                            </span>
+                                        {% else %}
+                                            <span class="badge badge-default">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                        {% endif %}
+                                    </span>
+                                {% elseif column.type is defined and column.type == 'yes' %}
+                                    {% if product[field] == '1' %}
+                                        <span class="pstpf-yes-no">
+                                            <span class="badge badge-primary" title="{{ column.name }}">
+                                                <i class="material-icons">check</i>
+                                            </span>
+                                        </span>
+                                    {% else %}
+                                        --
+                                    {% endif %}
+                                {% elseif column.type is defined and column.type == 'tags' %}
+                                    {% if product[field] is iterable %}
+                                        {% for iso, tags in product[field] %}
+                                            {% if tags is iterable %}
+                                                {% if loop.length > 1 %}{{ iso }}: {% endif %}
+                                                {% for tag in tags %}
+                                                    <span class="badge pstpf-tag badge-light">
+                                                        {{ tag }}
+                                                    </span>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% elseif column.badge_class is defined and column.badge_class %}
+                                    {% if product[field] and product[field] != '--' %}
+                                        <span class="badge {{ column.badge_class }}">
+                                            {{ product[field]|default('') }}
+                                        </span>
+                                    {% else %}
+                                        --
+                                    {% endif %}
+                                {% elseif column.tab is defined %}
+                                    {{ product[field]|default('N/A'|trans({}, 'Admin.Global')) }}
+                                {% else %}
+                                    {{ product[field]|default('') }}
+                                {% endif %}
+                            {% endif %}
+                        {% if column.tab is defined and column.tab %} </a> {% endif %}
+                    {% if column.is_label is defined and column.is_label %} </label> {% endif %}
+                </td>
+            {% endfor %}
+
+            {% if product.position is defined %}
+                <td {% if activate_drag_and_drop %}class="placeholder"{% endif %} style="cursor: pointer; cursor: hand;">
+                    {% if activate_drag_and_drop %}
+                        <big><big>⇅</big></big>
+                    {% endif %}
+                    <span class="position">{{ product.position }}</span>
+                    <input type="hidden" name="mass_edit_action_sorted_products[]" value="{{ product.id_product }}" />
+                    <input type="hidden" name="mass_edit_action_sorted_positions[]" value="{{ product.position }}" />
+                </td>
+            {% endif %}
+            <td class="text-right">
+                <div class="btn-group-action">
+
+                    {% set buttons_action = [
+                        {
+                            "href": product.preview_url|default('#'),
+                            "target": "_blank",
+                            "icon": "remove_red_eye",
+                            "label": "Preview"|trans({}, 'Admin.Actions')
+                        }
+                    ] %}
+
+                    {% set buttons_action = buttons_action|merge([
+                        {
+                            "onclick": "unitProductAction(this, 'duplicate');",
+                            "icon": "content_copy",
+                            "label": "Duplicate"|trans({}, 'Admin.Actions')
+                        }
+                    ]) %}
+
+                    {% set buttons_action = buttons_action|merge([
+                        {
+                            "onclick": "unitProductAction(this, 'delete');",
+                            "icon": "delete",
+                            "label": "Delete"|trans({}, 'Admin.Actions')
+                        }
+                    ]) %}
+
+                    {% include '@Product/CatalogPage/Forms/form_edit_dropdown.html.twig' with {
+                        'button_id': "product_list_id_" ~ product.id_product ~ "_menu",
+                        'default_item': {
+                            "href": product.url|default('#'),
+                            "icon": "mode_edit"
+                        },
+                        'right': true,
+                        'items': buttons_action
+                    } %}
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

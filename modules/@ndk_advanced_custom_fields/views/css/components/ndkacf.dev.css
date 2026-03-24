@@ -1,0 +1,4 @@
+.quantityDiscount .hightlight {
+  background: var(--ndkacf-ui-color-hover);
+  color: var(--ndkacf-ui-main-bg);
+}

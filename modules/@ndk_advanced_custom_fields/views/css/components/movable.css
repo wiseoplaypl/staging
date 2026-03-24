@@ -1,0 +1,36 @@
+body .rCSwtyrwf {
+  --moveable-color: var(--ndkacf-ui-color-primary);
+  --bounds-color: var(--ndkacf-ui-color-remove);
+}
+
+body .rCSwtyrwf .moveable-control {
+  border: 2px solid var(--ndkacf-ui-main-bg);
+  background: var(--ndkacf-ui-color-primary);
+}
+body .rCSwtyrwf .moveable-line {
+  background: var(--ndkacf-ui-color-primary);
+}
+
+body .rCSwtyrwf .moveable-line.moveable-dashed.moveable-horizontal {
+  border-top: 1px dashed var(--ndkacf-ui-color-primary);
+}
+body .rCSwtyrwf .moveable-line.moveable-dashed.moveable-vertical {
+  border-left: 1px dashed var(--ndkacf-ui-color-primary);
+}
+body .rCSwtyrwf .moveable-line.moveable-dashed:before {
+  color: var(--ndkacf-ui-color-primary);
+}
+
+body .rCSwtyrwf .moveable-line.moveable-rotation-line .moveable-control {
+  border-color: var(--ndkacf-ui-color-primary);
+  background: var(--ndkacf-ui-main-bg);
+}
+
+body .rCSwtyrwf .moveable-control.moveable-origin {
+  border-color: var(--ndkacf-ui-color-remove);
+  background: var(--ndkacf-ui-main-bg);
+  display: none;
+}
+body .rCSwtyrwf .moveable-control.moveable-clip-control {
+  background: var(--ndkacf-ui-color-hover);
+}

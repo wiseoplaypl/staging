@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>pshubspot</name>
+    <displayName><![CDATA[Hubspot Synchronization]]></displayName>
+    <version><![CDATA[1.1.4]]></version>
+    <description><![CDATA[Export Prestashop data to HubSpot]]></description>
+    <author><![CDATA[Tiralineas]]></author>
+    <tab><![CDATA[others]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>

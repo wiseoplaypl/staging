@@ -1,0 +1,132 @@
+
+.posFixedItemsRight{
+	position:fixed;
+	right:10px;left:inherit
+}
+.posFixedItemsleft{
+	position:fixed;
+	left:10px;right:inherit
+}
+.posFixedItemsbottomRight{
+	position:fixed;
+	left:inherit;right:10px;bottom:0;
+}
+.posFixedItemsbottomLeft{
+	position:fixed;
+	left:10px;right:inherit;bottom:0;
+}
+
+.posFixedItemstopRight{
+	position:fixed;
+	left:inherit;right:10px;top:0;
+}
+.posFixedItemstopLeft{
+	position:fixed;
+	left:10px;right:inherit;top:0;
+}
+.posFixedItemsLeftVerticalCenter{
+	position:fixed;
+	top:45%;
+	left:0;
+	right:inherit;
+}
+.posFixedItemsRightVerticalCenter{
+	position:fixed;
+	top:45%;
+	right:0;
+	left:inherit;
+}
+
+#random_element {
+    max-height:230px;
+}
+.header_image{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+}
+.bottom_image{
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+}
+#merry{
+	max-width: 150px;
+}
+#christmas_thatha_image{
+	width:300px;
+	height:300px;
+	position:fixed;
+	z-index:999;
+}
+ .posFixedItemsBottomCenter{
+	 position: fixed;
+	 bottom:0;
+	 left:0;
+	 right:0;
+	 margin:0 auto;
+	 
+ } 
+ .posFixedItemsTopCenter{
+	 position: fixed;
+	 top:0;
+	 left:0;
+	 right:0;
+	 margin:0 auto;
+	 
+ } 
+body{ 
+	overflow-x: hidden;
+}
+.GoTop{
+	position:fixed;
+	-webkit-animation:linear infinite alternate;
+	-webkit-animation-name: Move_to_top;
+	-webkit-animation-duration: 5s;
+	
+} 
+.GoBottom{
+	bottom:0;
+	position:fixed;
+	-webkit-animation:linear infinite alternate;
+	-webkit-animation-name: Move_to_bottom;
+	-webkit-animation-duration: 5s;
+	
+}   
+.GoRight{
+	right:0;
+	-webkit-animation:linear infinite alternate;
+	-webkit-animation-name: Move_to_right;
+	-webkit-animation-duration: 5s;
+}
+.GoLeft{
+	-webkit-animation:linear infinite alternate;
+	animation-name: Move_to_left;
+	-webkit-animation-name: Move_to_left;
+	-webkit-animation-duration: 5s;
+}
+
+@-webkit-keyframes Move_to_top {
+	0% { bottom: 0%;}
+	50%{ bottom : 90%;}
+	100%{ bottom: 0%;}
+}
+@-webkit-keyframes Move_to_bottom {
+	0% { top: 0%;}
+	50%{ top : 90%;}
+	100%{ top: 0%;}
+}
+
+@-webkit-keyframes Move_to_right {
+	0% { left: 0%;}
+	50%{ left : 90%;}
+	100%{ left: 0%;}
+}
+
+@-webkit-keyframes Move_to_left {
+	0% { right: 0%;}
+	50%{ right : 90%;}
+	100%{ right: 0%;}
+}               

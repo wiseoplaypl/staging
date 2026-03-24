@@ -1,0 +1,5 @@
+.nobootstrap{min-width:75%;}
+.lginput{width:auto;}
+@media screen and (max-width: 800px) {
+    .lginput {width:100%;}
+}

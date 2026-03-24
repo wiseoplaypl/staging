@@ -1,0 +1,140 @@
+.caracter-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 100%;
+}
+
+.main-caracter-container {
+  height: 100% !important;
+  max-width: 40% !important;
+  bottom: 0 !important;
+  top: unset !important;
+}
+
+.addCaracter.btn.btn-default {
+  margin: 1em auto;
+  float: none;
+  display: inherit;
+}
+
+.field-type-29 .img-item-row {
+  height: auto !important;
+}
+
+.text-selector {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  height: auto !important;
+  min-height: 20px;
+}
+
+.caracter-container svg.composition_element-text,
+.ui-resizable[data-resizeable="0"]
+  .caracter-container
+  .composition_element-text.textareaSvg {
+  bottom: 0;
+  height: 10% !important;
+  top: auto;
+  max-width: 100%;
+}
+
+.caracter-container {
+  text-align: center;
+}
+
+.caracter-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 85% !important;
+  /* bottom: 20%; */
+  margin: auto;
+}
+
+.groupList {
+  display: none;
+}
+
+.group-title {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: ;
+  text-align: center;
+  padding: 0.6em;
+  border-top: 1px solid;
+}
+
+.group-title.active {
+  color: #000;
+}
+
+.ndkcsfields-block center i {
+  display: block;
+  font-size: 10px;
+  line-height: 12px;
+  cursor: pointer;
+}
+
+.composition_element-body {
+  z-index: 1;
+}
+
+.composition_element-clothes {
+  z-index: 2;
+}
+
+.composition_element-hair {
+  z-index: 3;
+}
+
+.composition_element-beard {
+  z-index: 3;
+}
+
+.composition_element-accessories {
+  z-index: 4;
+}
+.composition_element-baby-body {
+  z-index: 6;
+}
+.composition_element-baby-hair {
+  z-index: 7;
+}
+.composition_element-with-baby {
+  z-index: 5;
+}
+
+.type_colorize_svg li {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}
+
+.type_colorize_svg li {
+  display: inline-block;
+  margin: 0 0em 1em 0;
+}
+
+.type_colorize_svg li span {
+  text-indent: -5000px;
+  width: 2.5em;
+  height: 2.5em;
+  display: inline-block;
+  border-radius: 100%;
+  border: 1px solid #dedede;
+  cursor: pointer;
+}
+
+.type_colorize_svg li.selected span {
+  border-color: var(--ndkacf-ui-main-text-color);
+}
+
+.img-item-row,
+.svg-container {
+  height: auto !important;
+}

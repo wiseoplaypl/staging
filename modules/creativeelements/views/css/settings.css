@@ -1,0 +1,12 @@
+body.ps-bo-rebrand.admincesettings {
+	--cdk-page-head-height: var(--cdk-page-head-with-tabs-height);
+}
+body.admincesettings.modal-open {
+	overflow: auto;
+}
+body.admincesettings .modal {
+	overflow-y: hidden;
+}
+.bootstrap .page-head .toolbarBox .btn-toolbar .toolbar_btn i {
+	background-color: inherit;
+}

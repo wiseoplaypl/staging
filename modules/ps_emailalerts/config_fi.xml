@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>ps_emailalerts</name>
+    <displayName><![CDATA[S&auml;hk&ouml;postih&auml;lytykset]]></displayName>
+    <version><![CDATA[2.1.0]]></version>
+    <description><![CDATA[L&auml;het&auml; varaston ja tilausten muokkauksista asiakkaille ja kauppiaille s&auml;hk&ouml;posti-ilmoituksia.]]></description>
+    <author><![CDATA[PrestaShop]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

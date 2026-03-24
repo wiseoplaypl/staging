@@ -1,0 +1,387 @@
+<?php
+/**
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ * We offer the best and most useful modules PrestaShop and modifications for your online store.
+ *
+ * @author    knowband.com <support@knowband.com>
+ * @copyright 2017 Knowband
+ * @license   see file: LICENSE.txt
+ * @category  PrestaShop Module
+ *
+ *
+*/
+
+include_once(_PS_MODULE_DIR_ . 'backinstock/libraries/drewm/mailchimp-api/src/MailChimp.php');
+include_once(_PS_MODULE_DIR_ . 'backinstock/libraries/sendinBlue/Mailin.php');
+
+class BackInStockSuccessModuleFrontController extends ModuleFrontController
+{
+    public function initContent()
+    {
+        parent::initContent();
+        $account_link = $this->context->link->getPageLink('index', 'true');
+        $this->context->smarty->assign('acc_link', $account_link);
+        $this->context->smarty->assign('pr_success_text', $this->module->l('Product Update Success'));
+        $this->context->smarty->assign('pr_success_msg', $this->module->l('Successfully deleted the product.'));
+        $this->context->smarty->assign('pr_go_to_home', $this->module->l('Go to Home Page'));
+        $this->setTemplate('module:backinstock/views/templates/front/success.tpl');
+//        $this->setTemplate('success.tpl');
+    }
+
+    public function postProcess()
+    {
+        
+        $render = Tools::getValue('render');
+        if ($render == 'add') {
+            $alert_data = array();
+            $alert_data['current_price'] = Tools::getValue('actual_price');
+            $alert_data['product_id'] = Tools::getValue('product_id');
+            $alert_data['customer_id'] = Tools::getValue('customer_id');
+            if (Tools::getValue('customer_id') == 0) {
+                $customer_id = Customer::customerExists(Tools::getValue('customer_email_back'), true);
+                if ($customer_id) {
+                    $alert_data['customer_id'] = $customer_id;
+                }
+            }
+            $id_product_attribute = '';
+            if (Tools::getIsset('group')) {
+                $id_product_attribute = (int)Product::getIdProductAttributesByIdAttributes(
+                    Tools::getValue('product_id'),
+                    (array)Tools::getValue('group')
+                );
+            }
+            $alert_data['combination_id'] = $id_product_attribute;
+            $quantity = Db::getInstance()->getRow(
+                'SELECT quantity FROM '._DB_PREFIX_.'stock_available'
+                . ' WHERE id_product='. (int) Tools::getValue('product_id') .' '
+                . 'AND id_product_attribute='. (int) Tools::getValue('combination_id') .' '
+                . 'AND id_shop='.(int) $this->context->shop->id
+            );
+            $alert_data['stock_quantity'] = $quantity['quantity'];
+            $alert_data['currency_code'] = Tools::getValue('currency_code');
+            $alert_data['currency_id'] = Tools::getValue('currency_id');
+            $alert_data['shop_id'] = Tools::getValue('shop_id');
+            $alert_data['customer_email_back'] = Tools::getValue('customer_email_back');
+            $alert_data['current_format'] = Tools::displayPrice($alert_data['current_price']);
+            $alert_data['subscribe_type_back'] = Tools::getValue('subscribe_type_back');
+
+            echo $this->addSubscribers($alert_data);
+            die;
+        }
+    }
+    
+    public static function getIdProductAttributesByIdAttributes($id_product, $id_attributes)
+    {
+        if (!is_array($id_attributes)) {
+            return 0;
+        }
+
+        return Db::getInstance()->getValue(
+            'SELECT pac.`id_product_attribute`
+            FROM `'._DB_PREFIX_.'product_attribute_combination` pac
+            INNER JOIN `'._DB_PREFIX_.'product_attribute` pa 
+            ON pa.id_product_attribute = pac.id_product_attribute
+            WHERE id_product = '.(int)$id_product.' AND id_attribute IN ('
+            .implode(',', array_map('intval', $id_attributes)).')
+            GROUP BY id_product_attribute
+            HAVING COUNT(id_product) = '. (int) count($id_attributes)
+        );
+    }
+
+    public function addSubscribers($alert_data)
+    {
+        $id_image = Product::getCover($alert_data['product_id']);
+        if (count($id_image) > 0) {
+            $image = new Image($id_image['id_image']);
+            $img_path = _PS_BASE_URL_ . _THEME_PROD_DIR_ . $image->getExistingImgPath() . '.jpg';
+        }
+
+        $shop_id = Context::getContext()->shop->id;
+        $lang_id = $this->context->cookie->id_lang;
+        $link = $this->context->link->getModuleLink('backinstock', 'delete');
+        $dot_found = 0;
+        $needle = '.php';
+        $dot_found = strpos($link, $needle);
+        if ($dot_found !== false) {
+            $ch = '&';
+        } else {
+            $ch = '?';
+        }
+        $cid = $alert_data['combination_id'];
+        $id = $alert_data['product_id'];
+        //$cemail = $alert_data['customer_email_back'];
+        $cemail = urlencode($alert_data['customer_email_back']);
+        $delete_url = $link . $ch . 'email=' . $cemail . '&id=' . $id .
+        '&attribute_id=' . $cid . '&shop_id=' . $shop_id;
+
+        $product_obj = new Product($alert_data['product_id'], false, $lang_id, $shop_id);
+        $attributes = $product_obj->getAttributeCombinationsById(
+            $alert_data['combination_id'],
+            $this->context->cookie->id_lang
+        );
+
+        $product_name = $product_obj->name;
+        if (count($attributes) > 0) {
+            $alert_data['attributes'] = '';
+            foreach ($attributes as $attribute) {
+                $alert_data['attributes'] .= $attribute['group_name'] . ': ' . $attribute['attribute_name'] . ', ';
+            }
+            $alert_data['attributes'] = Tools::substr($alert_data['attributes'], 0, -2);
+        } else {
+            $alert_data['attributes'] = '';
+        }
+
+        unset($product_obj);
+
+        $check_query = 'select count(*) as if_exist from ' . _DB_PREFIX_ . 'product_update_product_detail 
+            where email="' . pSQL($alert_data['customer_email_back']) . '" and send="0" and product_id=' . (int) $alert_data['product_id'] . ' AND
+                        product_attribute_id = ' . (int) $alert_data['combination_id'] .
+                ' and store_id=' . (int) $shop_id;
+        $check_data = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($check_query);
+        if ($check_data['if_exist'] == 1) {
+            return 0;
+        } else {
+            $shop_id = Context::getContext()->shop->id;
+            $lang_id = $this->context->cookie->id_lang;
+            $product_obj = new Product($alert_data['product_id'], false, $lang_id, $shop_id);
+            $getsubject = 'select id_category from ' . _DB_PREFIX_ .
+            'category_product where id_product=' . (int) $alert_data['product_id'];
+            $data_subject = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($getsubject);
+            $p = 0;
+            $temp_data = array();
+            foreach ($data_subject as $data) {
+                $temp_data[$p] = ($data['id_category']);
+                $p++;
+            }
+            $alert_data['category_id'] = implode(',', $temp_data);
+            $alert_data['sku'] = $product_obj->reference;
+              
+            $lang_iso = Language::getIsoById(Context::getContext()->language->id);
+            
+            $insert_query = 'insert into ' . _DB_PREFIX_ . 'product_update_product_detail 
+				values ("","' . pSQL($alert_data['customer_email_back']) . '"
+				,' . (int) $alert_data['customer_id'] . ',
+				' . (int) $alert_data['product_id'] . ',
+				"' . pSQL($product_name) . '",
+				"' . pSQL($alert_data['category_id']) . '",
+				"' . pSQL($alert_data['sku']) . '",
+				' . (int) $alert_data['combination_id'] . ',
+				' . (float) $alert_data['current_price'] . ',
+				"' . pSQL($alert_data['subscribe_type_back']) . '",
+				"' . pSQL($alert_data['currency_code']) . '",
+				' . (int) $alert_data['shop_id'] . ',"'.pSQL($lang_iso).'","0","0",1,"","0",now(),now(),now())';
+            if ((bool) Configuration::get('PS_SSL_ENABLED')) {
+                $ps_base_url = _PS_BASE_URL_SSL_;
+            } else {
+                $ps_base_url = _PS_BASE_URL_;
+            }
+//            $img = '<img src="' . $img_path . '" alt="' . $product_name . '" height="100px" width="100px">';
+            $productupdate = new BackInStock();
+//            $template_vars = array(
+//                '{image}' => $img,
+//                '{product}' => $product_name,
+//                '{current_price}' => $alert_data['current_format'],
+//                '{attributes}' => $alert_data['attributes'],
+//                '{delete_link}' => $delete_url,
+//                '{shop_name}' => Configuration::get('PS_SHOP_NAME'),
+//                '{shop_url}' => _PS_BASE_URL_ . __PS_BASE_URI__, 'ps_root_path' => $ps_base_url
+//                . __PS_BASE_URI__ . str_replace(_PS_ROOT_DIR_ . '/', '', '')
+//            );
+            $getsubject = 'select subject,body from ' . _DB_PREFIX_ . 'product_update_email_templates where id_lang='
+            . (int) $this->context->language->id . ' and template_no="1"';
+            $data_subject = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow($getsubject);
+            $template_vars = array(
+                 '{template}' => $data_subject['body'],
+                '{minimal_image}' => $this->context->link->getMediaLink(
+                    __PS_BASE_URI__.'modules/backinstock/views/img/minimal6.png'
+                ),
+                '{best_seller_product}' => $productupdate->getBestSeller($alert_data['product_id']),
+                '{thankyou_banner}' => $this->context->link->getMediaLink(
+                    __PS_BASE_URI__.'modules/backinstock/views/img/thank-you-banners.jpg'
+                ),
+                '{product_link}' => $this->context->link->getProductLink($product_obj),
+                '{product_image}' => $img_path,
+                '{product_name}' => $product_name,
+                '{delete_link}' => $delete_url,
+                '{current_price}' => $alert_data['current_format'],
+                '{attributes}' => $alert_data['attributes'],
+//                '{shop_logo}' => $this->context->link->getMediaLink(
+//                    __PS_BASE_URI__ . 'img/logo.jpg'),
+//                '{shop_name}' => Configuration::get('PS_SHOP_NAME'),
+//                '{shop_url}' => _PS_BASE_URL_ . __PS_BASE_URI__, 'ps_root_path' => $ps_base_url
+//                . __PS_BASE_URI__ . str_replace(_PS_ROOT_DIR_ . '/', '', '')
+            );
+            $subject = html_entity_decode($data_subject['subject']);
+            $id_lang = $this->context->language->id;
+            $email = $alert_data['customer_email_back'];
+            $template = $alert_data['subscribe_type_back'];
+            Mail::Send(
+                $id_lang,
+                $template,
+                $subject,
+                $template_vars,
+                $email,
+                null,
+                Configuration::get('PS_SHOP_EMAIL'),
+                Configuration::get('PS_SHOP_NAME'),
+                null,
+                null,
+                _PS_MODULE_DIR_ . 'backinstock/mails/',
+                false,
+                $this->context->shop->id
+            );
+            if (Db::getInstance(_PS_USE_SQL_SLAVE_)->execute($insert_query)) {
+                /*
+                 * @author - Rishabh Jain
+                 * To add the email to the enabled marketing list
+                 */
+                $sendPromotionalEmail = true;
+                if ($sendPromotionalEmail) {
+                    $db_settings = array();
+                    if (Configuration::get('VELOCITY_BACK_STOCK_EMAIL_MARKETING')) {
+                        $db_settings = Tools::unSerialize(Configuration::get('VELOCITY_BACK_STOCK_EMAIL_MARKETING'));
+                        $firstname = null;
+                        $lastname = null;
+                        if ((int) $alert_data['customer_id'] > 0) {
+                            $customer_obj = new Customer($alert_data['customer_id']);
+                            $firstname = $customer_obj->firstname;
+                            $lastname = $customer_obj->lastname;
+                        }
+                        if ($db_settings['mailchimp_status'] == 1) {
+                            if ($firstname == null && $lastname == null) {
+                                $this->mailchimpSubscribeEmailList($email);
+                            } else if ($firstname == null) {
+                                $this->mailchimpSubscribeEmailList($email, $firstname, null);
+                            } else if ($lastname == null) {
+                                $this->mailchimpSubscribeEmailList($email, null, $lastname);
+                            } else {
+                                $this->mailchimpSubscribeEmailList($email, $firstname, $lastname);
+                            }
+                        }
+                        if ($db_settings['klaviyo_status'] == 1) {
+                            if ($firstname == null && $lastname == null) {
+                                $this->klaviyoSubscribeEmailList($email);
+                            } else if ($firstname == null) {
+                                $this->klaviyoSubscribeEmailList($email, $firstname, null);
+                            } else if ($lastname == null) {
+                                $this->klaviyoSubscribeEmailList($email, null, $lastname);
+                            } else {
+                                $this->klaviyoSubscribeEmailList($email, $firstname, $lastname);
+                            }
+                        }
+                        if ($db_settings['SendinBlue_status'] == 1) {
+                            if ($firstname == null && $lastname == null) {
+                                $this->sendInBlueSubscribeEmailList($email);
+                            } else if ($firstname == null) {
+                                $this->sendInBlueSubscribeEmailList($email, $firstname, null);
+                            } else if ($lastname == null) {
+                                $this->sendInBlueSubscribeEmailList($email, null, $lastname);
+                            } else {
+                                $this->sendInBlueSubscribeEmailList($email, $firstname, $lastname);
+                            }
+                        }
+                    }
+                }
+                /*
+                 * Changes Over
+                 */
+                return 1;
+            } else {
+                return 0;
+            }
+//            return Db::getInstance(_PS_USE_SQL_SLAVE_)->execute($insert_query);
+        }
+    }
+    
+    /*
+    * Function to subscribe customer email to Mailchimp
+    *
+    * @param    string email   Email of customer
+    * @param    string first_name   First name of customer
+    * @param    string last_name   Last name of customer
+    * @return   boolean Return  True if email is subscribed successfully otherwise returns error message
+    */
+    public function mailchimpSubscribeEmailList($email, $first_name = null, $last_name = null)
+    {
+        try {
+            $db_settings = Tools::unserialize(Configuration::get('VELOCITY_BACK_STOCK_EMAIL_MARKETING'));
+            $api_key = $db_settings['mailchimp_api'];
+            $list_id = $db_settings['mailchimp_list'];
+            $Mailchimp = new Mailchimp($api_key);
+            $result = $Mailchimp->post("lists/$list_id/members", array(
+                'email_address' => trim($email),
+                'status' => 'subscribed',
+            ));
+
+            $subscriber_hash = $Mailchimp->subscriberHash(trim($email));
+            $Mailchimp->patch("lists/$list_id/members/$subscriber_hash", array('merge_fields' => array('FNAME' => $first_name, 'LNAME' => $last_name)));
+            return true;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /*
+    * Function to subscribe customer email to SendinBlue
+    *
+    * @param    string email   Email of customer
+    * @param    string first_name   First name of customer
+    * @param    string last_name   Last name of customer
+    */
+    public function sendInBlueSubscribeEmailList($email, $first_name = null, $last_name = null)
+    {
+        $db_settings = Tools::unserialize(Configuration::get('VELOCITY_BACK_STOCK_EMAIL_MARKETING'));
+        $apikey = $db_settings['SendinBlue_api'];
+        $listid = $db_settings['SendinBlue_list'];
+        $mailin = new Mailin('https://api.sendinblue.com/v2.0', $apikey);
+
+        $data_arr = array("email" => $email,
+            "listid" => array($listid),
+            "attributes" => array("NAME" => $first_name, "SURNAME" => $last_name)
+        );
+
+        $mailin->create_update_user($data_arr); //calling function to add user
+    }
+
+    /*
+    * Function to subscribe customer email to Klaviyo
+    *
+    * @param    string email   Email of customer
+    * @param    string first_name   First name of customer
+    * @param    string last_name   Last name of customer
+    */
+    public function klaviyoSubscribeEmailList($email, $first_name = null, $last_name = null)
+    {
+        $db_settings = Tools::unserialize(Configuration::get('VELOCITY_BACK_STOCK_EMAIL_MARKETING'));
+        $api_key = $db_settings['klaviyo_api'];
+        $list_id = $db_settings['klaviyo_list'];
+        $properties = array();
+        if ($first_name) {
+            $properties['$first_name'] = $first_name;
+        }
+        if ($last_name) {
+            $properties['$last_name'] = $last_name;
+        }
+        $properties_val = count($properties) ? urlencode(json_encode($properties)) : '{}';
+        $fields = array(
+            'api_key=' . $api_key,
+            'email=' . urlencode($email),
+            'confirm_optin=false',
+            'properties=' . $properties_val,
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://a.klaviyo.com/api/v1/list/' . $list_id . '/members');
+        curl_setopt($ch, CURLOPT_POST, count($fields));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, join('&', $fields));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_exec($ch);
+        curl_close($ch);
+    }
+}

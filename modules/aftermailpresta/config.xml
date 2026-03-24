@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>aftermailpresta</name>
+    <displayName><![CDATA[AfterMail]]></displayName>
+    <version><![CDATA[2.2.3]]></version>
+    <description><![CDATA[Sends specific e-mail notifications to customers after buying a product]]></description>
+    <author><![CDATA[Shoprunners]]></author>
+    <tab><![CDATA[emailing]]></tab>
+	<confirmUninstall><![CDATA[Are you sure you want to delete all aftermail configurations and logged mails?]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

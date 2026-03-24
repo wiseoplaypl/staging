@@ -1,0 +1,649 @@
+<?php
+/**
+ * Copyright ETS Software Technology Co., Ltd
+ *
+ * NOTICE OF LICENSE
+ *
+ * This file is not open source! Each license that you purchased is only available for 1 website only.
+ * If you want to use this file on more websites (or projects), you need to purchase additional licenses.
+ * You are not allowed to redistribute, resell, lease, license, sub-license or offer our resources to any third party.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future.
+ *
+ * @author ETS Software Technology Co., Ltd
+ * @copyright  ETS Software Technology Co., Ltd
+ * @license    Valid for 1 website (or project) for each purchase of license
+ */
+
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+
+class EtsAbancartSwiftMailer extends EtsAbancartMailer
+{
+
+    /**
+     * Send an e-mail
+     *
+     * @param int $idLang Language ID
+     * @param string $template Template name
+     * @param string $subject Subject of the e-mail
+     * @param array $templateVars Template variables
+     * @param mixed $to Recipient e-mail address or array of addresses
+     * @param string|array<string>|null $toName Recipient name (optional)
+     * @param string|null $from Sender e-mail address (optional)
+     * @param string|null $fromName Sender name (optional)
+     * @param mixed|null $fileAttachment Attachment file(s) (optional)
+     * @param int|null $mode_smtp SMTP mode (optional)
+     * @param string $templatePath Path to the template directory
+     * @param bool $die Whether to die on error or log it
+     * @param int|null $idShop Shop ID (optional)
+     * @param mixed|null $bcc BCC recipient(s) (optional)
+     * @param string|null $replyTo Reply-to e-mail address (optional)
+     * @param string|null $replyToName Reply-to name (optional)
+     * @param array &$errors Reference to an array for collecting errors
+     * @param Context|null $context Context object (optional)
+     *
+     * @return bool True on success, false on failure
+     */
+
+    public static function send(
+        $idLang,
+        $template,
+        $subject,
+        $templateVars,
+        $to,
+        $toName = null,
+        $from = null,
+        $fromName = null,
+        $fileAttachment = null,
+        $mode_smtp = null,
+        $templatePath = _PS_MAIL_DIR_,
+        $die = false,
+        $idShop = null,
+        $bcc = null,
+        $replyTo = null,
+        $replyToName = null,
+        &$errors = [],
+        $context = null
+    )
+    {
+        if (version_compare(_PS_VERSION_, '1.6.1.1', '<=')) {
+            // Support for deprecated parameters
+        }
+        if ($is17 = version_compare(_PS_VERSION_, '1.7.1.0', '>')) {
+            $hookBeforeEmailResult = Hook::exec(
+                'actionEmailSendBefore',
+                array(
+                    'idLang' => &$idLang,
+                    'template' => &$template,
+                    'subject' => &$subject,
+                    'templateVars' => &$templateVars,
+                    'to' => &$to,
+                    'toName' => &$toName,
+                    'from' => &$from,
+                    'fromName' => &$fromName,
+                    'fileAttachment' => &$fileAttachment,
+                    'mode_smtp' => &$mode_smtp,
+                    'templatePath' => &$templatePath,
+                    'die' => &$die,
+                    'idShop' => &$idShop,
+                    'bcc' => &$bcc,
+                    'replyTo' => &$replyTo,
+                ),
+                null,
+                true
+            );
+
+            if ($hookBeforeEmailResult === null) {
+                $keepGoing = false;
+            } else {
+                $keepGoing = array_reduce(
+                    $hookBeforeEmailResult,
+                    function ($carry, $item) {
+                        return ($item === false) ? false : $carry;
+                    },
+                    true
+                );
+            }
+            if (!$keepGoing) {
+                return true;
+            }
+        }
+        $shop = new Shop($idShop);
+        $mailApiType = Configuration::get('ETS_ABANCART_MAIL_SERVICE') ?: 'default';
+        $isMailApi = in_array($mailApiType, self::$mailAPIs);
+        $configs = array(
+            'PS_MAIL_SERVER',
+            'PS_MAIL_USER',
+            'PS_MAIL_PASSWD',
+            'PS_MAIL_SMTP_ENCRYPTION',
+            'PS_MAIL_SMTP_PORT',
+        );
+        $configs_extra = array(
+            'PS_MAIL_METHOD',
+            'PS_SHOP_EMAIL',
+            'PS_SHOP_NAME',
+            'PS_MAIL_TYPE'
+        );
+        $configuration = Configuration::getMultiple($configs_extra, null, null, $idShop);
+        if ($mailApiType != 'default' && !$isMailApi) {
+            $prefix = Tools::strtoupper($mailApiType);
+            foreach ($configs as $config) {
+                $configuration[$config] = Configuration::get(preg_replace('/^PS_(.+?)$/', 'ETS_ABANCART_$1_' . $prefix, $config), null, null, $idShop);
+            }
+            $configuration['PS_MAIL_METHOD'] = self::PS_SMTP_METHOD;
+            $configuration['PS_SHOP_EMAIL'] = $configuration['PS_MAIL_USER'];
+        } elseif (trim($mailApiType) == 'default') {
+            foreach ($configs as $config) {
+                $configuration[$config] = Configuration::get($config, null, null, $idShop);
+            }
+        }
+        if (!$is17 && $configuration['PS_MAIL_METHOD'] == 3 || $is17 && $configuration['PS_MAIL_METHOD'] == self::METHOD_DISABLE) {
+            return true;
+        }
+
+        Hook::exec('sendMailAlterTemplateVars',
+            array(
+                'template' => $template,
+                'template_vars' => &$templateVars,
+            )
+        );
+
+        if (!isset($configuration['PS_MAIL_SMTP_ENCRYPTION']) || Tools::strtolower($configuration['PS_MAIL_SMTP_ENCRYPTION']) === 'off') {
+            $configuration['PS_MAIL_SMTP_ENCRYPTION'] = false;
+        }
+
+        if (!isset($configuration['PS_MAIL_SMTP_PORT'])) {
+            $configuration['PS_MAIL_SMTP_PORT'] = 'default';
+        }
+
+        /*
+         * Sending an e-mail can be of vital importance for the merchant, when his password
+         * is lost for example, so we must not die but do our best to send the e-mail.
+         */
+        if (!isset($from) || !Validate::isEmail($from)) {
+            $from = $configuration['PS_SHOP_EMAIL'];
+        }
+
+        if (!Validate::isEmail($from)) {
+            $from = null;
+        }
+
+        if (!isset($fromName) || !Validate::isMailName($fromName)) {
+            $fromName = $configuration['PS_SHOP_NAME'];
+        }
+
+        if (!Validate::isMailName($fromName)) {
+            $fromName = null;
+        }
+
+        /*
+         * It would be difficult to send an e-mail if the e-mail is not valid,
+         * so this time we can die if there is a problem.
+         */
+        if (!is_array($to) && !Validate::isEmail($to)) {
+            self::dieOrLog($die, 'Error: parameter "to" is corrupted');
+
+            return false;
+        }
+
+        if (null !== $bcc && !is_array($bcc) && !Validate::isEmail($bcc)) {
+            self::dieOrLog($die, 'Error: parameter "bcc" is corrupted');
+            $bcc = null;
+        }
+
+        if (!is_array($templateVars)) {
+            $templateVars = [];
+        }
+
+        if (is_string($toName) && !empty($toName) && !Validate::isMailName($toName)) {
+            $toName = null;
+        }
+
+        if (!Validate::isTplName($template)) {
+            self::dieOrLog($die, 'Error: invalid e-mail template');
+
+            return false;
+        }
+
+        if (!Validate::isMailSubject($subject)) {
+            self::dieOrLog($die, 'Error: invalid e-mail subject');
+
+            return false;
+        }
+
+        /* Construct multiple recipients list if needed */
+        if (method_exists('Swift_Message', 'newInstance')) {
+            $message = call_user_func(['Swift_Message', 'new' . 'Instance']);
+        } else {
+            $message = new Swift_Message();
+        }
+        /* Create new message and DKIM sign it, if enabled and all data for signature are provided */
+        if (isset($configuration['PS_MAIL_DKIM_ENABLE'])
+            && (bool)$configuration['PS_MAIL_DKIM_ENABLE'] === true
+            && !empty($configuration['PS_MAIL_DKIM_DOMAIN'])
+            && !empty($configuration['PS_MAIL_DKIM_SELECTOR'])
+            && !empty($configuration['PS_MAIL_DKIM_KEY'])
+        ) {
+            $signer = new Swift_Signers_DKIMSigner(
+                $configuration['PS_MAIL_DKIM_KEY'],
+                $configuration['PS_MAIL_DKIM_DOMAIN'],
+                $configuration['PS_MAIL_DKIM_SELECTOR']
+            );
+            $message->attachSigner($signer);
+        }
+        if (is_array($to) && $to) {
+            foreach ($to as $key => $addr) {
+                $addr = trim($addr);
+                if (!Validate::isEmail($addr)) {
+                    self::dieOrLog($die, 'Error: invalid e-mail address');
+
+                    return false;
+                }
+
+                if (isset($toName[$key])) {
+                    $addrName = $toName[$key];
+                } else {
+                    $addrName = $toName;
+                }
+
+                $addrName = ($addrName == null || $addrName == $addr || !Validate::isGenericName($addrName)) ? '' : self::mimeEncode($addrName);
+                $message->addTo(self::toPunycode($addr), $addrName);
+            }
+            $toPlugin = $to[0];
+        } else {
+            /* Simple recipient, one address */
+            $toPlugin = $to;
+            $toName = (($toName == null || $toName == $to) ? '' : self::mimeEncode($toName));
+            $message->addTo(self::toPunycode($to), $toName);
+        }
+
+        if (isset($bcc) && is_array($bcc) && $bcc) {
+            foreach ($bcc as $addr) {
+                $addr = trim($addr);
+                if (!Validate::isEmail($addr)) {
+                    self::dieOrLog($die, 'Error: invalid e-mail address');
+
+                    return false;
+                }
+
+                $message->addBcc(self::toPunycode($addr));
+            }
+        } elseif (isset($bcc) && $bcc) {
+            $message->addBcc(self::toPunycode($bcc));
+        }
+
+        try {
+            /* Connect with the appropriate configuration */
+            if (!$isMailApi) {
+                if ($is17 && $configuration['PS_MAIL_METHOD'] == self::METHOD_SMTP || !$is17 && $configuration['PS_MAIL_METHOD'] == 2) {
+                    if (empty($configuration['PS_MAIL_SERVER']) || empty($configuration['PS_MAIL_SMTP_PORT'])) {
+                        self::dieOrLog($die, 'Error: invalid SMTP server or SMTP port');
+                        return false;
+                    }
+                    if (method_exists('Swift_SmtpTransport', 'newInstance')) {
+                        $connection = call_user_func(
+                            ['Swift_SmtpTransport', 'new' . 'Instance'],
+                            $configuration['PS_MAIL_SERVER'],
+                            $configuration['PS_MAIL_SMTP_PORT'],
+                            $configuration['PS_MAIL_SMTP_ENCRYPTION']
+                        )
+                            ->setUsername($configuration['PS_MAIL_USER'])
+                            ->setPassword($configuration['PS_MAIL_PASSWD']);
+
+                    } else {
+                        $connection = (new Swift_SmtpTransport($configuration['PS_MAIL_SERVER'], $configuration['PS_MAIL_SMTP_PORT'], $configuration['PS_MAIL_SMTP_ENCRYPTION']))
+                            ->setUsername($configuration['PS_MAIL_USER'])
+                            ->setPassword($configuration['PS_MAIL_PASSWD']);
+
+                    }
+
+                } else {
+                    if (version_compare(_PS_VERSION_, '1.7.6.0', '<=') && method_exists('Swift_SmtpTransport', 'newInstance')) {
+                        $connection = call_user_func(['Swift_MailTransport', 'new' . 'Instance']);
+                    } else {
+                        $connection = new Swift_SendmailTransport();
+                    }
+                }
+                if (!$connection) {
+                    return false;
+                }
+                $swift = new Swift_Mailer($connection);
+            }
+            /*---build config email---*/
+
+            /* Get templates content */
+            $iso = Language::getIsoById((int)$idLang);
+            $isoDefault = Language::getIsoById((int)Configuration::get('PS_LANG_DEFAULT'));
+            $isoArray = [];
+            if ($iso) {
+                $isoArray[] = $iso;
+            }
+
+            if ($isoDefault && $iso !== $isoDefault) {
+                $isoArray[] = $isoDefault;
+            }
+
+            if (!in_array('en', $isoArray)) {
+                $isoArray[] = 'en';
+            }
+
+            $moduleName = false;
+
+            if (preg_match('#' . $shop->physical_uri . 'modules/#', str_replace(DIRECTORY_SEPARATOR, '/', $templatePath)) &&
+                preg_match('#modules/([a-z0-9_-]+)/#ui', str_replace(DIRECTORY_SEPARATOR, '/', $templatePath), $res)
+            ) {
+                $moduleName = $res[1];
+            }
+            foreach ($isoArray as $isoCode) {
+                $isoTemplate = $isoCode . '/' . $template;
+                $templatePath = self::getTemplateBasePath($isoTemplate, $moduleName, ($is17 ? $shop->theme : $shop->getTheme()));
+
+                if (!file_exists($templatePath . $isoTemplate . '.txt') && ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH || $configuration['PS_MAIL_TYPE'] == Mail::TYPE_TEXT)) {
+                    PrestaShopLogger::addLog(
+                        $is17 ? $context->getTranslator()->trans(
+                            'Error - The following e-mail template is missing: %s',
+                            [$templatePath . $isoTemplate . '.txt'],
+                            'Admin.Advparameters.Notification'
+                        ) : sprintf(Tools::displayError('Error - The following e-mail template is missing: %s'), $templatePath . $isoTemplate . '.txt')
+                    );
+                } elseif (!file_exists($templatePath . $isoTemplate . '.html') && ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH || $configuration['PS_MAIL_TYPE'] == Mail::TYPE_HTML)) {
+
+                    PrestaShopLogger::addLog(
+                        $is17 ? $context->getTranslator()->trans(
+                            'Error - The following e-mail template is missing: %s',
+                            [$templatePath . $isoTemplate . '.html'],
+                            'Admin.Advparameters.Notification'
+                        ) : sprintf(Tools::displayError('Error - The following e-mail template is missing: %s'), $templatePath . $isoTemplate . '.html')
+                    );
+                } else {
+                    $templatePathExists = true;
+
+                    break;
+                }
+            }
+            if (empty($templatePathExists)) {
+                self::dieOrLog($die, 'Error - The following e-mail template is missing: %s', [$template]);
+
+                return false;
+            }
+            $templateHtml = '';
+            $templateTxt = '';
+            Hook::exec(
+                'actionEmailAddBeforeContent',
+                array(
+                    'template' => $template,
+                    'template_html' => &$templateHtml,
+                    'template_txt' => &$templateTxt,
+                    'id_lang' => (int)$idLang,
+                ),
+                null,
+                true
+            );
+            $templateHtml .= EtsAbancartHelper::file_get_contents($templatePath . $isoTemplate . '.html');
+            $templateTxt .= strip_tags(
+                html_entity_decode(
+                    EtsAbancartHelper::file_get_contents($templatePath . $isoTemplate . '.txt'),
+                    ENT_QUOTES | ENT_HTML5,
+                    'utf-8'
+                )
+            );
+            Hook::exec(
+                'actionEmailAddAfterContent',
+                array(
+                    'template' => $template,
+                    'template_html' => &$templateHtml,
+                    'template_txt' => &$templateTxt,
+                    'id_lang' => (int)$idLang,
+                ),
+                null,
+                true
+            );
+            /* Create mail and attach differents parts */
+            $message->setSubject($subject);
+
+            $message->setCharset('utf-8');
+
+            /* Set Message-ID - getmypid() is blocked on some hosting */
+            $message->setId(Mail::generateId());
+
+            if (!($replyTo && Validate::isEmail($replyTo))) {
+                $replyTo = $from;
+            }
+
+            if (isset($replyTo) && $replyTo) {
+                $message->setReplyTo($replyTo, ($replyToName !== '' ? $replyToName : null));
+            }
+
+            $templateVars = array_map(['Tools', 'htmlentitiesDecodeUTF8'], $templateVars);
+            $templateVars = array_map(['Tools', 'stripslashes'], $templateVars);
+
+            if (false !== Configuration::get('PS_LOGO_MAIL') && file_exists(_PS_IMG_DIR_ . Configuration::get('PS_LOGO_MAIL', null, null, $idShop))) {
+                $logo = _PS_IMG_DIR_ . Configuration::get('PS_LOGO_MAIL', null, null, $idShop);
+            } else {
+                if (file_exists(_PS_IMG_DIR_ . Configuration::get('PS_LOGO', null, null, $idShop))) {
+                    $logo = _PS_IMG_DIR_ . Configuration::get('PS_LOGO', null, null, $idShop);
+                } else {
+                    $templateVars['{shop_logo}'] = '';
+                }
+            }
+            ShopUrl::cacheMainDomainForShop((int)$idShop);
+            /* don't attach the logo as */
+            if (isset($logo)) {
+                //$templateVars['{shop_logo}'] = $isMailApi ? Tools::getShopDomainSsl(true) . _PS_IMG_ . Configuration::get('PS_LOGO', null, null, $idShop) : $message->embed(\Swift_Image::fromPath($logo));
+                $templateVars['{shop_logo}'] = Tools::getShopDomainSsl(true) . _PS_IMG_ . Configuration::get('PS_LOGO', null, null, $idShop);
+            }
+            if (($context->link instanceof Link) === false) {
+                $context->link = new Link();
+            }
+            $url_params = isset($templateVars['{url_params}']) && $templateVars['{url_params}'] ? $templateVars['{url_params}'] : [];
+            $templateVars['{shop_name}'] = Tools::safeOutput($shop->name);
+            $templateVars['{shop_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('index', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{my_account_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('my-account', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{login_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('authentication', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{register_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('registration', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{guest_tracking_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('guest-tracking', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{history_url}'] = EtsAbancartTools::getInstance($context)->getCanonicalUrl($context->link->getPageLink('history', true, $idLang, null, false, $idShop), $url_params);
+            $templateVars['{color}'] = Tools::safeOutput(Configuration::get('PS_MAIL_COLOR', null, null, $idShop));
+            if (!empty($templateVars['{content}']) && (int)Configuration::get('ETS_ABANCART_EMAIL_GENERATE_URL') > 0) {
+                preg_match_all('/<a\s+([^>]*\s+)?href=["\']([^"\']*)["\']([^>]*)>/i', $templateVars['{content}'], $matches, PREG_SET_ORDER);
+                foreach ($matches as $match) {
+                    $fullTag = $match[0];
+                    $otherAttributes = $match[1];
+                    $hrefValue = $match[2];
+                    $remainingTag = $match[3];
+                    if (filter_var($hrefValue, FILTER_VALIDATE_URL) && !preg_match('/\/link\?_ab=.+$/', $hrefValue)) {
+                        $newHrefValue = EtsAbancartTools::getInstance($context)->getCanonicalUrl($hrefValue, $url_params);
+                        $newTag = '<a ' . $otherAttributes . 'href="' . $newHrefValue . '"' . $remainingTag . '>';
+                        $templateVars['{content}'] = str_replace($fullTag, $newTag, $templateVars['{content}']);
+                    }
+                }
+            }
+            if (isset($templateVars['{content}']))
+                $templateVars['{context}'] = $templateVars['{content}'];
+            $extraTemplateVars = [];
+            Hook::exec(
+                'actionGetExtraMailTemplateVars',
+                array(
+                    'template' => $template,
+                    'template_vars' => $templateVars,
+                    'extra_template_vars' => &$extraTemplateVars,
+                    'id_lang' => (int)$idLang,
+                ),
+                null,
+                true
+            );
+            $templateVars = array_merge($templateVars, $extraTemplateVars);
+            $send = false;
+            if ($isMailApi) {
+                $mailMsg = $templateTxt;
+                if ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH || $configuration['PS_MAIL_TYPE'] == Mail::TYPE_HTML) {
+                    $mailMsg = $templateHtml;
+                }
+                if ($mailMsg) {
+                    foreach ($templateVars as $key => $value) {
+                        $mailMsg = str_replace($key, $value, $mailMsg);
+                    }
+                } else
+                    return false;
+
+                $apiKeyId = $mailApiType !== 'hotmail' ? Configuration::get('ETS_ABANCART_MAIL_API_KEY_' . Tools::strtoupper($mailApiType), null, null, $idShop) : null;
+                switch ($mailApiType) {
+                    case 'sendgrid' :
+                        $send = self::sendGrid(
+                            $apiKeyId,
+                            $message->getSubject(),
+                            $to,
+                            $toName,
+                            $from,
+                            $fromName,
+                            $bcc,
+                            $replyTo,
+                            $replyToName,
+                            $mailMsg
+                        );
+                        if (is_array($send) && isset($send['error'])) {
+                            $errors[] = $send['error'];
+                            return false;
+                        }
+                        break;
+                    case 'sendinblue' :
+                        $send = self::sendinBlue(
+                            $apiKeyId,
+                            $message->getSubject(),
+                            $to,
+                            $toName,
+                            $from,
+                            $fromName,
+                            $bcc,
+                            $replyTo,
+                            $replyToName,
+                            $mailMsg
+                        );
+                        if (is_array($send) && isset($send['error'])) {
+                            $errors[] = $send['error'];
+                            return false;
+                        }
+                        break;
+                    case 'mailjet' :
+                        $send = self::mailJet(
+                            $apiKeyId,
+                            Configuration::get('ETS_ABANCART_MAIL_SECRET_KEY_' . Tools::strtoupper($mailApiType), null, null, $idShop),
+                            $message->getSubject(),
+                            $to,
+                            $toName,
+                            $from,
+                            $fromName,
+                            $bcc,
+                            $replyTo,
+                            $replyToName,
+                            $mailMsg
+                        );
+                        if (isset($send['error']) && $send['error'] !== '') {
+                            $errors[] = $send['error'];
+
+                            return false;
+                        }
+                        break;
+                    case 'hotmail':
+                        $send = self::sendOutlookMail(
+                            $subject,
+                            $to,
+                            $toName,
+                            $mailMsg,
+                            null,
+                            null,
+                            $bcc,
+                            $replyTo,
+                            $replyToName,
+                            $context
+                        );
+                        if (isset($send['error']) && $send['error'] !== '') {
+                            $errors[] = $send['error'];
+                            return false;
+                        }
+                        break;
+                    default:
+                        return false;
+                }
+            } else {
+                $swift->registerPlugin(new \Swift_Plugins_DecoratorPlugin(array(self::toPunycode($toPlugin) => $templateVars)));
+                if ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH ||
+                    $configuration['PS_MAIL_TYPE'] == Mail::TYPE_HTML
+                ) {
+                    $message->addPart($templateHtml, 'text/html', 'utf-8');
+                    if ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH) {
+                        $message->addPart($templateTxt, 'text/plain', 'utf-8');
+                    }
+                } else {
+                    $message->addPart($templateTxt, 'text/plain', 'utf-8');
+                }
+                if (!empty($fileAttachment)) {
+                    // Multiple attachments?
+                    if (!is_array(current($fileAttachment))) {
+                        $fileAttachment = [$fileAttachment];
+                    }
+
+                    foreach ($fileAttachment as $attachment) {
+                        if (isset($attachment['content'], $attachment['name'], $attachment['mime'])) {
+                            $message->attach(
+                                (new Swift_Attachment())->setFilename(
+                                    $attachment['name']
+                                )->setContentType($attachment['mime'])
+                                    ->setBody($attachment['content'])
+                            );
+                        }
+                    }
+                }
+                $message->setFrom(array($from => $fromName));
+                Hook::exec('actionMailAlterMessageBeforeSend', array(
+                    'message' => &$message,
+                ));
+                $send = $swift->send($message);
+            }
+
+            ShopUrl::resetMainDomainCache();
+
+            if ($send && Configuration::get('PS_LOG_EMAILS')) {
+                $mail = new Mail();
+                $mail->template = Tools::substr($template, 0, 62);
+                $mail->subject = Tools::substr($subject, 0, 255);
+                $mail->id_lang = (int)$idLang;
+                $recipientsTo = $message->getTo();
+                $recipientsCc = $message->getCc();
+                $recipientsBcc = $message->getBcc();
+                if (!is_array($recipientsTo)) {
+                    $recipientsTo = [];
+                }
+                if (!is_array($recipientsCc)) {
+                    $recipientsCc = [];
+                }
+                if (!is_array($recipientsBcc)) {
+                    $recipientsBcc = [];
+                }
+                foreach (array_merge($recipientsTo, $recipientsCc, $recipientsBcc) as $email => $recipient_name) {
+                    $mail->id = null;
+                    $mail->recipient = Tools::substr($email, 0, 255);
+                    $mail->add();
+                }
+                unset($recipient_name);
+            }
+
+            return $send;
+        } catch (\Swift_SwiftException $e) {
+            PrestaShopLogger::addLog(
+                'Swift Error: ' . $e->getMessage(),
+                3,
+                null,
+                version_compare(_PS_VERSION_, '8.0.0', '>=') ? 'SwiftMessage' : 'Swift_Message'
+            );
+            $errors = $e->getMessage();
+            return false;
+        }
+    }
+}

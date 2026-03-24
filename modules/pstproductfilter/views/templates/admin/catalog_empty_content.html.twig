@@ -1,0 +1,21 @@
+{#**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2019 Presta.Site
+ * @license   LICENSE.txt
+*#}
+{% extends constant('\Twig\\Environment::VERSION') starts with '1.'
+    ? 'PrestaShopBundle:Admin/Product/CatalogPage:catalog.html.twig'
+    : '@!PrestaShop/Admin/Product/CatalogPage/catalog.html.twig' %}
+
+{% block content %}
+    {{ renderhook('pstProductFilter', {'display': true}) }}
+    <div id="pstpf-product-list-wrp">
+        {{ parent() }}
+    </div>
+{% endblock %}

@@ -1,0 +1,130 @@
+/**
+* 2007-2023 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2023 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*
+* Don't forget to prefix your containers with your own identifier
+* to avoid any conflicts with others containers.
+*/
+
+
+/* HEADER */
+.fondBrlDegrade {
+	background: #4ec0e7;
+    background: linear-gradient(to right, #4ec0e7, #47cfaf);
+    color: #fff;
+    padding: 10px 20px !important;
+}
+.brlHeader {
+    display: flex;
+    align-items: center;
+}
+.brlHeaderColWidth {
+    width: 100%;
+}
+.brlHeaderCenterDoc {
+    width: 100px;
+    text-align: center;
+}
+.brlHeaderLink:hover {
+    text-decoration: none !important;
+}
+.brlHeaderDoc {
+	max-width: 45px;
+}
+.brlHeaderReadMe {
+    margin-left: 6px;
+    color: white;
+}
+.brlHeaderAlign {
+    text-align: right;
+}
+.brlHeaderLogoStyle {
+    display: inline-block; 
+    border-right: solid 1px #fff; 
+    margin-right: 15px;
+    padding-right: 15px;
+}
+.brlHeaderLogo {
+    max-height: 75px;
+}
+.brlHeaderLinkModulesStyle {
+    display: inline-block; 
+    color: #fff !important;
+    text-decoration: none !important;
+    text-align: center;
+    vertical-align: middle;
+}
+.brlHeaderIconModulesStyle {
+    color: #fff; 
+    font-size: 38px;
+}
+
+/* FOOTER */
+.panelFooterBrl {
+    background-color: #dedede !important;
+}
+.brlFooterIconAlign {
+    display: flex;
+    align-items: center;
+    margin-left: -6px !important;
+    text-decoration: none !important;
+}
+.brlFooterH3 {
+    border-bottom: 1px solid #797979 !important;
+    margin-right: 10px !important;
+}
+.brlFooterIcon {
+    width: 24px;
+    font-size: 18px;
+}
+.brlFooterLinkColor {
+    color: #555 !important;
+}
+.btnBrlFooterModeDebug {
+    width: 166px;
+    background-color: #db7e85;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    color: white !important;
+    text-decoration: unset !important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.btnBrlFooterModeDebug:hover {
+    background-color: #ca6f6f;
+}
+.btnBrlFooterActiveModeDebug {
+    width: 146px !important;
+    background-color: #64c2b4;
+}
+.btnBrlFooterActiveModeDebug:hover, .btnBrlFooterDeleteLog:hover {
+    background-color: #5da69b;
+}
+.btnBrlFooterDeleteLog {
+    width: 174px !important;
+    background-color: #64c2b4;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

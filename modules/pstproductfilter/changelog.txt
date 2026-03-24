@@ -1,0 +1,162 @@
+# Changelog
+
+
+## [1.3.6] - 2024-11-24
+### Fixed
+- Missing category filter after reloading the product list
+- Saving the column order in filter sets
+- Resetting the column order when resetting the current filter set
+- Resetting the column order to defaults when a filter set is active
+
+
+## [1.3.5] - 2024-11-20
+### Fixed
+- The "Visibility" filter input behavior in the header of the order table
+- Saving the column order in filter sets
+### Improved
+- The process of resetting filters
+- Now filter sets also remember default PrestaShop filters
+
+
+## [1.3.4] - 2024-10-29
+### Fixed
+- A problem with detection of the new product list page in PS 8.2
+
+
+## [1.3.3] - 2024-06-18
+### Added
+- New column "Public price"
+### Fixed
+- Incorrect display on mobile when option "Full width" is active
+
+
+## [1.3.2] - 2023-12-31
+### Added
+- New column "Margin"
+### Improved
+- Now, when using the attribute filter, the module also shows the matching combination prices and quantities
+### Fixed
+- Possible type errors
+- Using overrides for adding new filters and columns in PS 1.7
+
+
+## [1.3.1] - 2023-09-02
+### Fixed
+- Unnecessary displaying of the filter block on the product creation in PS 8.1
+
+
+## [1.3.0] - 2023-08-22
+### Added
+- Support for PS 8.1
+- New column "Categories"
+- New filter "Name"
+
+
+## [1.2.2] - 2023-05-18
+### Added
+- New column "References"
+- New filter "Reference"
+### Improved
+- Minor style changes
+
+
+## [1.2.1] - 2023-05-05
+### Added
+- Possibility to check/uncheck all items in list options
+- Option "Strict match" to dropdown selects
+### Fixed
+- Error on the empty product list page in PS8+
+- Missing data when using filter lazy loading
+- Error because of non-existing column MPN in PS 1.7.5-1.7.6
+### Improved
+- Minor improvements in dropdown filters with groups of values ("Feature value" etc.)
+- Removed deprecated hooks
+
+
+## [1.2.0] - 2023-04-17
+### Added
+- New filter and column MPN
+- Search input to the brand filter
+- CSS/JS URL versioning (for CSS - only in PS 8.0+)
+- Lazy loading for dropdown filters
+### Improved
+- The module no longer uses cookies
+- Removed option "Skip writing cookies"
+- The appearance of the column list in the module settings
+- Column management
+- Updated the module code to comply PrestaShop coding standards
+- Now the module displays the EAN13, UPC, ISBN of the combination in addition to the product data in the corresponding columns
+### Fixed
+- Error on saving column settings
+
+
+## [1.1.1] - 2023-01-17
+### Added
+- Filter for brand in the filter row in the product list
+### Fixed
+- Resetting filter values when reloading the Products page
+
+
+## [1.1.0] - 2022-10-17
+### Added
+- Support for PrestaShop 8
+- Auto-detection of non-default columns
+### Improved
+- Now the filter block is hidden when printing the Products page
+- Minor style improvements
+### Changed
+- Now option "Skip writing cookies" is active by default
+
+
+## [1.0.7] - 2022-09-04
+### Improved
+- Compatibility with third-party modules
+- Now search by EAN13, UPC and ISBN also searches in combinations
+
+
+## [1.0.6] - 2022-05-30
+### Fixed
+- Some columns had empty values when using export to CSV
+- Inability to submit the standard filters after reloading the product list by Ajax
+### Improved
+- Performance
+
+
+## [1.0.5] - 2022-04-28
+### Added
+- Text input fields in slider filters
+### Changed
+- Column names in CSV export to avoid problems with Excel
+### Improved
+- French translation
+
+
+## [1.0.4] - 2022-02-19
+### Added
+- New filter and column "Stock location"
+- New column "Detailed number of sales"
+### Improved
+- Filter block appearance in PS 1.7.8
+
+
+## [1.0.3] - 2022-01-15
+### Added
+- An option for avoiding problems with writing cookies
+### Improved
+- Now advanced settings at the module configuration page are visible by default
+
+
+## [1.0.2] - 2021-11-26
+### Improved
+- Loading speed when working with large number of products
+
+
+## [1.0.1] - 2021-08-27
+### Fixed
+- Updating the product list after clearing filters
+### Improved
+- Compatibility with nginx
+
+
+## [1.0.0] - 2020-06-04
+- The module created

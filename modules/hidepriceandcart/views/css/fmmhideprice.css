@@ -1,0 +1,49 @@
+/*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+* @author    FMM Modules
+* @copyright FMM Modules
+* @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+* @package   hidepriceandcart
+*/
+
+.fmm-hide-price {
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+#fmm-hide-price-product-page,
+#fmm-hide-price-product-page-16 {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#fmm-hide-price-product-page h2 {
+    margin-top: revert;
+}
+
+.fmm-product-quantity,
+.fmm-content-prices,
+.fmm-product-prices,
+.fmm-product-variants,
+.fmm-add-to-cart {
+    display: none!important;
+}
+
+.fmm-hide-price p { margin: 0; padding: 0;}
+.hidepriceandcart_msg p { margin: 0; padding: 0;}
+.hidepriceandcart_msg{
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}

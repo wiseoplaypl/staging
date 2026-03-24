@@ -1,0 +1,146 @@
+.elementor-widget-shopping-cart:not(.elementor-cart--show-view-cart-yes) .elementor-cart__footer-buttons > :first-child,
+.elementor-widget-shopping-cart:not(.elementor-cart--show-checkout-yes) .elementor-cart__footer-buttons > :last-child,
+.elementor-widget-shopping-cart:not(.elementor-cart--show-shipping-yes) .elementor-cart__summary :not(div),
+.elementor-widget-shopping-cart:not(.elementor-cart--show-subtotal-yes) .elementor-cart__toggle .elementor-button-text {
+	display: none; }
+
+.elementor-cart__toggle a.elementor-button:not(#e) {
+	color: #818a91; }
+.elementor-cart__toggle .elementor-button {
+	background: transparent;
+	border-radius: 0;
+	border: 1px solid;
+	border-color: inherit;
+	display: inline-flex;
+	align-items: center; }
+body.lang-rtl .elementor-cart--align-icon-left .elementor-cart__toggle .elementor-button,
+body:not(.lang-rtl) .elementor-cart--align-icon-right .elementor-cart__toggle .elementor-button {
+	flex-direction: row-reverse; }
+.elementor-cart__toggle .elementor-button {
+	gap: 0.5em; }
+.elementor-cart__toggle .elementor-button-icon {
+	position: relative;
+	transition: color 0.1s; }
+
+.elementor-cart--items-indicator-bubble .elementor-cart__toggle .elementor-button-icon[data-counter]::before {
+	content: attr(data-counter);
+	display: block;
+	position: absolute;
+	min-width: 1.6em;
+	height: 1.6em;
+	line-height: 1.5em;
+	top: -0.7em;
+	right: -0.7em;
+	border-radius: 100%;
+	color: #fff;
+	background-color: #d9534f;
+	text-align: center;
+	font-size: 10px; }
+.elementor-cart--empty-indicator-hide .elementor-cart__toggle .elementor-button-icon[data-counter='0']::before {
+	content: none;
+	display: none; }
+
+.elementor-cart__container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: var(--e-cart-overlay-color, rgba(0, 0, 0, 0.25));
+	transition: background-color 0.4s; }
+	.elementor-cart__container .elementor-cart__main {
+		position: fixed;
+		top: 0;
+		inset-inline-end: 0;
+		bottom: 0;
+		width: 350px;
+		max-width: 100%;
+		padding: 0 30px;
+		background-color: white;
+		transform: translateX(0);
+		transition: 0.3s; }
+	.elementor-cart__container:not(.elementor-cart--shown) {
+		background-color: transparent; }
+		.elementor-cart__container:not(.elementor-cart--shown) .elementor-cart__main {
+			overflow: hidden;
+			opacity: 0;
+			transform: translateX(100%); }
+
+.elementor-cart__main {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	font-size: 14px; }
+
+.elementor-cart__title {
+	min-height: 65px;
+	font-size: 20px;
+	line-height: 60px; }
+.elementor-cart__close-button {
+	position: absolute;
+	font-size: 25px;
+	width: 1em;
+	height: 1em;
+	margin: 20px 0;
+	color: #818a91;
+	align-self: flex-end;
+	transition: color 0.5s;
+	cursor: pointer; }
+
+.elementor-cart__product {
+	position: relative;
+	display: grid;
+	grid-template-columns: 25% auto 50px;
+	grid-template-rows: 75% auto; }
+	.elementor-cart__product-image {
+		grid-row-start: 1;
+		grid-row-end: 3;
+		width: 100%; }
+		.elementor-cart__product-image img, .elementor-cart__product-image a {
+			display: block; }
+	.elementor-cart__product-name {
+		grid-column-start: 2;
+		grid-column-end: 4;
+		margin: 0; }
+	.elementor-cart__product-price {
+		align-self: end;
+		color: #D4D4D4; }
+		.elementor-cart__product-price del {
+			font-weight: 300; }
+	.elementor-cart__product-name, .elementor-cart__product-price {
+		font-size: 14px;
+		padding-inline-start: 20px; }
+	.elementor-cart__product-remove {
+		align-self: center;
+		justify-self: end;
+		color: #818a91;
+		font-size: 21px;
+		text-align: center;
+		position: relative;
+		transition: color 0.5s; }
+		.elementor-cart__product-remove > a {
+			display: block;
+			z-index: 2;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			opacity: 0;
+			position: absolute; }
+
+.elementor-cart__product:not(:last-of-type), .elementor-cart__products, .elementor-cart__summary {
+	border-bottom: solid 1px #D4D4D4; }
+.elementor-cart__product:not(:first-of-type), .elementor-cart__summary, .elementor-cart__footer-buttons {
+	padding: 20px 0; }
+
+.elementor-cart__product, .elementor-cart__summary {
+	padding-bottom: 20px; }
+.elementor-cart__summary-label {
+	clear: both;
+	float: left; }
+.elementor-cart__summary-value {
+	float: right; }
+
+.elementor-cart__footer-buttons {
+	display: grid;
+	gap: 10px; }
+.elementor-cart--buttons-inline .elementor-cart__footer-buttons {
+	grid-template-columns: 1fr 1fr; }

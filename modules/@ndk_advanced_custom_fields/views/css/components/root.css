@@ -1,0 +1,21 @@
+:root {
+  --ndkacf-loader-width: 70px;
+  --ndkacf-loader-height: 70px;
+  --ndkacf-loader-color-primary: #333;
+  --ndkacf-loader-color-secondary: #999;
+  --ndkacf-line-width: 3px;
+  --ndkacf-animation-duration: 2s;
+  --ndkacf-loader-initial-scale: 0.1;
+  --ndkacf-ui-color-primary: #4af;
+  --ndkacf-ui-color-hover: #7d9;
+  --ndkacf-ui-color-soft: #ebebeb;
+  --ndkacf-ui-soft-bg: #f5f5f5;
+  --ndkacf-ui-main-bg: #fff;
+  --ndkacf-ui-color-remove: #f55;
+  --ndkacf-ui-main-text-color: #333;
+  --ndkacf-ui-color-alert: #f55;
+}
+
+.ndkacf-movable-zone {
+  --ndkacf-ui-color-primary: #f55;
+}

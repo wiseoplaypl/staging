@@ -1,0 +1,222 @@
+
+.style_tabs .prestashop-switch {
+    display: inline-block;
+}
+
+.style_tabs .tabs:after
+{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.style_tabs .tabs li
+{
+    float: left;
+    /*line-height: 30px;*/
+    color: #333333;
+    background: #ffffff;
+    font-size: 14px;
+    /*text-transform: uppercase;*/
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.style_tabs .tabs li.active
+{
+    background: #03a9db;
+}
+
+.style_tabs .tabs li.active a
+{
+    color: #FFFFFF;
+}
+
+.style_tabs .nav-tabs>li>a {
+    border-radius: 0;
+}
+
+.style_tabs .nav-tabs>li.active>a,
+.style_tabs .nav-tabs>li.active>a:hover,
+.style_tabs .nav-tabs>li.active>a:focus {
+    border: none;
+}
+
+.style_tabs .tabs li:after
+{
+    content: '';
+    display: block;
+    width: 3px;
+    height: 1px;
+    background: #DDDDDD;
+    position: absolute;
+    left: -3px;
+    bottom: 0;
+}
+.style_tabs .tabs li:first-child:after
+{
+    display: none;
+}
+
+.style_tabs .nav-tabs li.active a,
+.style_tabs .nav-tabs li.active a:hover,
+.style_tabs .nav-tabs li.active a:focus {
+    background-color: #03a9db;
+    color: #FFFFFF;
+}
+
+.style_tabs .tabs .material-icons {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.style_tabs .tabs .arrow {
+    padding: .9375rem .3125rem;
+    position: relative;
+    height: 3rem;
+    z-index: 3;
+    visibility: hidden;
+    background: #25b9d7;
+    color: #fff;
+    cursor: pointer;
+}
+
+.style_tabs .tabs .arrow.visible {
+    visibility: visible
+}
+
+.style_tabs .tabs .right-arrow {
+    margin-top: -3.125rem
+}
+
+.style_tabs .tabs_content
+{
+    border: 1px solid #03a9db;
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+}
+.style_tabs .tabs_content > div
+{
+    padding: 15px;
+}
+
+.style_tabs .nav-tabs {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.style_tabs .nav-tabs>li>a {
+    margin-right: 0;
+    border: none;
+}
+
+.style_tabs .link-sitemap,
+.style_tabs .link-pages-sitemap {
+    width: 100%;
+    float: left;
+    line-height: 2em;
+}
+
+.style_tabs .link-pages-sitemap ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.style_tabs .cron-sitemap {
+    word-wrap: break-word;
+}
+
+.style_tabs .shop_domain {
+    line-height: 26px;
+}
+.style_tabs .shop_domain_wrap {
+    min-width: 200px;
+}
+
+.style_tabs .form-group .translatable-field input[type="text"] {
+    margin: 0;
+}
+
+.style_tabs .default-settings {
+    border-bottom: solid 1px #dfdfdf;
+    padding-bottom: 15px;
+}
+
+.style_tabs .block_search_product {
+    border-bottom: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 13px;
+    margin-bottom: 9px !important;
+}
+
+.style_tabs .search_manufacturer_wrap {
+    border-bottom: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.style_tabs .search_supplier_wrap {
+    border-bottom: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.style_tabs .search-category-wrap {
+    border-bottom: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.style_tabs .sitemap-excluded-wrap {
+    border-bottom: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.style_tabs .icon-remove:before {
+    content: "\f1f8";
+}
+
+#tab5 .separator {
+    float: left;
+    width: 100%;
+    border-bottom: solid 1px #dfdfdf;
+    margin-bottom: 15px;
+}
+
+#tab5 .tabs_content > .separator {
+    margin-top: 22px;
+}
+
+#tab5 .tabs_content > .separator:last-child {
+    border: none;
+    margin-bottom: 0;
+}
+
+.tab_container {
+    max-width: 991px;
+    position: relative;
+    margin-bottom: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.tab_container .tabs_content {
+    padding: 15px;
+    border: solid 1px #d3d8db !important;
+    background-color: #fff;
+    border-radius: 0px !important;
+}

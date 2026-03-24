@@ -1,0 +1,196 @@
+name: woodhub
+display_name: Woodhub
+version: 1.0.0
+theme_key: 
+author:
+  name: "Mahardhi Team"
+  url: "https://www.templatemonster.com/authors/mahardhi/"
+
+meta:
+  compatibility:
+      from: 1.7.0.0
+      to: ~
+
+  available_layouts:
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages such as product pages.
+    layout-both-columns:
+      name: Three Columns
+      description: One large central column and 2 side columns.
+    layout-left-column:
+      name: Two Columns, small left column
+      description: Two columns with a small left column
+    layout-right-column:
+      name: Two Columns, small right column
+      description: Two columns with a small right column
+
+assets:
+  # If you're using this theme as child and you want to load
+  # the parent theme assets, uncomment this line.
+#  use_parent_assets: true
+
+  # The following lines are showing how to load assets in your page
+  # Uncomment and change value to start loading css or js files
+#  css:
+#    all:
+#      - id: custom-lib-style
+#        path: assets/css/custom-lib.css
+#    product:
+#      - id: product-style
+#        path: assets/css/product.css
+#        media: all
+#        priority: 200
+#  js:
+#    cart:
+#      - id: cat-extra-lib
+#        path: assets/js/cart-lib.js
+dependencies:
+  modules:
+    - mt_banner
+    - mt_blockwishlist
+    - mt_brands
+    - mt_compare
+    - mt_contactus
+    - mt_customhtml
+    - mt_footerpayment
+    - mt_customtext
+    - mt_homeslider
+    - mt_newsletterpopup
+    - mt_productcomments
+    - mt_promoblock
+    - mt_producttab
+    - mt_search
+    - mt_socialfollow
+    - mt_themesettings
+    - mt_testimonials
+
+global_settings:
+  configuration:
+    PS_IMAGE_QUALITY: png
+  modules:
+    to_enable:
+      - mt_themesettings
+      - mt_newsletterpopup
+      - mt_productcomments
+      - ps_bestsellers
+      - ps_specials
+    to_disable:
+      - ps_banner
+      - ps_imageslider
+  hooks:
+    custom_hooks:
+      - name: displayNav3
+        title: displayNav3
+        description: Adds Block in the header
+    modules_to_hook:
+      displayNav1:
+        - ps_currencyselector
+        - ps_languageselector
+      displayNav2:
+        - mt_customtext
+      displayNav3:
+        - mt_search
+        - ps_customersignin
+        - ps_shoppingcart
+      displayNav:
+        - ps_mainmenu
+      displayTopColumn:
+        - mt_homeslider
+      displayHome:
+        - mt_producttab
+        - mt_customhtml
+        - mt_promoblock
+        - ps_emailsubscription
+        - ps_specials
+        - mt_brands
+      displayFooterAfter:
+        - mt_socialfollow
+      displayFooter:
+        - mt_contactus
+        - ps_linklist
+        - ps_customeraccountlinks
+        - mt_testimonials
+      displayFooterPayment:
+        - mt_footerpayment
+      displayLeftColumn:
+        - ps_categorytree
+        - ps_facetedsearch
+        - ps_bestsellers
+        - mt_banner
+      displaySearch:
+        - ps_searchbar
+      displayCompareButton:
+        - mt_compare
+      displayProductListFunctionalButtons:
+        - mt_blockwishlist
+      displayProductAdditionalInfo:
+        - ps_sharebuttons
+      displayReassurance:
+        - blockreassurance
+      displayOrderConfirmation2:
+        - ps_featuredproducts
+      displayCrossSellingShoppingCart:
+        - ps_featuredproducts
+      customerAccount:
+        - mt_blockwishlist
+      displayMyAccountBlock:
+        - mt_blockwishlist
+
+  image_types:
+    cart_default:
+      width: 75
+      height: 100
+      scope: [products]
+    small_default:
+      width: 75
+      height: 100
+      scope: [products, categories, manufacturers, suppliers]
+    medium_default:
+      width: 360
+      height: 480
+      scope: [products, suppliers]
+    home_default:
+      width: 360
+      height: 480
+      scope: [products]
+    large_default:
+      width: 750
+      height: 1000
+      scope: [products, suppliers]
+    category_default:
+      width: 1140
+      height: 260
+      scope: [categories]
+    stores_default:
+      width: 170
+      height: 115
+      scope: [stores]
+
+theme_settings:
+  default_layout: layout-full-width
+  layouts:
+    category: layout-left-column
+    best-sales: layout-left-column
+    new-products: layout-left-column
+    prices-drop: layout-left-column
+    contact: layout-left-column
+    Brands : layout-left-column
+    search: layout-left-column
+    manufacturer: layout-left-column
+    password: layout-left-column
+    sitemap: layout-left-column
+    supplier: layout-left-column
+    address: layout-left-column
+    addresses: layout-left-column
+    authentication: layout-left-column
+    discount: layout-left-column
+    history: layout-left-column
+    identity: layout-left-column
+    my-account: layout-left-column
+    order-follow: layout-left-column
+    order-slip: layout-left-column
+    order: layout-left-column
+    stores: layout-left-column
+    guest-tracking: layout-left-column
+    cms: layout-left-column

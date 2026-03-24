@@ -1,0 +1,166 @@
+*****************************************
+*              CHANGE LOG 
+*          PRODUCT RICH SNIPPETS 
+*           PRESTASHOP MODULE
+*****************************************
+
+v.1.21.0
+02/15/2025
+-------
+- Reworked the way the module gets reviews to avoid conflicts with other modules
+- Added tests for the module
+
+v.1.20.0
+10/09/2023
+-------
+- Added compatibility with `Product reviews simple +` module from `SPM` - https://addons.prestashop.com/en/customer-reviews/42259-product-reviews-simple-.html
+
+v.1.19.0
+03/06/2023
+-------
+- Add @id and url to Product snippet and Brand type to brand snippet
+
+v.1.18.1
+02/06/2023
+-------
+- Fix error with hook name
+
+v.1.18.0
+12/21/2022
+-------
+- Added compatibility with `Revws - Avis - Reviews module ` module from `DataKick` - https://store.getdatakick.com/en/modules/revws
+
+v.1.17.0
+06/20/2022
+-------
+- Added compatibility with `Prestashop Free product reviews (comments)` module from `MyPresta` - https://mypresta.eu/modules/advertising-and-marketing/free-product-reviews-comments.html
+- Identify review author as Person instead on Thing
+
+v.1.16.0
+09/29/2021
+-------
+- Added compatibility with `Verified Reviews` module from `NetReviews` - https://addons.prestashop.com/en/customer-reviews/17497-verified-reviews.html
+
+v.1.15.0
+03/23/2021
+-------
+- Added compatibility with older versions of `GSnippetsReviews` (3.2.9) module also called `Google Rich Snippets + Product Ratings and Reviews`
+
+v.1.14.0
+03/16/2021
+-------
+- Added compatibility with product combinations from older Prestashops without an specific URL per combination.
+
+v.1.13.0
+02/08/2021
+-------
+- Added compatibility with `Product, Shop Reviews, Loyalty Program, Google Snippets` module - https://addons.prestashop.com/es/comentarios-clientes/41875-product-shop-reviews-loyalty-program-google-snippets.html
+
+v.1.12.0
+12/01/2020
+-------
+- Added compatibility with `Yotpo - Social Reviews and Testimonials` module
+- Fill 'priceValidUntil' with a default value if not available
+
+v.1.11.2
+09/29/2020
+-------
+- Fixed compatibility with `Store Reviews + Product Reviews + Google Rich Snippets Module` Línea Gráfica module: https://addons.prestashop.com/en/customer-reviews/17896-store-reviews-product-reviews-google-rich-snippets.html
+
+v.1.11.1
+08/03/2020
+-------
+- Fixed aggregate rating out of range
+- Fixed invalid JSON on review body
+
+v.1.11.0
+07/30/2020
+-------
+- Added compatibility with `Store Reviews + Product Reviews + Google Rich Snippets Module` Línea Gráfica module: https://addons.prestashop.com/en/customer-reviews/17896-store-reviews-product-reviews-google-rich-snippets.html
+
+v.1.10.1
+07/02/2020
+-------
+- Add short description if no long description is present
+- Prevent Fatal error when ProductComment class is not found
+
+v.1.10.0
+06/10/2020
+-------
+- Added compatibility with `Trusted Shops Reviews Toolkit Module` TrustedShopsIntegration module: https://addons.prestashop.com/en/customer-reviews/25815-trusted-shops-reviews-toolkit.html
+- Fix rating value from `GSnippetsReviews` module
+- Fix PHP warning in ProductAdapter
+- Fixed compatibility with newer version of Prestashop's module ProductComments
+
+v.1.9.0
+04/21/2020
+-------
+- Added compatibility with Prestashop's module ProductComments
+- Added compatibility with `GSnippetsReviews` module called `Customer Ratings and Reviews Pro + Google Rich Snippets`
+
+v.1.8.0
+03/25/2020
+-------
+- Added optional tag priceValidUntil
+- Added EAN13 from combinations if available
+
+v.1.7.4
+02/25/2020
+-------
+- Fixed JSON format when single and double quotes are used in name or description
+
+v.1.7.3
+01/30/2020
+-------
+- Fixed JSON format when no reviews are added
+
+v.1.7.2
+01/25/2020
+-------
+- Fix PS 1.6 issue while loading namespaces
+
+v.1.7.1
+12/23/2019
+-------
+- Code refactoring + unit testing
+
+v.1.7.0
+12/21/2019
+-------
+- Added compatibility with "TD - Product Comments (tdproductcomment)" module.
+
+v.1.6.1
+11/19/2019
+-------
+- Fix error on old PS versions while getting image types
+
+v.1.6.0
+08/22/2019
+-------
+- Converted rich snippets to new JSON-LD format
+- Added additional parameters: sku, gtin13, mpn, product URL
+
+v.1.5.2
+12/15/2018
+-------
+- Fixed tag clousure
+
+v.1.5.1
+04/12/2018
+-------
+- Added PrestaTrust address
+
+v.1.5.0
+22/12/2016
+------
+- Enhanced compatibility with prestashop 1.7
+
+v.1.4.1
+05/20/2015
+-------
+- fix: Google do not recognize quantity and condition as valid
+
+v.1.4
+-------
+- Initial release
+

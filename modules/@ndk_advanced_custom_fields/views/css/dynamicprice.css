@@ -1,0 +1,68 @@
+/**
+ *  Tous droits réservés NDKDESIGN
+ *
+ *  @author Hendrik Masson <postmaster@ndk-design.fr>
+ *  @copyright Copyright 2013 - 2022 Hendrik Masson
+ *  @license   Tous droits réservés
+*/
+
+.blockPrice {
+	display: none;
+	font-size: 1.3em;
+	font-weight: normal;
+	border-top: 1px solid #d2d0d0;
+	padding-top: 8px;
+	position: relative;
+	/* text-align: center; */
+	float: left;
+	width:100%
+}
+
+.quantityAvailableAlert{
+	font-size: 1.em;
+	white-space: normal;
+}
+
+.productPriceUp {
+	font-size: 1.3em;
+	margin-left: 5px;
+}
+
+.specificBlock{
+	display: none;
+}
+#oldPrice{
+	text-decoration: line-through;
+	margin-right: 7%;
+	font-size: 1.3em;
+}
+#specificPrice{
+	display: none;
+}
+
+.specificReductStyle {
+	background: #D9534F none repeat scroll 0 0;
+	/* border-radius: 100%; */
+	color: var(--ndkacf-ui-main-bg);
+	font-family: "Open Sans",sans-serif;
+	font-size: 1em;
+	font-weight: 600;
+	line-height: 30px;
+	padding: 5px;
+}
+
+#additionnal_price {
+	font-size: 0.6em;
+	margin-left: 0;
+	margin-right: 8px;
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom:5px
+}
+
+.old_price{
+	text-decoration:line-through;
+	font-size:13px
+}

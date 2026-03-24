@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>pstproductfilter</name>
+    <displayName><![CDATA[Admin Product Filter and Extra Columns]]></displayName>
+    <version><![CDATA[1.3.6]]></version>
+    <description><![CDATA[Fast and flexible ajax filter for products in Back Office.]]></description>
+    <author><![CDATA[PrestaSite]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

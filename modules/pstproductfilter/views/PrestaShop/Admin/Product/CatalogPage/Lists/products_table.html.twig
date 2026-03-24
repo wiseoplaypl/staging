@@ -1,0 +1,55 @@
+{#**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2019 Presta.Site
+ * @license   LICENSE.txt
+*#}
+{% extends constant('\Twig\\Environment::VERSION') starts with '1.'
+    ? 'PrestaShopBundle:Admin/Product/CatalogPage/Lists:products_table.html.twig'
+    : '@!PrestaShop/Admin/Product/CatalogPage/Lists/products_table.html.twig' %}
+
+{% block product_catalog_form_table_header %}
+    {{ render(controller('PrestaShop\\Module\\PstProductFilter\\Controller\\Admin\\ProductController::theadAction', {
+        'is_list_override': true,
+        'limit': limit,
+        'offset': offset,
+        'orderBy': orderBy,
+        'sortOrder': sortOrder,
+        'products': products,
+        'last_sql': last_sql,
+        'ps': (ps is defined ? ps : null),
+        'has_category_filter': has_category_filter
+    })) }}
+{% endblock %}
+
+{% block product_catalog_form_table_items %}
+    {{ render(controller('PrestaShop\\Module\\PstProductFilter\\Controller\\Admin\\ProductController::itemsAction', {
+        'is_list_override': true,
+        'limit': limit,
+        'offset': offset,
+        'orderBy': orderBy,
+        'sortOrder': sortOrder,
+        'products': products,
+        'last_sql': last_sql
+    })) }}
+{% endblock %}
+
+{% block product_catalog_form_table_filters %}
+    {{ render(controller('PrestaShop\\Module\\PstProductFilter\\Controller\\Admin\\ProductController::filtersAction', {
+        'is_list_override': true,
+        'limit': limit,
+        'offset': offset,
+        'orderBy': orderBy,
+        'sortOrder': sortOrder,
+        'products': products,
+        'last_sql': last_sql,
+        'ps': (ps is defined ? ps : null),
+        'has_category_filter': has_category_filter,
+        'activate_drag_and_drop': activate_drag_and_drop
+    })) }}
+{% endblock %}

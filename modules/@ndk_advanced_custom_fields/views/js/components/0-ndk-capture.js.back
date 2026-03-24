@@ -1,0 +1,404 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => {
+  // webpackBootstrap
+  /******/ "use strict";
+  /******/ var __webpack_modules__ = {
+    /***/ "./node_modules/css-loader/dist/cjs.js!./src/main.css":
+      /*!************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/main.css ***!
+  \************************************************************/
+      /***/ (module, __webpack_exports__, __webpack_require__) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, "", ""]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://my-webpack-project/./src/main.css?./node_modules/css-loader/dist/cjs.js'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/css-loader/dist/runtime/api.js":
+      /*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+      /***/ (module) => {
+        eval(
+          '\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (cssWithMappingToString) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item);\n\n      if (item[2]) {\n        return "@media ".concat(item[2], " {").concat(content, "}");\n      }\n\n      return content;\n    }).join("");\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery, dedupe) {\n    if (typeof modules === "string") {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, ""]];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var i = 0; i < this.length; i++) {\n        // eslint-disable-next-line prefer-destructuring\n        var id = this[i][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = [].concat(modules[_i]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        // eslint-disable-next-line no-continue\n        continue;\n      }\n\n      if (mediaQuery) {\n        if (!item[2]) {\n          item[2] = mediaQuery;\n        } else {\n          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/css-loader/dist/runtime/api.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/applyStyleWithOptions.js":
+      /*!****************************************************************!*\
+  !*** ./node_modules/html-to-image/es/applyStyleWithOptions.js ***!
+  \****************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "applyStyleWithOptions": () => (/* binding */ applyStyleWithOptions)\n/* harmony export */ });\nfunction applyStyleWithOptions(clonedNode, options) {\n    const { style } = clonedNode;\n    if (options.backgroundColor) {\n        style.backgroundColor = options.backgroundColor;\n    }\n    if (options.width) {\n        style.width = `${options.width}px`;\n    }\n    if (options.height) {\n        style.height = `${options.height}px`;\n    }\n    const manual = options.style;\n    if (manual != null) {\n        Object.keys(manual).forEach((key) => {\n            // @ts-expect-error\n            style[key] = manual[key];\n        });\n    }\n    return clonedNode;\n}\n//# sourceMappingURL=applyStyleWithOptions.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/applyStyleWithOptions.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/cloneNode.js":
+      /*!****************************************************!*\
+  !*** ./node_modules/html-to-image/es/cloneNode.js ***!
+  \****************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "cloneNode": () => (/* binding */ cloneNode)\n/* harmony export */ });\n/* harmony import */ var _getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBlobFromURL */ "./node_modules/html-to-image/es/getBlobFromURL.js");\n/* harmony import */ var _clonePseudoElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clonePseudoElements */ "./node_modules/html-to-image/es/clonePseudoElements.js");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/html-to-image/es/util.js");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\n\nfunction cloneSingleNode(node, options) {\n    return __awaiter(this, void 0, void 0, function* () {\n        if (node instanceof HTMLCanvasElement) {\n            const dataURL = node.toDataURL();\n            if (dataURL === \'data:,\') {\n                return Promise.resolve(node.cloneNode(false));\n            }\n            return (0,_util__WEBPACK_IMPORTED_MODULE_2__.createImage)(dataURL);\n        }\n        if (node instanceof HTMLVideoElement && node.poster) {\n            return Promise.resolve(node.poster)\n                .then((url) => (0,_getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__.getBlobFromURL)(url, options))\n                .then((data) => (0,_util__WEBPACK_IMPORTED_MODULE_2__.toDataURL)(data.blob, (0,_util__WEBPACK_IMPORTED_MODULE_2__.getMimeType)(node.poster) || data.contentType))\n                .then((dataURL) => (0,_util__WEBPACK_IMPORTED_MODULE_2__.createImage)(dataURL));\n        }\n        return Promise.resolve(node.cloneNode(false));\n    });\n}\nfunction cloneChildren(nativeNode, clonedNode, options) {\n    var _a;\n    return __awaiter(this, void 0, void 0, function* () {\n        const children = (0,_util__WEBPACK_IMPORTED_MODULE_2__.toArray)(((_a = nativeNode.shadowRoot) !== null && _a !== void 0 ? _a : nativeNode).childNodes);\n        if (children.length === 0) {\n            return Promise.resolve(clonedNode);\n        }\n        return children\n            .reduce((done, child) => done\n            .then(() => cloneNode(child, options))\n            .then((clonedChild) => {\n            if (clonedChild) {\n                clonedNode.appendChild(clonedChild);\n            }\n        }), Promise.resolve())\n            .then(() => clonedNode);\n    });\n}\nfunction decorate(nativeNode, clonedNode) {\n    return __awaiter(this, void 0, void 0, function* () {\n        if (!(clonedNode instanceof Element)) {\n            return clonedNode;\n        }\n        return Promise.resolve()\n            .then(() => cloneCssStyle(nativeNode, clonedNode))\n            .then(() => (0,_clonePseudoElements__WEBPACK_IMPORTED_MODULE_1__.clonePseudoElements)(nativeNode, clonedNode))\n            .then(() => cloneInputValue(nativeNode, clonedNode))\n            .then(() => clonedNode);\n    });\n}\nfunction cloneCssStyle(nativeNode, clonedNode) {\n    const source = window.getComputedStyle(nativeNode);\n    const target = clonedNode.style;\n    if (!target) {\n        return;\n    }\n    if (source.cssText) {\n        target.cssText = source.cssText;\n    }\n    else {\n        (0,_util__WEBPACK_IMPORTED_MODULE_2__.toArray)(source).forEach((name) => {\n            target.setProperty(name, source.getPropertyValue(name), source.getPropertyPriority(name));\n        });\n    }\n}\nfunction cloneInputValue(nativeNode, clonedNode) {\n    if (nativeNode instanceof HTMLTextAreaElement) {\n        clonedNode.innerHTML = nativeNode.value;\n    }\n    if (nativeNode instanceof HTMLInputElement) {\n        clonedNode.setAttribute(\'value\', nativeNode.value);\n    }\n}\nfunction cloneNode(nativeNode, options, isRoot) {\n    return __awaiter(this, void 0, void 0, function* () {\n        if (!isRoot && options.filter && !options.filter(nativeNode)) {\n            return Promise.resolve(null);\n        }\n        return Promise.resolve(nativeNode)\n            .then((clonedNode) => cloneSingleNode(clonedNode, options))\n            .then((clonedNode) => cloneChildren(nativeNode, clonedNode, options))\n            .then((clonedNode) => decorate(nativeNode, clonedNode));\n    });\n}\n//# sourceMappingURL=cloneNode.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/cloneNode.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/clonePseudoElements.js":
+      /*!**************************************************************!*\
+  !*** ./node_modules/html-to-image/es/clonePseudoElements.js ***!
+  \**************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          "__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clonePseudoElements\": () => (/* binding */ clonePseudoElements)\n/* harmony export */ });\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ \"./node_modules/html-to-image/es/util.js\");\n\nvar Pseudo;\n(function (Pseudo) {\n    function clonePseudoElement(nativeNode, clonedNode, pseudo) {\n        const style = window.getComputedStyle(nativeNode, pseudo);\n        const content = style.getPropertyValue('content');\n        if (content === '' || content === 'none') {\n            return;\n        }\n        const className = (0,_util__WEBPACK_IMPORTED_MODULE_0__.uuid)();\n        // fix: Cannot assign to read only property 'className' of object '#<…\n        try {\n            clonedNode.className = `${clonedNode.className} ${className}`;\n        }\n        catch (err) {\n            return;\n        }\n        const styleElement = document.createElement('style');\n        styleElement.appendChild(getPseudoElementStyle(className, pseudo, style));\n        clonedNode.appendChild(styleElement);\n    }\n    Pseudo.clonePseudoElement = clonePseudoElement;\n    function getPseudoElementStyle(className, pseudo, style) {\n        const selector = `.${className}:${pseudo}`;\n        const cssText = style.cssText\n            ? formatCssText(style)\n            : formatCssProperties(style);\n        return document.createTextNode(`${selector}{${cssText}}`);\n    }\n    function formatCssText(style) {\n        const content = style.getPropertyValue('content');\n        return `${style.cssText} content: '${content.replace(/'|\"/g, '')}';`;\n    }\n    function formatCssProperties(style) {\n        return (0,_util__WEBPACK_IMPORTED_MODULE_0__.toArray)(style)\n            .map((name) => {\n            const value = style.getPropertyValue(name);\n            const priority = style.getPropertyPriority(name);\n            return `${name}: ${value}${priority ? ' !important' : ''};`;\n        })\n            .join(' ');\n    }\n})(Pseudo || (Pseudo = {}));\nfunction clonePseudoElements(nativeNode, clonedNode) {\n    const pseudos = [':before', ':after'];\n    pseudos.forEach((pseudo) => Pseudo.clonePseudoElement(nativeNode, clonedNode, pseudo));\n}\n//# sourceMappingURL=clonePseudoElements.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/clonePseudoElements.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/createSvgDataURL.js":
+      /*!***********************************************************!*\
+  !*** ./node_modules/html-to-image/es/createSvgDataURL.js ***!
+  \***********************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          "__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createSvgDataURL\": () => (/* binding */ createSvgDataURL)\n/* harmony export */ });\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ \"./node_modules/html-to-image/es/util.js\");\n\nfunction createSvgDataURL(clonedNode, width, height) {\n    const xmlns = 'http://www.w3.org/2000/svg';\n    const svg = document.createElementNS(xmlns, 'svg');\n    const foreignObject = document.createElementNS(xmlns, 'foreignObject');\n    svg.setAttributeNS('', 'width', `${width}`);\n    svg.setAttributeNS('', 'height', `${height}`);\n    svg.setAttributeNS('', 'viewBox', `0 0 ${width} ${height}`);\n    foreignObject.setAttributeNS('', 'width', '100%');\n    foreignObject.setAttributeNS('', 'height', '100%');\n    foreignObject.setAttributeNS('', 'x', '0');\n    foreignObject.setAttributeNS('', 'y', '0');\n    foreignObject.setAttributeNS('', 'externalResourcesRequired', 'true');\n    svg.appendChild(foreignObject);\n    foreignObject.appendChild(clonedNode);\n    return (0,_util__WEBPACK_IMPORTED_MODULE_0__.svgToDataURL)(svg);\n}\n//# sourceMappingURL=createSvgDataURL.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/createSvgDataURL.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/embedImages.js":
+      /*!******************************************************!*\
+  !*** ./node_modules/html-to-image/es/embedImages.js ***!
+  \******************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "embedImages": () => (/* binding */ embedImages)\n/* harmony export */ });\n/* harmony import */ var _getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBlobFromURL */ "./node_modules/html-to-image/es/getBlobFromURL.js");\n/* harmony import */ var _embedResources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./embedResources */ "./node_modules/html-to-image/es/embedResources.js");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/html-to-image/es/util.js");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\n\nfunction embedImages(clonedNode, options) {\n    return __awaiter(this, void 0, void 0, function* () {\n        if (!(clonedNode instanceof Element)) {\n            return Promise.resolve(clonedNode);\n        }\n        return Promise.resolve(clonedNode)\n            .then((node) => embedBackground(node, options))\n            .then((node) => embedImageNode(node, options))\n            .then((node) => embedChildren(node, options));\n    });\n}\nfunction embedBackground(clonedNode, options) {\n    var _a;\n    return __awaiter(this, void 0, void 0, function* () {\n        const background = (_a = clonedNode.style) === null || _a === void 0 ? void 0 : _a.getPropertyValue(\'background\');\n        if (!background) {\n            return Promise.resolve(clonedNode);\n        }\n        return Promise.resolve(background)\n            .then((cssString) => (0,_embedResources__WEBPACK_IMPORTED_MODULE_1__.embedResources)(cssString, null, options))\n            .then((cssString) => {\n            clonedNode.style.setProperty(\'background\', cssString, clonedNode.style.getPropertyPriority(\'background\'));\n            return clonedNode;\n        });\n    });\n}\nfunction embedImageNode(clonedNode, options) {\n    if (!(clonedNode instanceof HTMLImageElement) || (0,_util__WEBPACK_IMPORTED_MODULE_2__.isDataUrl)(clonedNode.src)) {\n        return Promise.resolve(clonedNode);\n    }\n    const src = clonedNode.src;\n    return Promise.resolve(src)\n        .then((url) => (0,_getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__.getBlobFromURL)(url, options))\n        .then((data) => (0,_util__WEBPACK_IMPORTED_MODULE_2__.toDataURL)(data.blob, (0,_util__WEBPACK_IMPORTED_MODULE_2__.getMimeType)(src) || data.contentType))\n        .then((dataURL) => new Promise((resolve, reject) => {\n        clonedNode.onload = resolve;\n        clonedNode.onerror = reject;\n        clonedNode.srcset = \'\';\n        clonedNode.src = dataURL;\n    }))\n        .then(() => clonedNode, () => clonedNode);\n}\nfunction embedChildren(clonedNode, options) {\n    return __awaiter(this, void 0, void 0, function* () {\n        const children = (0,_util__WEBPACK_IMPORTED_MODULE_2__.toArray)(clonedNode.childNodes);\n        const deferreds = children.map((child) => embedImages(child, options));\n        return Promise.all(deferreds).then(() => clonedNode);\n    });\n}\n//# sourceMappingURL=embedImages.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/embedImages.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/embedResources.js":
+      /*!*********************************************************!*\
+  !*** ./node_modules/html-to-image/es/embedResources.js ***!
+  \*********************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "shouldEmbed": () => (/* binding */ shouldEmbed),\n/* harmony export */   "embedResources": () => (/* binding */ embedResources),\n/* harmony export */   "filterPreferredFontFormat": () => (/* binding */ filterPreferredFontFormat),\n/* harmony export */   "parseURLs": () => (/* binding */ parseURLs),\n/* harmony export */   "embed": () => (/* binding */ embed)\n/* harmony export */ });\n/* harmony import */ var _getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBlobFromURL */ "./node_modules/html-to-image/es/getBlobFromURL.js");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util */ "./node_modules/html-to-image/es/util.js");\n\n\nconst URL_REGEX = /url\\(([\'"]?)([^\'"]+?)\\1\\)/g;\nconst URL_WITH_FORMAT_REGEX = /url\\([^)]+\\)\\s*format\\((["\'])([^"\']+)\\1\\)/g;\nconst FONT_SRC_REGEX = /src:\\s*(?:url\\([^)]+\\)\\s*format\\([^)]+\\)[,;]\\s*)+/g;\nfunction shouldEmbed(string) {\n    return string.search(URL_REGEX) !== -1;\n}\nfunction embedResources(cssString, baseUrl, options) {\n    if (!shouldEmbed(cssString)) {\n        return Promise.resolve(cssString);\n    }\n    const filteredCssString = filterPreferredFontFormat(cssString, options);\n    return Promise.resolve(filteredCssString)\n        .then(parseURLs)\n        .then((urls) => urls.reduce((done, url) => done.then((ret) => embed(ret, url, baseUrl, options)), Promise.resolve(filteredCssString)));\n}\nfunction filterPreferredFontFormat(str, { preferredFontFormat }) {\n    return !preferredFontFormat\n        ? str\n        : str.replace(FONT_SRC_REGEX, (match) => {\n            while (true) {\n                const [src, , format] = URL_WITH_FORMAT_REGEX.exec(match) || [];\n                if (!format) {\n                    return \'\';\n                }\n                if (format === preferredFontFormat) {\n                    return `src: ${src};`;\n                }\n            }\n        });\n}\nfunction parseURLs(str) {\n    const result = [];\n    str.replace(URL_REGEX, (raw, quotation, url) => {\n        result.push(url);\n        return raw;\n    });\n    return result.filter((url) => !(0,_util__WEBPACK_IMPORTED_MODULE_1__.isDataUrl)(url));\n}\nfunction embed(cssString, resourceURL, baseURL, options, get) {\n    const resolvedURL = baseURL ? resolveUrl(resourceURL, baseURL) : resourceURL;\n    return Promise.resolve(resolvedURL)\n        .then((url) => get ? get(url) : (0,_getBlobFromURL__WEBPACK_IMPORTED_MODULE_0__.getBlobFromURL)(url, options))\n        .then((data) => {\n        if (typeof data === \'string\') {\n            return (0,_util__WEBPACK_IMPORTED_MODULE_1__.toDataURL)(data, (0,_util__WEBPACK_IMPORTED_MODULE_1__.getMimeType)(resourceURL));\n        }\n        return (0,_util__WEBPACK_IMPORTED_MODULE_1__.toDataURL)(data.blob, (0,_util__WEBPACK_IMPORTED_MODULE_1__.getMimeType)(resourceURL) || data.contentType);\n    })\n        .then((dataURL) => cssString.replace(urlToRegex(resourceURL), `$1${dataURL}$3`))\n        .then((content) => content, () => resolvedURL);\n}\nfunction resolveUrl(url, baseUrl) {\n    // url is absolute already\n    if (url.match(/^[a-z]+:\\/\\//i)) {\n        return url;\n    }\n    // url is absolute already, without protocol\n    if (url.match(/^\\/\\//)) {\n        return window.location.protocol + url;\n    }\n    // dataURI, mailto:, tel:, etc.\n    if (url.match(/^[a-z]+:/i)) {\n        return url;\n    }\n    const doc = document.implementation.createHTMLDocument();\n    const base = doc.createElement(\'base\');\n    const a = doc.createElement(\'a\');\n    doc.head.appendChild(base);\n    doc.body.appendChild(a);\n    if (baseUrl) {\n        base.href = baseUrl;\n    }\n    a.href = url;\n    return a.href;\n}\nfunction urlToRegex(url) {\n    return new RegExp(`(url\\\\([\'"]?)(${escape(url)})([\'"]?\\\\))`, \'g\');\n}\nfunction escape(url) {\n    return url.replace(/([.*+?^${}()|\\[\\]\\/\\\\])/g, \'\\\\$1\');\n}\n//# sourceMappingURL=embedResources.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/embedResources.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/embedWebFonts.js":
+      /*!********************************************************!*\
+  !*** ./node_modules/html-to-image/es/embedWebFonts.js ***!
+  \********************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          "__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"parseWebFontRules\": () => (/* binding */ parseWebFontRules),\n/* harmony export */   \"embedWebFonts\": () => (/* binding */ embedWebFonts),\n/* harmony export */   \"getWebFontCss\": () => (/* binding */ getWebFontCss),\n/* harmony export */   \"getCssRules\": () => (/* binding */ getCssRules)\n/* harmony export */ });\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ \"./node_modules/html-to-image/es/util.js\");\n/* harmony import */ var _embedResources__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./embedResources */ \"./node_modules/html-to-image/es/embedResources.js\");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\nconst cssFetchPromiseStore = {};\nfunction parseWebFontRules(clonedNode) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return new Promise((resolve, reject) => {\n            if (!clonedNode.ownerDocument) {\n                reject(new Error('Provided element is not within a Document'));\n            }\n            resolve((0,_util__WEBPACK_IMPORTED_MODULE_0__.toArray)(clonedNode.ownerDocument.styleSheets));\n        })\n            .then((styleSheets) => getCssRules(styleSheets))\n            .then(getWebFontRules);\n    });\n}\nfunction embedWebFonts(clonedNode, options) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return (options.fontEmbedCss != null\n            ? Promise.resolve(options.fontEmbedCss)\n            : getWebFontCss(clonedNode, options)).then((cssString) => {\n            const styleNode = document.createElement('style');\n            const sytleContent = document.createTextNode(cssString);\n            styleNode.appendChild(sytleContent);\n            if (clonedNode.firstChild) {\n                clonedNode.insertBefore(styleNode, clonedNode.firstChild);\n            }\n            else {\n                clonedNode.appendChild(styleNode);\n            }\n            return clonedNode;\n        });\n    });\n}\nfunction getWebFontCss(node, options) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return parseWebFontRules(node)\n            .then((rules) => Promise.all(rules.map((rule) => {\n            const baseUrl = rule.parentStyleSheet\n                ? rule.parentStyleSheet.href\n                : null;\n            return (0,_embedResources__WEBPACK_IMPORTED_MODULE_1__.embedResources)(rule.cssText, baseUrl, options);\n        })))\n            .then((cssStrings) => cssStrings.join('\\n'));\n    });\n}\nfunction getCssRules(styleSheets) {\n    return __awaiter(this, void 0, void 0, function* () {\n        const ret = [];\n        const promises = [];\n        // First loop inlines imports\n        styleSheets.forEach((sheet) => {\n            if ('cssRules' in sheet) {\n                try {\n                    (0,_util__WEBPACK_IMPORTED_MODULE_0__.toArray)(sheet.cssRules).forEach((item, index) => {\n                        if (item.type === CSSRule.IMPORT_RULE) {\n                            let importIndex = index + 1;\n                            promises.push(fetchCSS(item.href, sheet)\n                                .then(embedFonts)\n                                .then((cssText) => {\n                                const parsed = parseCSS(cssText);\n                                parsed.forEach((rule) => {\n                                    try {\n                                        sheet.insertRule(rule, rule.startsWith('@import')\n                                            ? (importIndex = importIndex + 1)\n                                            : sheet.cssRules.length);\n                                    }\n                                    catch (error) {\n                                        console.log('Error inserting rule from remote css', {\n                                            rule,\n                                            error,\n                                        });\n                                    }\n                                });\n                            })\n                                .catch((e) => {\n                                console.log('Error loading remote css', e.toString());\n                            }));\n                        }\n                    });\n                }\n                catch (e) {\n                    const inline = styleSheets.find((a) => a.href === null) || document.styleSheets[0];\n                    if (sheet.href != null) {\n                        promises.push(fetchCSS(sheet.href, inline)\n                            .then(embedFonts)\n                            .then((cssText) => {\n                            const parsed = parseCSS(cssText);\n                            parsed.forEach((rule) => {\n                                inline.insertRule(rule, sheet.cssRules.length);\n                            });\n                        })\n                            .catch((e) => {\n                            console.log('Error loading remote stylesheet', e.toString());\n                        }));\n                    }\n                    console.log('Error inlining remote css file', e.toString());\n                }\n            }\n        });\n        return Promise.all(promises).then(() => {\n            // Second loop parses rules\n            styleSheets.forEach((sheet) => {\n                if ('cssRules' in sheet) {\n                    try {\n                        (0,_util__WEBPACK_IMPORTED_MODULE_0__.toArray)(sheet.cssRules).forEach((item) => {\n                            ret.push(item);\n                        });\n                    }\n                    catch (e) {\n                        console.log(`Error while reading CSS rules from ${sheet.href}`, e.toString());\n                    }\n                }\n            });\n            return ret;\n        });\n    });\n}\nfunction getWebFontRules(cssRules) {\n    return cssRules\n        .filter((rule) => rule.type === CSSRule.FONT_FACE_RULE)\n        .filter((rule) => (0,_embedResources__WEBPACK_IMPORTED_MODULE_1__.shouldEmbed)(rule.style.getPropertyValue('src')));\n}\nfunction parseCSS(source) {\n    if (source === undefined) {\n        return [];\n    }\n    let cssText = source;\n    const css = [];\n    const cssKeyframeRegex = '((@.*?keyframes [\\\\s\\\\S]*?){([\\\\s\\\\S]*?}\\\\s*?)})';\n    const combinedCSSRegex = '((\\\\s*?(?:\\\\/\\\\*[\\\\s\\\\S]*?\\\\*\\\\/)?\\\\s*?@media[\\\\s\\\\S]' +\n        '*?){([\\\\s\\\\S]*?)}\\\\s*?})|(([\\\\s\\\\S]*?){([\\\\s\\\\S]*?)})'; // to match css & media queries together\n    const cssCommentsRegex = /(\\/\\*[\\s\\S]*?\\*\\/)/gi;\n    const importRegex = /@import[\\s\\S]*?url\\([^)]*\\)[\\s\\S]*?;/gi;\n    // strip out comments\n    cssText = cssText.replace(cssCommentsRegex, '');\n    const keyframesRegex = new RegExp(cssKeyframeRegex, 'gi');\n    let arr;\n    while (true) {\n        arr = keyframesRegex.exec(cssText);\n        if (arr === null) {\n            break;\n        }\n        css.push(arr[0]);\n    }\n    cssText = cssText.replace(keyframesRegex, '');\n    // unified regex\n    const unified = new RegExp(combinedCSSRegex, 'gi');\n    while (true) {\n        arr = importRegex.exec(cssText);\n        if (arr === null) {\n            arr = unified.exec(cssText);\n            if (arr === null) {\n                break;\n            }\n            else {\n                importRegex.lastIndex = unified.lastIndex;\n            }\n        }\n        else {\n            unified.lastIndex = importRegex.lastIndex;\n        }\n        css.push(arr[0]);\n    }\n    return css;\n}\nfunction fetchCSS(url, sheet) {\n    if (cssFetchPromiseStore[url]) {\n        return cssFetchPromiseStore[url];\n    }\n    const promise = fetch(url).then((res) => {\n        return {\n            url,\n            cssText: res.text(),\n        };\n    }, (e) => {\n        console.log('ERROR FETCHING CSS: ', e.toString());\n    });\n    cssFetchPromiseStore[url] = promise;\n    return promise;\n}\nfunction embedFonts(data) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return data.cssText.then((resolved) => {\n            let cssText = resolved;\n            const regexUrlFind = /url\\([\"']?([^\"')]+)[\"']?\\)/g;\n            const fontLocations = cssText.match(/url\\([^)]+\\)/g) || [];\n            const fontLoadedPromises = fontLocations.map((location) => {\n                let url = location.replace(regexUrlFind, '$1');\n                if (!url.startsWith('https://')) {\n                    const source = data.url;\n                    url = new URL(url, source).href;\n                }\n                return new Promise((resolve, reject) => {\n                    fetch(url)\n                        .then((res) => res.blob())\n                        .then((blob) => {\n                        const reader = new FileReader();\n                        reader.addEventListener('load', (res) => {\n                            // Side Effect\n                            cssText = cssText.replace(location, `url(${reader.result})`);\n                            resolve([location, reader.result]);\n                        });\n                        reader.readAsDataURL(blob);\n                    })\n                        .catch(reject);\n                });\n            });\n            return Promise.all(fontLoadedPromises).then(() => cssText);\n        });\n    });\n}\n//# sourceMappingURL=embedWebFonts.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/embedWebFonts.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/getBlobFromURL.js":
+      /*!*********************************************************!*\
+  !*** ./node_modules/html-to-image/es/getBlobFromURL.js ***!
+  \*********************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          "__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getBlobFromURL\": () => (/* binding */ getBlobFromURL)\n/* harmony export */ });\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ \"./node_modules/html-to-image/es/util.js\");\n/* tslint:disable:max-line-length */\n\n// KNOWN ISSUE\n// -----------\n// Can not handle redirect-url, such as when access 'http://something.com/avatar.png'\n// will redirect to 'http://something.com/65fc2ffcc8aea7ba65a1d1feda173540'\nconst TIMEOUT = 30000;\nconst cache = {};\nfunction isFont(filename) {\n    return /ttf|otf|eot|woff2?/i.test(filename);\n}\nfunction getBlobFromURL(url, options) {\n    let href = url.replace(/\\?.*/, '');\n    if (isFont(href)) {\n        href = href.replace(/.*\\//, '');\n    }\n    if (cache[href]) {\n        return cache[href];\n    }\n    // cache bypass so we dont have CORS issues with cached images\n    // ref: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache\n    if (options.cacheBust) {\n        // tslint:disable-next-line\n        url += (/\\?/.test(url) ? '&' : '?') + new Date().getTime();\n    }\n    const failed = (reason) => {\n        let placeholder = '';\n        if (options.imagePlaceholder) {\n            const parts = options.imagePlaceholder.split(/,/);\n            if (parts && parts[1]) {\n                placeholder = parts[1];\n            }\n        }\n        let msg = `Failed to fetch resource: ${url}`;\n        if (reason) {\n            msg = typeof reason === 'string' ? reason : reason.message;\n        }\n        if (msg) {\n            console.error(msg);\n        }\n        return placeholder;\n    };\n    const deferred = window.fetch\n        ? window\n            .fetch(url)\n            .then((res) => res.blob().then((blob) => ({\n            blob,\n            contentType: res.headers.get('Content-Type') || '',\n        })))\n            .then(({ blob, contentType }) => new Promise((resolve, reject) => {\n            const reader = new FileReader();\n            reader.onloadend = () => resolve({\n                contentType,\n                blob: reader.result,\n            });\n            reader.onerror = reject;\n            reader.readAsDataURL(blob);\n        }))\n            .then(({ blob, contentType }) => ({\n            contentType,\n            blob: (0,_util__WEBPACK_IMPORTED_MODULE_0__.getDataURLContent)(blob),\n        }))\n        : new Promise((resolve, reject) => {\n            const req = new XMLHttpRequest();\n            const timeout = () => {\n                reject(new Error(`Timeout of ${TIMEOUT}ms occured while fetching resource: ${url}`));\n            };\n            const done = () => {\n                if (req.readyState !== 4) {\n                    return;\n                }\n                if (req.status !== 200) {\n                    reject(new Error(`Failed to fetch resource: ${url}, status: ${req.status}`));\n                    return;\n                }\n                const encoder = new FileReader();\n                encoder.onloadend = () => {\n                    resolve({\n                        blob: (0,_util__WEBPACK_IMPORTED_MODULE_0__.getDataURLContent)(encoder.result),\n                        contentType: req.getResponseHeader('Content-Type') || '',\n                    });\n                };\n                encoder.readAsDataURL(req.response);\n            };\n            req.onreadystatechange = done;\n            req.ontimeout = timeout;\n            req.responseType = 'blob';\n            req.timeout = TIMEOUT;\n            req.open('GET', url, true);\n            req.send();\n        });\n    const promise = deferred.catch(failed);\n    // cache result\n    cache[href] = promise;\n    return promise;\n}\n//# sourceMappingURL=getBlobFromURL.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/getBlobFromURL.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/index.js":
+      /*!************************************************!*\
+  !*** ./node_modules/html-to-image/es/index.js ***!
+  \************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "toSvg": () => (/* binding */ toSvg),\n/* harmony export */   "toSvgDataURL": () => (/* binding */ toSvgDataURL),\n/* harmony export */   "toCanvas": () => (/* binding */ toCanvas),\n/* harmony export */   "toPixelData": () => (/* binding */ toPixelData),\n/* harmony export */   "toPng": () => (/* binding */ toPng),\n/* harmony export */   "toJpeg": () => (/* binding */ toJpeg),\n/* harmony export */   "toBlob": () => (/* binding */ toBlob),\n/* harmony export */   "getWebFontEmbedCss": () => (/* binding */ getWebFontEmbedCss)\n/* harmony export */ });\n/* harmony import */ var _cloneNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cloneNode */ "./node_modules/html-to-image/es/cloneNode.js");\n/* harmony import */ var _embedImages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./embedImages */ "./node_modules/html-to-image/es/embedImages.js");\n/* harmony import */ var _embedWebFonts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./embedWebFonts */ "./node_modules/html-to-image/es/embedWebFonts.js");\n/* harmony import */ var _createSvgDataURL__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createSvgDataURL */ "./node_modules/html-to-image/es/createSvgDataURL.js");\n/* harmony import */ var _applyStyleWithOptions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./applyStyleWithOptions */ "./node_modules/html-to-image/es/applyStyleWithOptions.js");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util */ "./node_modules/html-to-image/es/util.js");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\n\n\n\n\nfunction getImageSize(domNode, options = {}) {\n    const width = options.width || (0,_util__WEBPACK_IMPORTED_MODULE_5__.getNodeWidth)(domNode);\n    const height = options.height || (0,_util__WEBPACK_IMPORTED_MODULE_5__.getNodeHeight)(domNode);\n    return { width, height };\n}\nfunction toSvg(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        const { width, height } = getImageSize(domNode, options);\n        return (0,_cloneNode__WEBPACK_IMPORTED_MODULE_0__.cloneNode)(domNode, options, true)\n            .then((clonedNode) => (0,_embedWebFonts__WEBPACK_IMPORTED_MODULE_2__.embedWebFonts)(clonedNode, options))\n            .then((clonedNode) => (0,_embedImages__WEBPACK_IMPORTED_MODULE_1__.embedImages)(clonedNode, options))\n            .then((clonedNode) => (0,_applyStyleWithOptions__WEBPACK_IMPORTED_MODULE_4__.applyStyleWithOptions)(clonedNode, options))\n            .then((clonedNode) => (0,_createSvgDataURL__WEBPACK_IMPORTED_MODULE_3__.createSvgDataURL)(clonedNode, width, height));\n    });\n}\nconst toSvgDataURL = toSvg;\nfunction toCanvas(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return toSvg(domNode, options)\n            .then(_util__WEBPACK_IMPORTED_MODULE_5__.createImage)\n            .then((0,_util__WEBPACK_IMPORTED_MODULE_5__.delay)(100))\n            .then((image) => {\n            const canvas = document.createElement(\'canvas\');\n            const context = canvas.getContext(\'2d\');\n            const ratio = options.pixelRatio || (0,_util__WEBPACK_IMPORTED_MODULE_5__.getPixelRatio)();\n            const { width, height } = getImageSize(domNode, options);\n            const canvasWidth = options.canvasWidth || width;\n            const canvasHeight = options.canvasHeight || height;\n            canvas.width = canvasWidth * ratio;\n            canvas.height = canvasHeight * ratio;\n            canvas.style.width = `${canvasWidth}`;\n            canvas.style.height = `${canvasHeight}`;\n            if (options.backgroundColor) {\n                context.fillStyle = options.backgroundColor;\n                context.fillRect(0, 0, canvas.width, canvas.height);\n            }\n            context.drawImage(image, 0, 0, canvas.width, canvas.height);\n            return canvas;\n        });\n    });\n}\nfunction toPixelData(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        const { width, height } = getImageSize(domNode, options);\n        return toCanvas(domNode, options).then((canvas) => {\n            const ctx = canvas.getContext(\'2d\');\n            return ctx.getImageData(0, 0, width, height).data;\n        });\n    });\n}\nfunction toPng(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return toCanvas(domNode, options).then((canvas) => canvas.toDataURL());\n    });\n}\nfunction toJpeg(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return toCanvas(domNode, options).then((canvas) => canvas.toDataURL(\'image/jpeg\', options.quality || 1));\n    });\n}\nfunction toBlob(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return toCanvas(domNode, options).then(_util__WEBPACK_IMPORTED_MODULE_5__.canvasToBlob);\n    });\n}\nfunction getWebFontEmbedCss(domNode, options = {}) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return (0,_embedWebFonts__WEBPACK_IMPORTED_MODULE_2__.getWebFontCss)(domNode, options);\n    });\n}\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/index.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/html-to-image/es/util.js":
+      /*!***********************************************!*\
+  !*** ./node_modules/html-to-image/es/util.js ***!
+  \***********************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          "__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"uuid\": () => (/* binding */ uuid),\n/* harmony export */   \"getExtension\": () => (/* binding */ getExtension),\n/* harmony export */   \"getMimeType\": () => (/* binding */ getMimeType),\n/* harmony export */   \"delay\": () => (/* binding */ delay),\n/* harmony export */   \"isDataUrl\": () => (/* binding */ isDataUrl),\n/* harmony export */   \"toDataURL\": () => (/* binding */ toDataURL),\n/* harmony export */   \"getDataURLContent\": () => (/* binding */ getDataURLContent),\n/* harmony export */   \"canvasToBlob\": () => (/* binding */ canvasToBlob),\n/* harmony export */   \"toArray\": () => (/* binding */ toArray),\n/* harmony export */   \"getNodeWidth\": () => (/* binding */ getNodeWidth),\n/* harmony export */   \"getNodeHeight\": () => (/* binding */ getNodeHeight),\n/* harmony export */   \"getPixelRatio\": () => (/* binding */ getPixelRatio),\n/* harmony export */   \"createImage\": () => (/* binding */ createImage),\n/* harmony export */   \"svgToDataURL\": () => (/* binding */ svgToDataURL),\n/* harmony export */   \"getBlobFromImageURL\": () => (/* binding */ getBlobFromImageURL)\n/* harmony export */ });\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nconst WOFF = 'application/font-woff';\nconst JPEG = 'image/jpeg';\nconst mimes = {\n    woff: WOFF,\n    woff2: WOFF,\n    ttf: 'application/font-truetype',\n    eot: 'application/vnd.ms-fontobject',\n    png: 'image/png',\n    jpg: JPEG,\n    jpeg: JPEG,\n    gif: 'image/gif',\n    tiff: 'image/tiff',\n    svg: 'image/svg+xml',\n};\nconst uuid = (function uuid() {\n    // generate uuid for className of pseudo elements.\n    // We should not use GUIDs, otherwise pseudo elements sometimes cannot be captured.\n    let counter = 0;\n    // ref: http://stackoverflow.com/a/6248722/2519373\n    const random = () => `0000${((Math.random() * Math.pow(36, 4)) << 0).toString(36)}`.slice(-4);\n    return () => {\n        counter += 1;\n        return `u${random()}${counter}`;\n    };\n})();\nfunction getExtension(url) {\n    const match = /\\.([^./]*?)$/g.exec(url);\n    return match ? match[1] : '';\n}\nfunction getMimeType(url) {\n    const ext = getExtension(url).toLowerCase();\n    return mimes[ext] || '';\n}\nfunction delay(ms) {\n    return (args) => new Promise((resolve) => {\n        setTimeout(() => {\n            resolve(args);\n        }, ms);\n    });\n}\nfunction isDataUrl(url) {\n    return url.search(/^(data:)/) !== -1;\n}\nfunction toDataURL(content, mimeType) {\n    return `data:${mimeType};base64,${content}`;\n}\nfunction getDataURLContent(dataURL) {\n    return dataURL.split(/,/)[1];\n}\nfunction toBlob(canvas) {\n    return new Promise((resolve) => {\n        const binaryString = window.atob(canvas.toDataURL().split(',')[1]);\n        const len = binaryString.length;\n        const binaryArray = new Uint8Array(len);\n        for (let i = 0; i < len; i += 1) {\n            binaryArray[i] = binaryString.charCodeAt(i);\n        }\n        resolve(new Blob([binaryArray], { type: 'image/png' }));\n    });\n}\nfunction canvasToBlob(canvas) {\n    if (canvas.toBlob) {\n        return new Promise((resolve) => canvas.toBlob(resolve));\n    }\n    return toBlob(canvas);\n}\nfunction toArray(arrayLike) {\n    const result = [];\n    for (let i = 0, l = arrayLike.length; i < l; i += 1) {\n        result.push(arrayLike[i]);\n    }\n    return result;\n}\nfunction px(node, styleProperty) {\n    const val = window.getComputedStyle(node).getPropertyValue(styleProperty);\n    return parseFloat(val.replace('px', ''));\n}\nfunction getNodeWidth(node) {\n    const leftBorder = px(node, 'border-left-width');\n    const rightBorder = px(node, 'border-right-width');\n    return node.clientWidth + leftBorder + rightBorder;\n}\nfunction getNodeHeight(node) {\n    const topBorder = px(node, 'border-top-width');\n    const bottomBorder = px(node, 'border-bottom-width');\n    return node.clientHeight + topBorder + bottomBorder;\n}\nfunction getPixelRatio() {\n    let ratio;\n    let FINAL_PROCESS;\n    try {\n        FINAL_PROCESS = process;\n    }\n    catch (e) { }\n    const val = FINAL_PROCESS && FINAL_PROCESS.env\n        ? FINAL_PROCESS.env.devicePixelRatio\n        : null;\n    if (val) {\n        ratio = parseInt(val, 10);\n        if (isNaN(ratio)) {\n            ratio = 1;\n        }\n    }\n    return ratio || window.devicePixelRatio || 1;\n}\nfunction createImage(url) {\n    return new Promise((resolve, reject) => {\n        const image = new Image();\n        image.onload = () => resolve(image);\n        image.onerror = reject;\n        image.crossOrigin = 'anonymous';\n        image.src = url;\n    });\n}\nfunction svgToDataURL(svg) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return Promise.resolve()\n            .then(() => new XMLSerializer().serializeToString(svg))\n            .then(encodeURIComponent)\n            .then((html) => `data:image/svg+xml;charset=utf-8,${html}`);\n    });\n}\nfunction getBlobFromImageURL(url) {\n    return __awaiter(this, void 0, void 0, function* () {\n        return createImage(url).then((image) => {\n            const { width, height } = image;\n            const canvas = document.createElement('canvas');\n            const context = canvas.getContext('2d');\n            const ratio = getPixelRatio();\n            canvas.width = width * ratio;\n            canvas.height = height * ratio;\n            canvas.style.width = `${width}`;\n            canvas.style.height = `${height}`;\n            context.scale(ratio, ratio);\n            context.drawImage(image, 0, 0);\n            const dataURL = canvas.toDataURL(getMimeType(url));\n            return getDataURLContent(dataURL);\n        });\n    });\n}\n//# sourceMappingURL=util.js.map\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/html-to-image/es/util.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./src/main.css":
+      /*!**********************!*\
+  !*** ./src/main.css ***!
+  \**********************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./main.css */ "./node_modules/css-loader/dist/cjs.js!./src/main.css");\n\n      \n      \n      \n      \n      \n      \n      \n      \n      \n\nvar options = {};\n\noptions.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());\noptions.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());\n\n      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");\n    \noptions.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());\noptions.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__.default, options);\n\n\n\n\n       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__.default && _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__.default.locals ? _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__.default.locals : undefined);\n\n\n//# sourceURL=webpack://my-webpack-project/./src/main.css?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+      /*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+      /***/ (module) => {
+        eval(
+          '\n\nvar stylesInDom = [];\n\nfunction getIndexByIdentifier(identifier) {\n  var result = -1;\n\n  for (var i = 0; i < stylesInDom.length; i++) {\n    if (stylesInDom[i].identifier === identifier) {\n      result = i;\n      break;\n    }\n  }\n\n  return result;\n}\n\nfunction modulesToDom(list, options) {\n  var idCountMap = {};\n  var identifiers = [];\n\n  for (var i = 0; i < list.length; i++) {\n    var item = list[i];\n    var id = options.base ? item[0] + options.base : item[0];\n    var count = idCountMap[id] || 0;\n    var identifier = "".concat(id, " ").concat(count);\n    idCountMap[id] = count + 1;\n    var index = getIndexByIdentifier(identifier);\n    var obj = {\n      css: item[1],\n      media: item[2],\n      sourceMap: item[3]\n    };\n\n    if (index !== -1) {\n      stylesInDom[index].references++;\n      stylesInDom[index].updater(obj);\n    } else {\n      stylesInDom.push({\n        identifier: identifier,\n        updater: addStyle(obj, options),\n        references: 1\n      });\n    }\n\n    identifiers.push(identifier);\n  }\n\n  return identifiers;\n}\n\nfunction addStyle(obj, options) {\n  var api = options.domAPI(options);\n  api.update(obj);\n  return function updateStyle(newObj) {\n    if (newObj) {\n      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {\n        return;\n      }\n\n      api.update(obj = newObj);\n    } else {\n      api.remove();\n    }\n  };\n}\n\nmodule.exports = function (list, options) {\n  options = options || {};\n  list = list || [];\n  var lastIdentifiers = modulesToDom(list, options);\n  return function update(newList) {\n    newList = newList || [];\n\n    for (var i = 0; i < lastIdentifiers.length; i++) {\n      var identifier = lastIdentifiers[i];\n      var index = getIndexByIdentifier(identifier);\n      stylesInDom[index].references--;\n    }\n\n    var newLastIdentifiers = modulesToDom(newList, options);\n\n    for (var _i = 0; _i < lastIdentifiers.length; _i++) {\n      var _identifier = lastIdentifiers[_i];\n\n      var _index = getIndexByIdentifier(_identifier);\n\n      if (stylesInDom[_index].references === 0) {\n        stylesInDom[_index].updater();\n\n        stylesInDom.splice(_index, 1);\n      }\n    }\n\n    lastIdentifiers = newLastIdentifiers;\n  };\n};\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
+      /*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+      /***/ (module) => {
+        eval(
+          '\n\nvar memo = {};\n/* istanbul ignore next  */\n\nfunction getTarget(target) {\n  if (typeof memo[target] === "undefined") {\n    var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself\n\n    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n      try {\n        // This will throw an exception if access to iframe is blocked\n        // due to cross-origin restrictions\n        styleTarget = styleTarget.contentDocument.head;\n      } catch (e) {\n        // istanbul ignore next\n        styleTarget = null;\n      }\n    }\n\n    memo[target] = styleTarget;\n  }\n\n  return memo[target];\n}\n/* istanbul ignore next  */\n\n\nfunction insertBySelector(insert, style) {\n  var target = getTarget(insert);\n\n  if (!target) {\n    throw new Error("Couldn\'t find a style target. This probably means that the value for the \'insert\' parameter is invalid.");\n  }\n\n  target.appendChild(style);\n}\n\nmodule.exports = insertBySelector;\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/insertBySelector.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
+      /*!**********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \**********************************************************************/
+      /***/ (module) => {
+        eval(
+          '\n\n/* istanbul ignore next  */\nfunction insertStyleElement(options) {\n  var style = document.createElement("style");\n  options.setAttributes(style, options.attributes);\n  options.insert(style);\n  return style;\n}\n\nmodule.exports = insertStyleElement;\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/insertStyleElement.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
+      /*!**********************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \**********************************************************************************/
+      /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+        eval(
+          '\n\n/* istanbul ignore next  */\nfunction setAttributesWithoutAttributes(style) {\n  var nonce =  true ? __webpack_require__.nc : 0;\n\n  if (nonce) {\n    style.setAttribute("nonce", nonce);\n  }\n}\n\nmodule.exports = setAttributesWithoutAttributes;\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
+      /*!***************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \***************************************************************/
+      /***/ (module) => {
+        eval(
+          '\n\n/* istanbul ignore next  */\nfunction apply(style, options, obj) {\n  var css = obj.css;\n  var media = obj.media;\n  var sourceMap = obj.sourceMap;\n\n  if (media) {\n    style.setAttribute("media", media);\n  } else {\n    style.removeAttribute("media");\n  }\n\n  if (sourceMap && typeof btoa !== "undefined") {\n    css += "\\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");\n  } // For old IE\n\n  /* istanbul ignore if  */\n\n\n  options.styleTagTransform(css, style);\n}\n\nfunction removeStyleElement(style) {\n  // istanbul ignore if\n  if (style.parentNode === null) {\n    return false;\n  }\n\n  style.parentNode.removeChild(style);\n}\n/* istanbul ignore next  */\n\n\nfunction domAPI(options) {\n  var style = options.insertStyleElement(options);\n  return {\n    update: function update(obj) {\n      apply(style, options, obj);\n    },\n    remove: function remove() {\n      removeStyleElement(style);\n    }\n  };\n}\n\nmodule.exports = domAPI;\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/styleDomAPI.js?'
+        );
+
+        /***/
+      },
+
+    /***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
+      /*!*********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \*********************************************************************/
+      /***/ (module) => {
+        eval(
+          "\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\n  if (style.styleSheet) {\n    style.styleSheet.cssText = css;\n  } else {\n    while (style.firstChild) {\n      style.removeChild(style.firstChild);\n    }\n\n    style.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://my-webpack-project/./node_modules/style-loader/dist/runtime/styleTagTransform.js?"
+        );
+
+        /***/
+      },
+
+    /***/ "./src/index.js":
+      /*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        eval(
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var html_to_image__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! html-to-image */ "./node_modules/html-to-image/es/index.js");\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.css */ "./src/main.css");\n\n\n\nvar node = document.getElementById("image-block");\nwindow.ndkHtmlToPng = html_to_image__WEBPACK_IMPORTED_MODULE_0__.toPng;\nwindow.ndkHtmlToCanvas = html_to_image__WEBPACK_IMPORTED_MODULE_0__.toCanvas;\nwindow.ndkHtmlToSvg = html_to_image__WEBPACK_IMPORTED_MODULE_0__.toSvg;\n\n//window.ndkHtmlToPng(node);\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?'
+        );
+
+        /***/
+      },
+
+    /******/
+  };
+  /************************************************************************/
+  /******/ // The module cache
+  /******/ var __webpack_module_cache__ = {};
+  /******/
+  /******/ // The require function
+  /******/ function __webpack_require__(moduleId) {
+    /******/ // Check if module is in cache
+    /******/ var cachedModule = __webpack_module_cache__[moduleId];
+    /******/ if (cachedModule !== undefined) {
+      /******/ return cachedModule.exports;
+      /******/
+    }
+    /******/ // Create a new module (and put it into the cache)
+    /******/ var module = (__webpack_module_cache__[moduleId] = {
+      /******/ id: moduleId,
+      /******/ // no module.loaded needed
+      /******/ exports: {},
+      /******/
+    });
+    /******/
+    /******/ // Execute the module function
+    /******/ __webpack_modules__[moduleId](
+      module,
+      module.exports,
+      __webpack_require__
+    );
+    /******/
+    /******/ // Return the exports of the module
+    /******/ return module.exports;
+    /******/
+  }
+  /******/
+  /************************************************************************/
+  /******/ /* webpack/runtime/compat get default export */
+  /******/ (() => {
+    /******/ // getDefaultExport function for compatibility with non-harmony modules
+    /******/ __webpack_require__.n = (module) => {
+      /******/ var getter =
+        module && module.__esModule
+          ? /******/ () => module["default"]
+          : /******/ () => module;
+      /******/ __webpack_require__.d(getter, { a: getter });
+      /******/ return getter;
+      /******/
+    };
+    /******/
+  })();
+  /******/
+  /******/ /* webpack/runtime/define property getters */
+  /******/ (() => {
+    /******/ // define getter functions for harmony exports
+    /******/ __webpack_require__.d = (exports, definition) => {
+      /******/ for (var key in definition) {
+        /******/ if (
+          __webpack_require__.o(definition, key) &&
+          !__webpack_require__.o(exports, key)
+        ) {
+          /******/ Object.defineProperty(exports, key, {
+            enumerable: true,
+            get: definition[key],
+          });
+          /******/
+        }
+        /******/
+      }
+      /******/
+    };
+    /******/
+  })();
+  /******/
+  /******/ /* webpack/runtime/hasOwnProperty shorthand */
+  /******/ (() => {
+    /******/ __webpack_require__.o = (obj, prop) =>
+      Object.prototype.hasOwnProperty.call(obj, prop);
+    /******/
+  })();
+  /******/
+  /******/ /* webpack/runtime/make namespace object */
+  /******/ (() => {
+    /******/ // define __esModule on exports
+    /******/ __webpack_require__.r = (exports) => {
+      /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+        /******/ Object.defineProperty(exports, Symbol.toStringTag, {
+          value: "Module",
+        });
+        /******/
+      }
+      /******/ Object.defineProperty(exports, "__esModule", { value: true });
+      /******/
+    };
+    /******/
+  })();
+  /******/
+  /************************************************************************/
+  /******/
+  /******/ // startup
+  /******/ // Load entry module and return exports
+  /******/ // This entry module can't be inlined because the eval devtool is used.
+  /******/ var __webpack_exports__ = __webpack_require__("./src/index.js");
+  /******/
+  /******/
+})();

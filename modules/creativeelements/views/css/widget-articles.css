@@ -1,0 +1,73 @@
+.ce-articles--layout-grid .ce-articles {
+	display: grid;
+	grid-template-columns: repeat(var(--ce-columns, 3), minmax(0, 1fr)); }
+.ce-articles--layout-masonry .ce-articles {
+	display: block;
+	columns: var(--ce-columns, 3); }
+.ce-articles--layout-inline .ce-articles {
+	display: flex; }
+@media (max-width: 1024px) {
+	.ce-articles--layout-tablet-grid .ce-articles {
+		display: grid;
+		grid-template-columns: repeat(var(--ce-columns, 2), minmax(0, 1fr)); }
+	.ce-articles--layout-tablet-grid .ce-article, .ce-articles--layout-tablet-inline .ce-article {
+		margin: 0 !important; }
+	.ce-articles--layout-tablet-masonry .ce-articles {
+		display: block;
+		columns: var(--ce-columns, 2); }
+	.ce-articles--layout-tablet-inline .ce-articles {
+		display: flex; } }
+@media (max-width: 767px) {
+	.ce-articles--layout-mobile-grid .ce-articles {
+		display: grid;
+		grid-template-columns: repeat(var(--ce-columns, 1), minmax(0, 1fr)); }
+	.ce-articles--layout-mobile-grid .ce-article, .ce-articles--layout-mobile-inline .ce-article {
+		margin: 0 !important; }
+	.ce-articles--layout-mobile-masonry .ce-articles {
+		display: block;
+		columns: var(--ce-columns, 1); }
+	.ce-articles--layout-mobile-inline .ce-articles {
+		display: flex; } }
+.ce-articles .ce-article {
+	display: flex;
+	position: relative;
+	margin: 0;
+	padding: 10px;
+	background: #fff;
+	break-inside: avoid;
+	transition-property: background, border, box-shadow;
+	transition-duration: 0.25s; }
+.ce-articles .ce-article__link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0; }
+.ce-articles .ce-article__thumbnail {
+	position: relative;
+	width: 100%;
+	overflow: hidden; }
+	.ce-articles .ce-article__thumbnail img {
+		display: block;
+		width: 100%;
+		max-height: none;
+		max-width: none;
+		transition: filter 0.3s; }
+.ce-articles .ce-article__text {
+	width: 100%; }
+	.ce-articles .ce-article__title {
+		font-size: 18px;
+		margin: 0; }
+	.ce-articles p.ce-article__excerpt {
+		margin: 0 0 10px;
+		line-height: 1.5em;
+		font-size: 14px;
+		color: #777; }
+	.ce-articles .ce-article__subtitle {
+		line-height: 1.3em;
+		font-size: 12px;
+		margin-bottom: 13px;
+		color: #adadad; }
+	.ce-articles .ce-article__cta {
+		font-size: 12px;
+		font-weight: bold; }

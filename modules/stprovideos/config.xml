@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>stprovideos</name>
+    <displayName><![CDATA[Product videos]]></displayName>
+    <version><![CDATA[1.2.0]]></version>
+    <description><![CDATA[Using a fancy way to display self-hosted videos or youtube videos for products.]]></description>
+    <author><![CDATA[SUNNYTOO.COM]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

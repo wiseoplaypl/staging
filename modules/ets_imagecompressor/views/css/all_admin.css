@@ -1,0 +1,50 @@
+#subtab-AdminImageCompressorStatistics i,
+#subtab-AdminImageCompressorPageCaches i,
+#subtab-AdminImageCompressorImage i,
+#subtab-AdminImageCompressorMinization i,
+#subtab-AdminImageCompressorDatabase i,
+#subtab-AdminImageCompressorHelps i,
+#ellipsistab #ellipsis_submenu .icon-AdminImageCompressor,
+#subtab-AdminImageCompressorSystemAnalytics i,
+#subtab-AdminImageCompressorGzip i{
+    font-size: 0;
+    font-family: Fontawesome,sans-serif;
+    width: 16px;
+    height: 16px;
+}
+#subtab-AdminImageCompressorStatistics i:before,
+#subtab-AdminImageCompressorPageCaches i:before,
+#subtab-AdminImageCompressorImage i:before,
+#subtab-AdminImageCompressorSystemAnalytics i:before,
+#subtab-AdminImageCompressorMinization i:before,
+#subtab-AdminImageCompressorDatabase i:before,
+#subtab-AdminImageCompressorHelps i:before,#ellipsistab #ellipsis_submenu .icon-AdminImageCompressor:before,
+#subtab-AdminImageCompressorGzip i:before{
+    font-family: Fontawesome,sans-serif;
+    font-size: 16px;
+}
+#subtab-AdminImageCompressorStatistics i:before{content: "\F0E4";}
+#subtab-AdminImageCompressorDatabase i:before{content:"\f1c0"}
+#subtab-AdminImageCompressorHelps i:before{content:"\f059";}
+#subtab-AdminImageCompressorMinization i:before{content:"\f233"}
+#subtab-AdminImageCompressorGzip i:before{content:"\f268"}
+#subtab-AdminImageCompressorImage i:before{content:"\f03e"}
+#subtab-AdminImageCompressorPageCaches i:before{content:"\f26c"}
+#subtab-AdminImageCompressorSystemAnalytics i:before {
+    content: "\f002";
+}
+.alert.alert-info:before {
+    content: "\f05a"!important;
+    font-family: Fontawesome,sans-serif!important;
+}
+.alert.alert-warning:before {
+    content: "\f05a"!important;
+    font-family: Fontawesome,sans-serif!important;
+}
+.sp_block_left{
+    top: 134px;
+}
+#maintab-AdminImageCompressor .icon-AdminImageCompressor:before,
+#ellipsistab #ellipsis_submenu .icon-AdminImageCompressor:before {
+    content: "\f03e";
+}

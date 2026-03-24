@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/var/www/vhosts/liquidationfurniture.ie/sky3.murphyfurniture.ie/admin123" source-language="en-US" target-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit id="e18a22d145b38e4fff582663b5b4ec1e">
+        <source>All brands</source>
+        <target>All delivery times</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="8e41eae149ff3fa38cc9c4fde945f2c3">
+        <source>No brand</source>
+        <target>No delivery time</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1be6f9eb563f3bf85c78b4219bf09de9">
+        <source>Brand</source>
+        <target>Delivery time</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="84be54bb4bd1b755a27d86388700d097">
+        <source>Brands</source>
+        <target>Delivery times</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="241cfa06413caa8aecd12ed99744bdc7">
+        <source>List of products by brand %s</source>
+        <target>List of products by delivery time %s</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="feceb2ecfa20af7a36a9fca436052abf">
+        <source>Tap to zoom</source>
+        <target>Press to zoom</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b8900d8adf598b6653bb8c071bc49a1d">
+        <source>Product Details</source>
+        <target>Product Details</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,37 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_fc2118fa5233216544ae80108a1e16c9'] = 'Ukryj cenę i dodaj do przycisku wózka';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_ec8c05e4e2a991136532314928cb531d'] = 'Możesz ukryć przycisk ceny i wózka na stronach produktów i na stronie listy.';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_d88ba9fcc5eee4bfabc36615d9f32c62'] = 'Ustawienia zapisane pomyślnie ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_3f88b3f8ec82a8750c2f4585eb02f6c8'] = 'Ukryj przycisk ceny i wózka ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_57a3248cded8c10e9cb7b3f847238bfb'] = 'Włącz moduł: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_b66ccf4301a49badfa3d2dea556a9c31'] = 'Włącz moduł. ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_93cba07454f06a4a960172bbd6e2a435'] = 'TAk ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_bafd7322c6e97d25b6299b5d6fe8920b'] = 'Nie';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_9e041c8deab4d6b840ab5ad3aaa21a59'] = 'Ukryj cenę: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_0d689403588b19c5d7d35f165dc3bf97'] = 'Włącz opcję ukrywania ceny i przycisku koszyka na produktach. ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_7e5d85e8b50c859899394b73199dd420'] = 'Ukryj Dodaj do koszyka: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_274ac1f5fbc348c819b6d00f61c05f1d'] = 'Włącz opcję, aby ukryć tylko wózek.';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_fec6fb56fc8f4317b84f70bfb3460eb7'] = 'Kolor tła : ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_940663fd4428d2c86f9a4780b6574028'] = 'Wiadomość: ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_474fdb58b8a27a4a1e4df603f8c9c3a8'] = 'Wybierz regułę do ukrycia ';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_c9cc8cce247e49bae79f15173ce97354'] = 'Ratować';
+$_MODULE['<{hidepriceandcart}prestashop>hidepriceandcart_a469939a0d6355b87e36854e81e715eb'] = 'Nic nie znaleziono.';
+$_MODULE['<{hidepriceandcart}prestashop>form_3af25eddad6d700ada39179d20c72204'] = 'Typ reguły ';
+$_MODULE['<{hidepriceandcart}prestashop>form_5bf3ba1e2be7003743ae4a8ad880fe02'] = 'Klient nie loguje się ';
+$_MODULE['<{hidepriceandcart}prestashop>form_1fd82644b69522a4b1e86e014672b5b1'] = 'ma kategorię ';
+$_MODULE['<{hidepriceandcart}prestashop>form_7cab84d7e712f119baade25763eda2e3'] = 'ma produkt ';
+$_MODULE['<{hidepriceandcart}prestashop>form_54598e037abb07b08f27f16e952e5bd8'] = 'ma grupę';
+$_MODULE['<{hidepriceandcart}prestashop>form_99653823037bc2c43d018354428422b3'] = 'Wybrana kategoria będzie mogła poprosić tylko o cenę.';
+$_MODULE['<{hidepriceandcart}prestashop>form_76729937a5eb6b0fd88c42581161facd'] = 'Wybierz kategorię ';
+$_MODULE['<{hidepriceandcart}prestashop>form_b718adec73e04ce3ec720dd11a06a308'] = 'ID ';
+$_MODULE['<{hidepriceandcart}prestashop>form_49ee3087348e8d44e1feda1917443987'] = 'Nazwa ';
+$_MODULE['<{hidepriceandcart}prestashop>form_a8a3aa00a8cf4b13630095eb78d0de7e'] = 'Nie znaleziono żadnych marek.';
+$_MODULE['<{hidepriceandcart}prestashop>form_4d633ce220a8c284782aa8143b5165de'] = 'Wybrany produkt będzie mógł poprosić tylko o cenę. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_d401ff02b78a8ecc9b835168f697b6e7'] = 'Wybierz produkt ';
+$_MODULE['<{hidepriceandcart}prestashop>form_4636fa1526877b95372dfaaf756772d3'] = 'Wybrane grupy klientów będą mogły przesyłać tylko. ';
+$_MODULE['<{hidepriceandcart}prestashop>form_d922c0b17171a7852fdae1a1f4384695'] = 'Dostęp do grupy ';
+$_MODULE['<{hidepriceandcart}prestashop>form_c6155aaecccf794cd2a00fcc35898022'] = 'Nazwa grupy ';
+$_MODULE['<{hidepriceandcart}prestashop>form_2c51ebf16c690bfdf72faa90d4a10b7a'] = 'Wybrane grupy klientów będą mogły przesyłać tylko pliki.';

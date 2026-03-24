@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>masspc</name>
+    <displayName><![CDATA[Mass products to categories]]></displayName>
+    <version><![CDATA[1.5.7]]></version>
+    <description><![CDATA[This module allows to assing / unasign products to categories in bulk]]></description>
+    <author><![CDATA[MyPresta.eu]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

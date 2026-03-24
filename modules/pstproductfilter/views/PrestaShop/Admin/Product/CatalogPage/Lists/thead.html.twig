@@ -1,0 +1,36 @@
+{#**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * @author    Presta.Site
+ * @copyright 2019 Presta.Site
+ * @license   LICENSE.txt
+*#}
+{% if ps == null %}
+    {% import '@PrestaShop/Admin/macros.html.twig' as ps %}
+{% endif %}
+<tr class="column-headers">
+    <th scope="col" style="width: 2rem"></th>
+
+    {% for field, column in pstpf_columns %}
+        <th scope="col" {% if column.width is defined and column.width %}style="width: {{ column.width }}{% endif %}" {% if column.align is defined and column.align %}class="text-{{ column.align }}"{% endif %}>
+            {% if column.orderby is defined and column.orderby %}
+                {{ ps.sortable_column_header(column.name, field, orderBy, sortOrder) }}
+            {% elseif column.name is defined %}
+                {{ column.name }}
+            {% endif %}
+        </th>
+    {% endfor %}
+
+    {% if has_category_filter == true %}
+        <th scope="col">
+            {{ ps.sortable_column_header("Position"|trans({}, 'Admin.Global'), 'position', orderBy, sortOrder) }}
+        </th>
+    {% endif %}
+    <th scope="col" class="text-right" style="width: 3rem; padding-right: 2rem">
+        {{ "Actions"|trans({}, 'Admin.Global') }}
+    </th>
+</tr>

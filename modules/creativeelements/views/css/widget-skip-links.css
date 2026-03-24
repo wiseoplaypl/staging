@@ -1,0 +1,17 @@
+a.ce-skip-link {
+	display: inline-flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	inset-inline-start: 0;
+	text-decoration: none;
+	opacity: 0;
+	z-index: 9999;
+	transform: translateY(-100%);
+	transition: none;
+}
+.elementor-editor-active .elementor-widget-skip-links.elementor-element-editable a.elementor-active,
+a.ce-skip-link:focus {
+	opacity: 1;
+	transform: none;
+}
