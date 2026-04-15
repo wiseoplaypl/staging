@@ -1,0 +1,10 @@
+# Murphy Furniture — Tools Directory
+# Blocks direct directory listing.
+# Individual PHP scripts are protected by their own token check.
+Options -Indexes
+
+# Block access to the JSON baseline file directly
+<Files "price_baseline.json">
+    Order Deny,Allow
+    Deny from all
+</Files>
