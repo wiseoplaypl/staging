@@ -42,7 +42,7 @@
   {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "@id": "#product-snippet-id",
+    "@id": "{$product.url}",
     "name": "{$product.name}",
     "description": "{$page.meta.description|regex_replace:"/[\r\n]/" : " "}",
     "category": "{$product.category_name}",
@@ -91,15 +91,15 @@
       "sku": "{if $product.reference}{$product.reference}{else}{$product.id}{/if}",
       "mpn": "{if $product.mpn}{$product.mpn}{elseif $product.reference}{$product.reference}{else}{$product.id}{/if}",
       {if $product.ean13}"gtin13": "{$product.ean13}",{else if $product.upc}"gtin13": "0{$product.upc}",{/if}
-    {if $product.condition == 'new'}"itemCondition": "https://schema.org/NewCondition",{/if}
-    {if $product.show_condition > 0}
-    {if $product.condition == 'used'}"itemCondition": "https://schema.org/UsedCondition",{/if}
-    {if $product.condition == 'refurbished'}"itemCondition": "https://schema.org/RefurbishedCondition",{/if}
+    {if $product.condition == 'new'}"itemCondition": "https://schema.org/NewCondition",
+    {elseif $product.condition == 'used'}"itemCondition": "https://schema.org/UsedCondition",
+    {elseif $product.condition == 'refurbished'}"itemCondition": "https://schema.org/RefurbishedCondition",
     {/if}
       "availability": "{$product.seo_availability}",
       "seller": {
-        "@type": "Organization",
-        "name": "{$shop.name}"
+        "@type": "FurnitureStore",
+        "name": "Murphy Furniture",
+        "url": "https://www.murphyfurniture.ie"
       }
     }
     {/if}
