@@ -1,104 +1,133 @@
 {extends file='page.tpl'}
 
-
-
-
 {block name='content'}
 
-    <section id="content-hook_order_confirmation">
-      <div class="row">
-        <div class="col-sm-12 col-md-7 order-confirmation-title-payment">
-          <h1 class="h1 page-title">
-            <span><i class="fa fa-check rtl-no-flip" aria-hidden="true"></i> {l s='Your order is confirmed' d='Shop.Theme.Checkout'}</span>
-          </h1>
+  {* GA4 Purchase Event - Populate items array for GTM *}
+  <script>
+    dataLayer = dataLayer || [];
+    
+    // Clear previous ecommerce data (GTM best practice)
+    dataLayer.push({ ecommerce: null });
+    
+    // Build items array from order products
+    var items = [];
+    {foreach from=$order.products item=product}
+      items.push({{
+        item_id: '{$product.reference|escape:'javascript'}' || '{$product.id_product}',
+        item_name: '{$product.name|escape:'javascript'}',
+        price: {$product.price_with_reduction},
+        quantity: {$product.quantity},
+        item_category: '{$product.category|escape:'javascript'}',
+        item_brand: ''
+      }});
+    {/foreach}
+    
+    // Push purchase event with items
+    dataLayer.push({{
+      event: 'purchase',
+      ecommerce: {{
+        transaction_id: '{$order.details.reference}',
+        value: {$order.totals.total.amount},
+        tax: {$order.totals.tax.amount},
+        shipping: {$order.totals.shipping.amount},
+        currency: 'EUR',
+        items: items
+      }}
+    }});
+  </script>
 
-          <div class="mail-sent-info">
-            {l s='An email has been sent to your mail address %email%.' d='Shop.Theme.Checkout' sprintf=['%email%' => $order_customer.email]}
-            {if $order.details.invoice_url}
-              {* [1][/1] is for a HTML tag. *}
-              {l
-              s='You can also [1]download your invoice[/1]'
-              d='Shop.Theme.Checkout'
-              sprintf=[
-              '[1]' => "<a href='{$order.details.invoice_url}'>",
-              '[/1]' => "</a>"
-              ]
-              }
-            {/if}
-          </div>
+  <section id="content-hook_order_confirmation">
+    <div class="row">
+      <div class="col-sm-12 col-md-7 order-confirmation-title-payment">
+        <h1 class="h1 page-title">
+          <span><i class="fa fa-check rtl-no-flip" aria-hidden="true"></i> {l s='Your order is confirmed' d='Shop.Theme.Checkout'}</span>
+        </h1>
 
-          {block name='hook_order_confirmation'}
-            {$HOOK_ORDER_CONFIRMATION nofilter}
-          {/block}
-
-          {block name='hook_payment_return'}
-            {if ! empty($HOOK_PAYMENT_RETURN)}
-              <section id="content-hook_payment_return" class="definition-list">
-                  <div class="row">
-                    <div class="col-md-12">
-                      {$HOOK_PAYMENT_RETURN nofilter}
-                    </div>
-                  </div>
-              </section>
-            {/if}
-          {/block}
-
-          {block name='hook_order_confirmation_1'}
-            {hook h='displayOrderConfirmation1'}
-          {/block}
-
-
-        </div>
-        <div class="col-sm-12 col-md-5 order-confirmation-details">
-
-          {block name='order_details'}
-            <div id="order-details">
-              <h3 class="h3 card-title">{l s='Order details' d='Shop.Theme.Checkout'}:</h3>
-              <ul>
-                <li id="order-reference-value">{l s='Order reference: %reference%' d='Shop.Theme.Checkout' sprintf=['%reference%' => $order.details.reference]}</li>
-                <li>{l s='Payment method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.details.payment]}</li>
-                {if !$order.details.is_virtual}
-                  <li>
-                    {l s='Shipping method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.carrier.name]}
-                    <em class="text-muted">{$order.carrier.delay}</em>
-                  </li>
-                {/if}
-                {if $order.details.recyclable}
-                  <li>  
-                    <em>{l s='You have given permission to receive your order in recycled packaging.' d="Shop.Theme.Customeraccount"}</em>
-                  </li>
-                {/if}
-              </ul>
-            </div>
-          {/block}
-
-          {block name='order_confirmation_table'}
-            {include
-            file='checkout/_partials/order-confirmation-table-simple.tpl'
-            products=$order.products
-            subtotals=$order.subtotals
-            totals=$order.totals
-            labels=$order.labels
-            add_product_link=false
+        <div class="mail-sent-info">
+          {l s='An email has been sent to your mail address %email%.' d='Shop.Theme.Checkout' sprintf=['%email%' => $order_customer.email]}
+          {if $order.details.invoice_url}
+            {* [1][/1] is for a HTML tag. *}
+            {l
+            s='You can also [1]download your invoice[/1]'
+            d='Shop.Theme.Checkout'
+            sprintf=[
+            '[1]' => "<a href='{$order.details.invoice_url}'>",
+            '[/1]' => "</a>"
+            ]
             }
-          {/block}
-
-
+          {/if}
         </div>
+
+        {block name='hook_order_confirmation'}
+          {$HOOK_ORDER_CONFIRMATION nofilter}
+        {/block}
+
+        {block name='hook_payment_return'}
+          {if ! empty($HOOK_PAYMENT_RETURN)}
+            <section id="content-hook_payment_return" class="definition-list">
+                <div class="row">
+                  <div class="col-md-12">
+                    {$HOOK_PAYMENT_RETURN nofilter}
+                  </div>
+                </div>
+            </section>
+          {/if}
+        {/block}
+
+        {block name='hook_order_confirmation_1'}
+          {hook h='displayOrderConfirmation1'}
+        {/block}
+
+
       </div>
-  </section>
+      <div class="col-sm-12 col-md-5 order-confirmation-details">
+
+        {block name='order_details'}
+          <div id="order-details">
+            <h3 class="h3 card-title">{l s='Order details' d='Shop.Theme.Checkout'}:</h3>
+            <ul>
+              <li id="order-reference-value">{l s='Order reference: %reference%' d='Shop.Theme.Checkout' sprintf=['%reference%' => $order.details.reference]}</li>
+              <li>{l s='Payment method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.details.payment]}</li>
+              {if !$order.details.is_virtual}
+                <li>
+                  {l s='Shipping method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.carrier.name]}
+                  <em class="text-muted">{$order.carrier.delay}</em>
+                </li>
+              {/if}
+              {if $order.details.recyclable}
+                <li>  
+                  <em>{l s='You have given permission to receive your order in recycled packaging.' d="Shop.Theme.Customeraccount"}</em>
+                </li>
+              {/if}
+            </ul>
+          </div>
+        {/block}
+
+        {block name='order_confirmation_table'}
+          {include
+          file='checkout/_partials/order-confirmation-table-simple.tpl'
+          products=$order.products
+          subtotals=$order.subtotals
+          totals=$order.totals
+          labels=$order.labels
+          add_product_link=false
+          }
+        {/block}
 
 
-    {block name='customer_registration_form'}
+      </div>
+    </div>
+</section>
 
-    {/block}
 
-  {block name='hook_order_confirmation_2'}
-    <section id="content-hook-order-confirmation-footer">
-      {hook h='displayOrderConfirmation2'}
-    </section>
+  {block name='customer_registration_form'}
+
   {/block}
 
+{block name='hook_order_confirmation_2'}
+  <section id="content-hook-order-confirmation-footer">
+    {hook h='displayOrderConfirmation2'}
+  </section>
 {/block}
 
-
+{/block}
