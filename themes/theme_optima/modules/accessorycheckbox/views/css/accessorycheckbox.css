@@ -1,0 +1,58 @@
+/**
+* 2015-2016 NTS
+*
+* DISCLAIMER
+*
+* You are NOT allowed to modify the software.
+* It is also not legal to do any changes to the software and distribute it in your own name / brand.
+*
+* @author    NTS
+* @copyright 2015-2016 NTS
+* @license   http://addons.prestashop.com/en/content/12-terms-and-conditions-of-use
+* International Registered Trademark & Property of NTS
+*/
+
+div.multi-accessories{ display: inline-block; width:100%; background: #f6f4f1; padding: 30px 30px;margin-top: 30px;}
+div.accessory-heading{
+	font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgb(184, 147, 63);
+}
+div.accessorycheckbox{
+	float: left;width: 100%; border-color:#cdcdcd;margin-bottom: 10px;border-width: 1px 1px 0 1px;
+}
+div.ajax_block_product{
+	padding: 20px 20px;
+    background: #fff;
+    margin-top: 30px;
+}
+div.ajax_block_product table td{padding-left: 20px;margin-bottom: 30px;}
+div.checker {
+    float: left;
+    margin: 16px 5px 0 5px !important;
+}
+div.accessorycheckbox .quick-view{margin-left: 20px;}
+div.accessorycheckbox .price{
+    margin-top: 12px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: rgb(22, 35, 60);
+}
+a.hidden, input.hidden{display:none;}
+div.accessorycheckbox select.form-control {
+    height: auto !important;
+    width: auto !important;
+    display: initial;
+    padding: 2px;
+	color: #555;
+font-size: inherit;
+}
+div.ajax_block_product select{max-width: 330px;}
+@media screen and (max-width: 450px) {
+div.ajax_block_product select{max-width: 240px;}
+}
+@media screen and (max-width: 360px) {
+div.ajax_block_product select{max-width: 200px;}
+}
+
