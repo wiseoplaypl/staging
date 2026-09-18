@@ -1,0 +1,54 @@
+# robots.txt for murphyfurniture.ie
+# Generated: 2026-06-06
+# NOTE FOR DAVID: This file goes in the Prestashop webroot (same level as index.php).
+
+# -----------------------------------------------
+# AI search crawlers — explicitly permitted
+# These bots power ChatGPT, Perplexity, Google AI Overviews, and ClaudeAI citations.
+# Explicit Allow overrides any wildcard Disallow below.
+# -----------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# -----------------------------------------------
+# Standard search crawlers
+# -----------------------------------------------
+User-agent: *
+Allow: /
+
+# Prestashop admin and sensitive paths
+Disallow: /admin/
+Disallow: /config/
+Disallow: /download/
+Disallow: /mails/
+Disallow: /modules/
+Disallow: /override/
+Disallow: /tools/
+Disallow: /translations/
+Disallow: /upload/
+Disallow: /vendor/
+Disallow: /webservice/
+Disallow: /*?order=
+Disallow: /*?filter=
+Disallow: /*?id_currency=
+Disallow: /*?search_query=
+Disallow: /*?controller=search
+Disallow: /*?fc=module
+
+# -----------------------------------------------
+Sitemap: https://murphyfurniture.ie/sitemap.xml

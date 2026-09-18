@@ -29,6 +29,47 @@
 {/block}
 
 {block name='page_content_container'}
+
+{* LocalBusiness JSON-LD schema for each store — Murphy Furniture *}
+{foreach $stores as $store}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FurnitureStore",
+  "name": "{$store.name|escape:'html':'UTF-8'}",
+  {if !empty($store.image.bySize.stores_default.url)}"image": "{$store.image.bySize.stores_default.url}",{/if}
+  {if $store.phone}"telephone": "{$store.phone|escape:'html':'UTF-8'}",{/if}
+  {if $store.email}"email": "{$store.email|escape:'html':'UTF-8'}",{/if}
+  "url": "https://www.murphyfurniture.ie/content/4-stores",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{if !empty($store.address.address1)}{$store.address.address1|escape:'html':'UTF-8'}{if !empty($store.address.address2)}, {$store.address.address2|escape:'html':'UTF-8'}{/if}{/if}",
+    "addressLocality": "{if !empty($store.address.city)}{$store.address.city|escape:'html':'UTF-8'}{/if}",
+    "addressRegion": "IE",
+    "postalCode": "{if !empty($store.address.postcode)}{$store.address.postcode|escape:'html':'UTF-8'}{/if}",
+    "addressCountry": "IE"
+  },
+  "openingHoursSpecification": [
+    {foreach from=$store.business_hours item="day" name="hours_loop"}
+    {foreach from=$day.hours item="h" name="h_loop"}
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "https://schema.org/{$day.day|escape:'html':'UTF-8'}",
+      "opens": "{$h|regex_replace:'/^([0-9:]+)\s*-.*$/':'\\1'|escape:'html':'UTF-8'}",
+      "closes": "{$h|regex_replace:'/^.*-\s*([0-9:]+)$/':'\\1'|escape:'html':'UTF-8'}"
+    }{if !$smarty.foreach.hours_loop.last || !$smarty.foreach.h_loop.last},{/if}
+    {/foreach}
+    {/foreach}
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Murphy Furniture",
+    "url": "https://www.murphyfurniture.ie"
+  }
+}
+</script>
+{/foreach}
+
   <section id="content" class="page-content page-stores">
 
     {foreach $stores as $store}

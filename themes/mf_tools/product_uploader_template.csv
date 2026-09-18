@@ -1,0 +1,4 @@
+product_name,sku,price,category_id,description,meta_title,meta_description,supplier,stock_quantity,image_url,active
+Example Sofa - Grey 3 Seater,EX-SOFA-GRY-001,799,10,"Beautifully crafted 3 seater sofa in premium grey fabric. Solid hardwood frame. Perfect for modern living rooms.",,,"NaturalSleep",2,,1
+Example Bed Frame - King Size White,EX-BED-KNG-WHT,499,12,"Elegant king size bed frame in white finish. Sturdy MDF construction. Requires assembly. Mattress not included.",,,DreamWorld,1,,1
+Example Dining Table - Oak Effect,EX-DIN-TAB-OAK,349,15,"Solid oak effect dining table. Seats 4-6 people. Easy clean surface. Ideal for family dining rooms.",,,WSB,3,,1
